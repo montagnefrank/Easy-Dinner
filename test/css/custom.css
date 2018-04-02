@@ -1,0 +1,337 @@
+.wizard .btn-men{ 
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+
+.panel-body-image .mesas-disp {
+    font-size: 125px!important;
+    color: white;
+    /*margin-top: -40px;
+    margin-left: 16px;
+    float: left!important; */
+}
+.panel-body-image .mesas-disp-comment {
+    font-size: 20px!important;
+    color: white;
+    font-weight: bold!important;
+    /*position: absolute;
+    top: 1px;
+    right: 1px;*/
+    padding-top: 50px;
+    padding-left: 30px;
+}
+.panel-body-image .mesas-ocu {
+    font-size: 125px!important;
+    color: white;
+    /*margin-top: -40px;
+    margin-left: 16px;
+    bottom: 0px;
+    right: 16px;
+    position: absolute; */
+}
+.panel-body-image .mesas-ocu-comment {
+    font-size: 20px!important;
+    color: white;
+    font-weight: bold!important;
+    /*bottom: 0px;
+    right: 16px;
+    position: absolute;*/
+    padding-top: 50px;
+    padding-left: 30px;
+}
+.panel-body-image .mesas-porsalir-title {
+    /*margin-top: 0px!important;*/
+    padding-top: 50px;
+    padding-left: 30px;
+    font-size: 20px!important;
+    color: white;
+    /*margin-top: -40px;
+    margin-left: 16px;
+    top: 0px;
+    right: 16px;
+    position: absolute;*/
+    font-weight: bold;
+}
+.panel-body-image .mesas-porsalir-pedido {
+    font-size: 20px!important;
+    margin-top: 30px!important;
+    color: white;
+    /*top: 0px;
+    right: 16px;
+    position: absolute;*/
+    text-align: right;
+}
+.panel-body-image {
+    position: relative;
+}
+
+.panel-body-image .nuevopedido-btn {
+    font-size: 20px!important;
+    color: white;
+    font-weight: bold!important;
+    /*bottom: 16px;
+    left: 16px;
+    position: absolute;*/
+}
+.notytopright {
+    margin-top: 16px;
+}
+.contanierheight {
+    height: 500px!important;
+}
+
+.contenedorMesaOcupada{
+    background: #33414e;
+}
+
+li{
+    text-align: left;
+}
+
+.listPedidos::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 25px;
+}
+.listPedidos::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: #e14040;
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 7px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}
+
+
+/* Let's get this party started */
+.leftIng::-webkit-scrollbar,.rightIng::-webkit-scrollbar,.leftIngrediente::-webkit-scrollbar,.rightIngrediente::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Handle */
+.leftIng::-webkit-scrollbar-thumb,.rightIng::-webkit-scrollbar-thumb,.leftIngrediente::-webkit-scrollbar-thumb,.rightIngrediente::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 4px;
+    background: #ed4444; 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    background-image: url('../img/scrollbar/inside.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+.leftIng::-webkit-scrollbar-track, .rightIng::-webkit-scrollbar-track, .leftIngrediente::-webkit-scrollbar-track, .rightIngrediente::-webkit-scrollbar-track {
+    background: #f8f8f8;
+    -webkit-box-shadow: inset 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+/*Para el diseño del modal*/
+
+.modal-content{
+    border-radius: 15px;
+}
+
+.modal-dialog .modal-header:after {
+    content:'';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-top: solid 15px #ed4444;
+    border-left: solid 20px transparent;
+    border-right: solid 20px transparent;
+}
+
+.modal-dialog .modal-header {
+    position:relative;
+    border-radius: 9px 9px 0px 0px;
+}
+
+.modal-body{
+    padding: 30px 0px;
+}
+
+.modal-dialog .modal-footer {
+    position:relative;
+    border-radius: 0px 0px 9px 9px;
+}
+
+.close {
+    color: white;
+}
+
+.searchable-container{margin:20px 0 0 0}
+.searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+.searchable-container label.btn-default{width:100%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+.searchable-container label .bizcontent{width:100%;}
+.searchable-container .btn-group{width:100%}
+.searchable-container .btn span.glyphicon{
+    opacity: 0;
+}
+.searchable-container .btn.active span.glyphicon {
+    opacity: 1;
+}
+
+
+
+
+/* Funcionalidad del checkbox */
+.checkbox label:after, 
+.radio label:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.checkbox .cr,
+.radio .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    float: left;
+    margin-right: .5em;
+}
+
+.radio .cr {
+    border-radius: 50%;
+}
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.radio .cr .cr-icon {
+    margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.mb-container {
+    z-index: 2000;
+}
+
+/*********************************** ANIMACION DE EXITOSA ***************************/
+.svg-success {
+  stroke-width: 2px;
+  stroke: #8EC343;
+  fill:none;
+  & path {
+    stroke-dasharray:17px, 17px; 
+    stroke-dashoffset: 0px;
+    -webkit-animation: checkmark 0.25s ease-in-out 0.7s backwards;
+    animation: checkmark 0.25s ease-in-out 0.7s backwards;
+  }
+  & circle {
+    stroke-dasharray:76px, 76px;
+    stroke-dashoffset: 0px;
+    transform:rotate(-90deg);
+    transform-origin: 50% 50%;
+    -webkit-animation: checkmark-circle 0.6s ease-in-out forwards;
+    animation: checkmark-circle 0.6s ease-in-out forwards;
+  }
+}
+
+@keyframes checkmark {
+    0% {
+        stroke-dashoffset: 17px;
+    }
+
+    100% {
+        stroke-dashoffset: 0
+    }
+}
+
+@keyframes checkmark-circle {
+    0% {
+        stroke-dashoffset: 76px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+.modal-backdrop {
+    z-index: 99!important;
+}
+
+.displaynone {
+    display: none;
+}
+.displaynone2 {
+    display: none;
+}
+.displaynone3 {
+    display: none;
+}
+
+.fontx2 {
+    font-size: 200%;
+    margin-bottom: 32px;
+}
+
+.fontx1-5 {
+    font-size: 150%;
+    margin-bottom: 32px;
+}
+
+.top1 {
+    font-size: 50%;
+}
+
+#coment_edit, #coment_save {
+    margin-top: 16px;
+}

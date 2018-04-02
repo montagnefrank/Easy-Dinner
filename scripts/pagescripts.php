@@ -1,0 +1,152 @@
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>  
+<script type="text/javascript" src="js/plugins/notify/notify.js"></script>
+<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>        
+<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+<script type="text/javascript" src="js/plugins/morris/raphael-min.js"></script>
+<script type="text/javascript" src="js/plugins/morris/morris.min.js"></script>       
+<script type="text/javascript" src="js/plugins/rickshaw/d3.v3.js"></script>
+<script type="text/javascript" src="js/plugins/rickshaw/rickshaw.min.js"></script>
+<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js'></script>
+<script type='text/javascript' src='js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js'></script>                
+<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>                
+<script type="text/javascript" src="js/plugins/owl/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/plugins/moment.min.js"></script>
+<script type="text/javascript" src="js/plugins/daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="js/plugins/dropzone/dropzone.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-file-input.js"></script>
+<script type="text/javascript" src="js/plugins/form/jquery.form.js"></script>
+<script type="text/javascript" src="js/plugins/cropper/cropper.min.js"></script>
+<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+<script type="text/javascript" src="js/plugins/smartwizard/jquery.smartWizard-2.0.min.js"></script>     
+<script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jquery.base64.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/html2canvas.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/jspdf.js"></script>
+<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/base64.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-timepicker.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-colorpicker.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap-select.js"></script>
+<script type="text/javascript" src="js/plugins/tagsinput/jquery.tagsinput.min.js"></script>
+<script src="https://cdn.rawgit.com/download/glyphicons/0.1.0/glyphicons.js"></script>
+<!--<script type="text/javascript" src="js/settings.js"></script>-->
+<script type="text/javascript" src="js/plugins.js"></script>        
+<script type="text/javascript" src="js/actions.js"></script>
+<script type="text/javascript" src="js/demo_edit_profile.js"></script>
+<script type='text/javascript' src='js/plugins/noty/jquery.noty.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topCenter.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topLeft.js'></script>
+<script type='text/javascript' src='js/plugins/noty/layouts/topRight.js'></script> 
+<script type='text/javascript' src='node_modules/dragula/dist/dragula.min.js'></script>
+<script type='text/javascript' src='node_modules/easy-autocomplete/dist/jquery.easy-autocomplete.min.js'></script>
+<script type='text/javascript' src='js/plugins/filestyle/bootstrap-filestyle.min.js'></script>
+<script type='text/javascript' src='assets/js/modalMultiple.js'></script>
+<script type='text/javascript' src='assets/salir/script_salir.js'></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+<script>
+////////////////////////CERRAMOS LA VENTNA DE NOTIFICACION CON CLIC EN CUALQUIER PARTE DE LA PAGINA
+    $(document).on('click', function (e) {
+        $('#message-box-success,#message-box-danger').hide();
+    });
+</script>
+
+<?php
+/////////////////////////////////////////////////SCRIPTS DE INDEX///////////////////////////////////////
+if ($panel == "index.php") {
+    echo "<script type='text/javascript' src='assets/js/script_mesas.js'></script>";
+    echo "<script type='text/javascript' src='assets/js/script_consultapedido.js'></script>";
+    echo "<script type='text/javascript' src='assets/js/script_editapedido.js'></script>";
+}
+////////////////////////////////////////////////FIN SCRIPTS INDEX//////////////////////////////////
+/////////////////////////////////////////////////SCRIPTS DE COCINA//////////////////////////////////////
+if ($panel == "cocina.php") {
+    echo "<script type='text/javascript' src='assets/cocina/scriptcocina.js'></script>";
+}
+////////////////////////////////////////////////FIN SCRIPTS COCINA///////////////////////////////////
+/////////////////////////////////////////////////SCRIPTS DE HACER PEDIDO/////////////////////////////////////
+if ($panel == "hacerpedido.php") {
+    echo "<script type='text/javascript' src='assets/js/script_hacerpedido.js'></script>";
+}
+//////////////////////////////////////////////////FIN SCRIPTS HACER PEDIDO//////////////////////////////////
+///////////////////////////////////////////////SCRIPTS DE DASHBOARD//////////////////////////////////////
+if ($panel == "dashboard.php") {
+    echo "<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyA_s9AhhJurXNx1UHeK_6hm6CdSB8AR14c\"></script>";
+    echo "<script type='text/javascript' src='assets/dashboard/dashboard.js'></script>";
+    echo "<script type='text/javascript' src=\"assets/dashboard/echarts/dist/echarts.js\"></script>";
+    require ("assets/dashboard/dashboardscripts.php");
+}
+////////////////////////////////////////////////FIN SCRIPTS DASHBOARD/////////////////////////////////
+////////////////////////////////////////////////SCRIPTS DE AÑADIR PEDIDO//////////////////////////////////////
+if ($panel == "anadirpedido.php") {
+    echo "<script type='text/javascript' src='assets/js/script_anadirpedido.js'></script>";
+    echo "<script type='text/javascript' src='assets/anadirpedido/script_anadirpedido.js'></script>";
+}
+//////////////////////////////////////////////////FIN SCRIPTS AÑADIR PEDIDO//////////////////////////////////
+////////////////////////////////////////////////SCRIPTS DE CAJA/////////////////////////////////////
+if ($panel == "caja.php") {
+    echo "<script type='text/javascript' src='assets/caja/script_caja.js'></script>";
+    require ("assets/caja/caja_scripts.php");
+}
+/////////////////////////////////////////////////FIN SCRIPTS CAJA//////////////////////////////////
+////////////////////////////////////////////////SCRIPTS DE FACTURA/////////////////////////////////////
+if ($panel == "factura.php") {
+    echo "<script type='text/javascript' src='assets/factura/script_factura.js'></script>";
+    echo "<script type='text/javascript' src='assets/cliente/script_cliente.js'></script>";
+    echo "<script type='text/javascript' src='assets/cliente/script_validacionCliente.js'></script>";
+    echo "<script type='text/javascript' src='assets/js/script_validaMoney.js'></script>";
+}
+/////////////////////////////////////////////////FIN SCRIPTS FACTURA///////////////////////////////////
+/////////////////////////////////////////////////SCRIPTS DOMICILIO////////////////////////////////////
+if ($panel == "domicilio.php") {
+    require ("assets/domicilio/dom_scripts.php");
+    echo "<script type='text/javascript' src='assets/domicilio/dom_facturardom.js'></script>";
+}
+
+/////////////////////////////////////////////////SCRIPTS NUEVO DOMICILIO////////////////////////////////////
+if ($panel == "nuevodomicilio.php") {
+    //require ("assets/domicilio/dom_scripts.php");
+    echo "<script type='text/javascript' src='assets/domicilio/dom_seleccionproducto.js'></script>";
+    /**
+     * Agrego para evitar error calcular monto
+     */
+    echo "<script type='text/javascript' src='assets/js/script_validaMoney.js'></script>";
+    echo "<script type='text/javascript' src='assets/cliente/script_cliente.js'></script>";
+    echo "<script type='text/javascript' src='assets/cliente/script_validacionCliente.js'></script>";
+}
+
+/////////////////////////////////////////////////SCRIPTS PARA LLEVAR////////////////////////////////////
+if ($panel == "parallevar.php") {
+    require ("assets/parallevar/parallevar_scripts.php");
+    //echo "<script type='text/javascript' src='assets/domicilio/dom_seleccionproducto.js'></script>";
+}
+
+/////////////////////////////////////////////////SCRIPTS REPORTE////////////////////////////////////
+if ($panel == "reporte.php") {
+    echo '<script type="text/javascript" charset="utf8" src="js/datatables/datatables.js"></script>';
+    echo "<script type='text/javascript' src='assets/reporteventa/script_validacionReporte.js'></script>";
+    echo "<script type='text/javascript' src='assets/reporteventa/script_reporteventa.js'></script>";
+}
+
+/////////////////////////////////////////////////SCRIPTS USER CONFIG////////////////////////////////////
+if ($panel == "user_config.php") {
+
+
+    echo '<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/additional-methods.js"></script>';
+    echo '<script type="text/javascript" src="assets/user_config/script_user_config.js"></script>';
+}
+
+if ($panel == "entregas.php") {
+    echo "<script type=\"text/javascript\" src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyA_s9AhhJurXNx1UHeK_6hm6CdSB8AR14c\"></script>";
+    echo "<script type='text/javascript' src='assets/entregas/ent_scripts.js'></script>";
+    echo "<script type='text/javascript' src='assets/entregas/ent_scripts.php'></script>";
+    require ("assets/entregas/ent_scripts.php");
+}
+
+if ($panel == "inventory.php") {
+    require ("assets/inventory/model.php");
+}
+?>
