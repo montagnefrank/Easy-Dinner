@@ -8,10 +8,36 @@
     <h2><span class="fa fa-cog"></span> Editar configuración de la cuenta</h2>
 </div>
 <div class="page-content-wrap">  
+    <?php
+    if (isset($_SESSION['msg'])) {
+        echo '
+                <div class="row notificactionbox">
+                    <div class="col-md-12">
+                        <div class="widget widget-';
+        echo $_SESSION['box'];
+        echo ' widget-item-icon">
+                            <div class="widget-item-left">
+                                <span class="fa fa-exclamation"></span>
+                            </div>
+                            <div class="widget-data">
+                                <div class="widget-title">Notificación</div>
+                                <div class="widget-subtitle">
+                                    <div role="alert">
+                                        ' . $_SESSION['msg'] . '
+                                    </div>
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+        ';
+        unset($_SESSION['msg']);
+    }
+    ?>
     <div class="col-md-4">
         <div class="panel panel-default">                                
             <div class="panel-body">
-                <h3><span class="fa fa-user"></span> <?php echo $_SESSION["usuario"]["nombresUsuario"]." ".$_SESSION["usuario"]["apellidosUsuario"]; ?></h3>
+                <h3><span class="fa fa-user"></span> <?php echo $_SESSION["usuario"]["nombreUsuario"]." ".$_SESSION["usuario"]["apellidosUsuario"]; ?></h3>
                 <p><span class="fa fa-industry"></span> <?php echo $_SESSION["usuario"]["idPerfil"]; ?></p>
                 <div class="text-center fotoPerfil">
                     <img src="<?php

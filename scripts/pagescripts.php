@@ -51,8 +51,26 @@
 ////////////////////////CERRAMOS LA VENTNA DE NOTIFICACION CON CLIC EN CUALQUIER PARTE DE LA PAGINA
     $(document).on('click', function (e) {
         $('#message-box-success,#message-box-danger').hide();
+        $(".notificactionbox,.customalert").animate({width: 'hide'}, 600);
+    });
+
+
+    $('.numonly').bind('keyup blur', function () {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9-]/g, ''));
+    });
+
+    $('.alphanumonly').bind('keyup blur', function () {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9a-zA-Z-]/g, ''));
+    });
+
+    $('.alphaonly').bind('keyup blur', function () {
+        var node = $(this);
+        node.val(node.val().replace(/[^a-zA-Z\-\s]/g, ''));
     });
 </script>
+
 
 <?php
 /////////////////////////////////////////////////SCRIPTS DE INDEX///////////////////////////////////////
