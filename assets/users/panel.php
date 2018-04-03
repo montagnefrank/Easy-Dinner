@@ -61,15 +61,12 @@
         </a>                        
         <a href="#" class="btn btn-danger btn-lg cancel_btn hidethis ">
             <span>Regresar </span> <span class="fa fa-arrow-circle-left"></span>
-            <img class="loading_img" src="assets/img/loadingbar.gif" width="80%" style="display: none;width: 10%;" />
         </a>                        
         <a href="#" class="savenew_btn btn btn-success btn-lg hidethis" id="savenew_btn">
             <span>Guardar </span> <span class="fa fa-save"></span>
-            <img class="loading_img" src="assets/img/loadingbar.gif" width="80%" style="display: none;width: 10%;" />
         </a>                        
         <a href="#" class="saveedit_btn btn btn-success btn-lg hidethis" id="saveedit_btn">
-            <span>Actualizar </span><i class="fa fa-refresh"></i>
-            <img class="loading_img" src="assets/img/loadingbar.gif" width="20%" style="display: none;width: 10%;" />
+            <span>Actualizar </span><i class="fas fa-sync-alt"></i>
         </a>                        
     </div>
     <div class="col-md-12 hidethis newuser_panel push-up-20">   

@@ -345,7 +345,7 @@ function cargaPedidos() {
                         } else
                             if (value.estadoPedido == "EN PROCESO") {
                                 tile = "tile-warning";
-                                icon = '<i class="fa fa-refresh fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
+                                icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
                             } else
                                 if (value.estadoPedido == "LISTO PARA ENTREGAR") {
                                     tile = "tile-success";
@@ -353,7 +353,7 @@ function cargaPedidos() {
                                 } else
                                     if (value.estadoPedido == "ENTREGADO") {
                                         tile = "tile-default";
-                                        icon = '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
+                                        icon = '<i class="fas fa-thumbs-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
                                     }
                         var enunciadoMesa;
                         if(value.numeroMesa==999){

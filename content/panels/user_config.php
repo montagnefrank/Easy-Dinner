@@ -218,7 +218,7 @@
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnEstableceEstablecimiento" style="border: 1px solid;"><i class="fa fa-refresh" aria-hidden="true"></i> Cambiar establecimiento</button>
+                <button type="button" class="btn btn-primary btnEstableceEstablecimiento" style="border: 1px solid;"><i class="fas fa-sync-alt" aria-hidden="true"></i> Cambiar establecimiento</button>
             </div>
         </div>
 

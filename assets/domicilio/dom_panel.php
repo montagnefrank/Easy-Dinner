@@ -18,7 +18,6 @@
 <div class="col-md-12">
     <div class="panel panel-default">  
         <div id="autoscroll" class="panel-body panel-body-image" style="background-image: url('img/resumenmesas.jpg');height: 600px;">
-            <!--<img src="img/resumenmesas.jpg" alt="Landing Page banner">-->
             <div class="col-md-12 contenedorPedido" style="padding: 30px;">
                 <div class="col-md-4">
                     <form id="newdom_form" style="display: none;" method="POST" action="index.php?panel=domicilio.php">
@@ -27,7 +26,7 @@
                     <div class="widget widget-primary widget-item-icon" id="newdom_btn">
                         <div class="widget-item-right">
                             <a href="index.php?panel=nuevodomicilio.php" style="color: white;" class="btnNuevoPedido">
-                                <span class="fa fa-plus-square"></span>
+                                <span class="fa fa-plus-square fa-5x"></span>
                             </a>
                         </div>                             
                         <div class="widget-data-left">
@@ -39,7 +38,7 @@
                     <div class="widget widget-primary widget-item-icon">
                         <div class="widget-item-right">
                             <a href="index.php?panel=parallevar.php" style="color: white;" class="btnNuevoPedido">
-                                <span class="fa fa-plus-square"></span>
+                                <span class="fa fa-plus-square fa-5x"></span>
                             </a>
                         </div>                             
                         <div class="widget-data-left">

@@ -30,13 +30,13 @@ if($_POST["idpedido"]){
             $icon = '<i class="fa fa-asterisk fa-2x" style="font-size:25px;color:white;" aria-hidden="true"></i>';
         }elseif($producto["estadoPedidoproducto"]=="EN PROCESO"){
             $estado = "warning";
-            $icon = '<i class="fa fa-refresh fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
+            $icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
         }elseif($producto["estadoPedidoproducto"]=="LISTO PARA ENTREGAR"){
             $estado = "success";
             $icon = '<i class="fa fa-check" style="font-size:25px;color:white;" aria-hidden="true"></i>';
         }elseif($producto["estadoPedidoproducto"]=="ENTREGADO"){
             $estado = "default";
-            $icon = '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
+            $icon = '<i class="fas fa-thumbs-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
         }
 
 

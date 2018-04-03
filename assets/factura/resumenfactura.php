@@ -29,7 +29,7 @@ if($_POST["idpedido"]){
                                     <button class="btn btn-info btn-block resumen_numeromesa"><span class="fa fa-thumb-tack"></span> Mesa</button>
                                 </div>
                                 <div class="pull-right" style="width: 200px; margin-right:16px;">
-                                    <button class="btn btn-primary btn-block resumen_fecha"><span class="fa fa-clock-o"></span> Fecha</button>
+                                    <button class="btn btn-primary btn-block resumen_fecha"><i class="fas fa-clock"></i> Fecha</button>
                                 </div>
                             </div>
                         </div>

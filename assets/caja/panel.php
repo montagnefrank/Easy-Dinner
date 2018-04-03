@@ -31,7 +31,7 @@
         <div class="widget widget-primary widget-item-icon">
             <div class="widget-item-right">
                 <a href="index.php?panel=nuevodomicilio.php" style="color: white;" >
-                    <span class="fa fa-plus-square"></span>
+                    <span class="fa fa-plus-square fa-5x"></span>
                 </a>
             </div>                             
             <div class="widget-data-left">
@@ -44,7 +44,7 @@
         <div class="widget widget-primary widget-item-icon">
             <div class="widget-item-right">
                 <a href="index.php?panel=parallevar.php" style="color: white;" >
-                    <span class="fa fa-plus-square"></span>
+                    <span class="fa fa-plus-square fa-5x"></span>
                 </a>
             </div>                             
             <div class="widget-data-left">

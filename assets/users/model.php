@@ -3,7 +3,6 @@
 ?>
 <script>
     $(document).ready(function () {
-
         $.post('assets/users/control.php', {getUsers: 'true'}, function (data) {
             $('.usersList').html(data);
         });

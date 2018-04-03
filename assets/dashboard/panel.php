@@ -33,7 +33,7 @@
         </div>                            
         <div class="widget-buttons widget-c3">
             <div class="col">
-                <a href="#"><span class="fa fa-clock-o"></span></a>
+                <a href="#"><i class="fas fa-clock"></i></a>
             </div>
             <div class="col">
                 <a href="#"><span class="fa fa-bell"></span></a>

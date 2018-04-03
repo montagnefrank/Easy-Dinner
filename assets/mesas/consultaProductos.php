@@ -52,7 +52,7 @@ if($_POST["idpedido"]){
 
         }elseif($producto["estadoPedidoproducto"]=="EN PROCESO"){
             $estado = "warning";
-            $icon = '<i class="fa fa-refresh fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
+            $icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
             $cancelarpedido= "";
             $editarpedido= "";
             $entregarpedido= "";
@@ -63,12 +63,12 @@ if($_POST["idpedido"]){
             $icon = '<i class="fa fa-check" style="font-size:25px;color:white;" aria-hidden="true"></i>';
             $cancelarpedido= "";
             $editarpedido= "";
-            $entregarpedido= "<button class=\"btn btn-primary pedidoEntregado\" style=\"border: 1px solid;\"><i class='fa fa-thumbs-o-up' aria-hidden='true'></i> Pedido entregado</button>";
+            $entregarpedido= "<button class=\"btn btn-primary pedidoEntregado\" style=\"border: 1px solid;\"><i class='fas fa-thumbs-up' aria-hidden='true'></i> Pedido entregado</button>";
 
 
         }elseif($producto["estadoPedidoproducto"]=="ENTREGADO"){
             $estado = "default";
-            $icon = '<i class="fa fa-thumbs-o-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
+            $icon = '<i class="fas fa-thumbs-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
             $cancelarpedido= "";
             $editarpedido= "";
             $entregarpedido= "";

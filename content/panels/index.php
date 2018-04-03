@@ -28,7 +28,7 @@
                     <div class="widget widget-primary widget-item-icon">
                         <div class="widget-item-right">
                             <a href="#" style="color: white;" class="btnNuevoPedido">
-                                <span class="fa fa-plus-square"></span>
+                                <i class="fas fa-plus-square fa-5x"></i>
                             </a>
                         </div>                             
                         <div class="widget-data-left">

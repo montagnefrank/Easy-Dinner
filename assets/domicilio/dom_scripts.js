@@ -3241,7 +3241,7 @@ function resumenfactura() {
             $("#resumen_nombrecliente").html("<span class='fa fa-user'></span> " + $("#nombre_cliente").val());
             $(".resumen_numeromesa").html("<span class='fa fa-thumb-tack'></span> Domicilio ");
             $(".resumen_numerodepedido").html("Pedido # <span id='id_pedido'> Nuevo </span>");
-            $(".resumen_fecha").html("<span class='fa fa-clock-o'></span>" + $("#fecha_actual").val());
+            $(".resumen_fecha").html("<i class='fas fa-clock'></i>" + $("#fecha_actual").val());
             $(".resumen_subtotal").html($(".subtotalFactura").html());
             var descuento = $("#descuento_factura").val();
             if (descuento === "") {
