@@ -40,7 +40,7 @@ $(document).ready(function() {
                 dataType:"json",
                 type : 'POST',
                 success : function(respuesta) {
-                    
+                    var status =respuesta.statusUsuario;
                     if(respuesta == false){
                         existeusuario = false;
                         $(".notificacion").html('<b style="font-size: 24px;">Error ! </b><p>Nombre de usuario y/o contraseñas incorrectos, intente nuevamente</p>');
@@ -50,9 +50,17 @@ $(document).ready(function() {
                     }else{
                         existeusuario = true;
                         
-                        
-                        window.location.href = "estableceEstablecimiento.php";
-                        //window.location.href = "index.php?panel=index.php#autoscroll";
+                        if(status == 1){
+                          window.location.href = "index.php?panel=index.php#autoscroll";  
+                        }else{
+                            existeusuario = false;
+                            $(".notificacion").html('<b style="font-size: 24px;">Error ! </b><p>Usuario desactivado, por favor contacte con el administrador del sistema</p>');
+                            $(".notificacion").show('slow').delay(4000).hide('slow');
+                            $('.username').val('');
+                            $('.password').val('');
+                        }
+                     //   window.location.href = "estableceEstablecimiento.php";
+                        //
                         
                     }
                 },

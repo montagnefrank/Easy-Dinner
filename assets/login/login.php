@@ -44,6 +44,7 @@ if($_POST){
         $_SESSION["usuario"]["sectorEstablecimiento"] = $establecimiento["sectorEstablecimiento"];
 
         echo json_encode($_SESSION["usuario"]);
+        
     }else{
         echo 'false';
     }

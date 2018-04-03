@@ -51,11 +51,12 @@
                     </div>
                     <div id="step-2">
                         <!-- PEDIDO -->
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Pedido total</h3> 
-                                </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Pedido total</h3> 
+                            </div>
+                            <div class="col-md-12">
                                 <div id="resumen_pedido" class="panel-body list-group list-group-contacts">  
                                 </div>
                             </div>
@@ -65,11 +66,10 @@
                 </div>
             </div>
         </div>                                       
-    </div>
-    <!-- FIN WIZARD -->
-</div>
-<div class="row">
-    <div class="col-md-12">
+
+        <!-- FIN WIZARD -->
+
+
         <div id="ModalSeleccionaIngredientes" class="displaynone" >
             <div class="panel panel-default">
                 <!-- Modal content-->
@@ -85,17 +85,15 @@
                         </div>
                     </div>
                     <div class="panel-footer">
-                        <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
                         <button type="button" class="btn btn-primary btnEnviaProducto pull-right" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
+                        <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
                     </div>
                 </div>
 
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-6">
+
+
         <div id="ModalSeleccionPizza" class="displaynone">
             <div class="panel panel-default">
                 <!-- Modal content-->
@@ -116,68 +114,78 @@
 
             </div>
         </div>
-    </div>
-</div>
 
-<div id="ModalConfirmacion" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header label-primary">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
-            </div>
-            <div class="modal-body contenidoModalConfirmacion">
-            </div>
-            <div class="modal-footer label-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fa fa-cutlery" aria-hidden="true"></i> Enviar pedido a cocina</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-<div id="ModalPreferencias" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header label-primary">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title tituloModalPreferencias" style="color:white;"></h4>
-            </div>
-            <div class="modal-body contentModalPreferencias">
-            </div>
-            <div class="modal-footer label-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnguardapropiedades" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<div id="ModalSeleccionaProducto" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header label-primary">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-12 contenidoSeleccionaProducto">
+        <!-- TODO -->
+        <div id="ModalConfirmacion" class="displaynone" >
+            <div class="panel panel-default">
+                <!-- Modal content-->
+                <div class="panel-content">
+                    <div class="modal-header label-primary">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
+                    </div>
+                    <div class="modal-body contenidoModalConfirmacion">
+                    </div>
+                    <div class="modal-footer label-primary">
+                        <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fa fa-cutlery" aria-hidden="true"></i> Enviar pedido a cocina</button>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer  label-primary">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+
             </div>
         </div>
 
+        <!-- TODO -->
+
+        <div id="ModalPreferencias" class="displaynone" >
+            <div class="panel panel-default">
+                <!-- Modal content-->
+                <div class="panel-content">
+                    <div class="modal-header label-primary">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title tituloModalPreferencias" style="color:white;"></h4>
+                    </div>
+                    <div class="modal-body contentModalPreferencias">
+                    </div>
+                    <div class="modal-footer label-primary">
+                        <button type="button" class="btn btn-default closePreferencias" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
+                        <button type="button" class="btn btn-primary btnguardapropiedades" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TODO -->
+        <div id="ModalSeleccionaProducto" class="displaynone">
+            <div class="panel panel-default">
+                <!-- Modal content-->
+                <div class="panel-content">
+                    <div class="modal-header label-primary">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 contenidoSeleccionaProducto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer  label-primary">
+                        <button type="button" class="btn btn-default pull-right closeSeleccionProducto"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
+
+
+
+
+
+
+
+
+

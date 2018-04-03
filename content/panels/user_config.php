@@ -13,8 +13,7 @@
         echo '
                 <div class="row notificactionbox">
                     <div class="col-md-12">
-                        <div class="widget widget-';
-        echo $_SESSION['box'];
+                        <div class="widget bg-primary';
         echo ' widget-item-icon">
                             <div class="widget-item-left">
                                 <span class="fa fa-exclamation"></span>
@@ -66,12 +65,35 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4">                       
+    <div class="col-md-4">  
+        
         <a class="tile tile-primary widgetEstablecimiento" style="cursor:pointer" data-toggle="tooltip" title="Haga click para cambiar de establecimiento">
             <h1 class="nombreEstablecimiento" style="color:white;"><?php echo $_SESSION["usuario"]["nombreEstablecimiento"]." ".$_SESSION["usuario"]["sectorEstablecimiento"]; ?></h1>  
             <p>Establecimiento</p>                            
             <div class="informer informer-default"><span class="fa fa-home"></span></div>
         </a>  
+    </div>
+    <div class="col-md-4">
+       
+        <div class="panel panel-default">
+            <form id="themeform" name="themeform" class="form-horizontal" action="scripts/cambiartema.php" method="post" enctype="multipart/form-data">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><span class="fa fa-edit"></span> Cambiar tema </h3>
+                </div>
+                <div class="panel-body">
+                    <p> Seleccione un tema de la lista</p>
+                    <div class="panel-body list-group">
+                        <a style="background-color: #3780BF;" class="list-group-item"><span class="fa fa-paint-brush"></span> Azul <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="blue" checked="checked"/></label></a>
+                        <a style="background-color: #37bf39;" class="list-group-item"><span class="fa fa-paint-brush"></span> Verde <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="green"/></label></a>
+                        <a style="background-color: #bf3737;" class="list-group-item"><span class="fa fa-paint-brush"></span> Rojo <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="red"/></label></a>
+                        <a style="background-color: #2d3945;" class="list-group-item"><span class="fa fa-paint-brush"></span> Oscuro <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="dark"/></label></a>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="pull-left btn btn-default" name="newtheme"  type="submit"  id="newtheme" data-toggle="tooltip" data-placement="right" title="Cambiar tema"><span class="fa fa-edit"></span> Cambiar tema</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

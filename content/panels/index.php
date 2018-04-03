@@ -19,20 +19,21 @@
         </div>
     </div>
 </div>
+<!--Contenedor pedido-->
 <div class="col-md-12">
     <div class="panel panel-default">  
-        <div id="autoscroll" class="panel-body panel-body-image" style="background-image: url('img/resumenmesas.jpg');height: 600px;">
+        <div id="autoscroll" class="panel-body panel-body-image" style="background-repeat: repeat; background-image: url('img/resumenmesas.jpg'); height: 600px; overflow: auto">
             <!--<img src="img/resumenmesas.jpg" alt="Landing Page banner">-->
             <div class="col-md-12 contenedorPedido" style="padding: 30px;">
                 <div class="col-md-6">
-                    <div class="widget widget-primary widget-item-icon">
+                    <div class="widget bg-primary widget-item-icon" style="margin-bottom: 15px !important">
                         <div class="widget-item-right">
                             <a href="#" style="color: white;" class="btnNuevoPedido">
                                 <i class="fas fa-plus-square fa-5x"></i>
                             </a>
                         </div>                             
                         <div class="widget-data-left">
-                            <div class="widget-int num-count">Nuevo Pedido</div>
+                            <div class="widget-int num-count">Nuevo Pedido </div>  
                             <div class="widget-title">
                                 <div class="form-group">
                                     <select class="form-control" id="selectMesas">
@@ -47,6 +48,7 @@
         </div>
     </div>
 </div>
+
 <div id="ModalEstadoPedido" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -67,6 +69,7 @@
 
     </div>
 </div>
+
 <div class="modal fade modalCancelar" id="modal_small" tabindex="-1" role="dialog" aria-labelledby="smallModalHead" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content ">
@@ -88,6 +91,7 @@
         </div>
     </div>
 </div>
+
 <div id="ModalEditaIngredientes" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -109,6 +113,7 @@
         </div>
     </div>
 </div>
+
 <div id="ModalEditaPizza" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->

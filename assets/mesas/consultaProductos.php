@@ -283,7 +283,7 @@ if($_POST["idpedido"]){
 
         $htmlPedido .= "</div>";
 
-        $htmlPedido .= "<div class=\"list-group-controls\" style='text-align:center;'>".
+        $htmlPedido .= "<div  style='text-align:center;'>".
             $cancelarpedido.
             $editarpedido.
             $entregarpedido.

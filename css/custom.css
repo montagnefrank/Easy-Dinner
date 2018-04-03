@@ -39,6 +39,13 @@
     right: 16px;
     position: absolute; */
 }
+.notificactionbox {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999999;
+    width: 400px;
+}
 .panel-body-image .mesas-ocu-comment {
     font-size: 20px!important;
     color: white;
@@ -136,20 +143,7 @@ li{
     width: 20px;
 }
 
-/* Handle */
-.leftIng::-webkit-scrollbar-thumb,.rightIng::-webkit-scrollbar-thumb,.leftIngrediente::-webkit-scrollbar-thumb,.rightIngrediente::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 4px;
-    background: #ed4444; 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-    background-image: url('../img/scrollbar/inside.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-    top: 50%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 
 

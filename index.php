@@ -2,7 +2,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////DEBUG EN PANTALLA
 //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
-//
 ////////////////////////////////////////////////////////////////////////////////////////////CONECTAMOS A LA BASE DE DATOS
 require ("assets/conn.php");
 
@@ -27,7 +26,16 @@ if (isset($_SESSION["usuario"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-eblooms-red.css"/>
+        <?php   
+            $idUser=$_SESSION["usuario"]["idUsuario"];
+            $theme = "SELECT temaUsuario FROM usuario where idUsuario =".$idUser;
+            $theme = $conn->query($theme) or die($conn->error);
+            $theme->data_seek(0);
+            $selected = $theme->fetch_array(MYSQLI_ASSOC);
+          //  echo $selected['temaUsuario'];
+        ?>
+        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-eblooms-<?php echo $selected['temaUsuario']?>.css"/>
         <link rel="stylesheet" type="text/css" id="theme" href="css/custom.css"/>
         <link rel="stylesheet" href="node_modules/dragula/dist/dragula.min.css">
         <link rel="stylesheet" href="assets/css/estilo.css">
@@ -51,7 +59,6 @@ if ($panel == "cocina.php") {
             <!--PANEL A MOSTRAR-->                      
             <?php require ("content/panels/" . $panel); ?>                           
         </div>
-    </div>
     <!-- MENSAJE DE SALIDA-->
     <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
         <div class="mb-container">
