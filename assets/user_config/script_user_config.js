@@ -141,5 +141,51 @@ $(document).ready(function () {
     }
     
     /* Para el cambio de contraseña */ 
+      var validatepass = $("#passupdate").validate({
+        ignore: [],
+        rules: {
+            mypass:{},
+            oldpass: {
+                required: true,
+                minlength: 8,
+                maxlength: 16,
+                equalTo:"#mypass"                
+            },
+            newpass: {
+                required: true,
+                minlength: 8,
+                maxlength: 16,
+                notEqualTo: "#oldpass"
+            },
+            reppass: {
+                required: true,
+                minlength: 8,
+                maxlength: 16,
+                equalTo: "#newpass",
+                notEqualTo: "#oldpass"
+            }
+        },
+        messages:{
+            oldpass:{
+                required: "Es un campo obligatorio",
+                minlength: "Debe contener mìnimo 8 caracteres",
+                maxlength: "No puede contener màs de 16 caracteres",
+                equalTo: "Debe ingresar su contraseña actual"
+            },
+            newpass:{
+                required: "Es un campo obligatorio",
+                minlength: "Debe contener mìnimo 8 caracteres",
+                maxlength: "No puede contener màs de 16 caracteres",
+                notEqualTo:"La nueva contraseña no debe coincidir con la anterior"
+            },
+            reppass:{
+                required: "Es un campo obligatorio",
+                minlength: "Debe contener mìnimo 8 caracteres",
+                maxlength: "No puede contener màs de 16 caracteres",
+                equalTo:"Debe coincidir con el campo anterior",
+                notEqualTo:"La nueva contraseña no debe coincidir con la anterior"
+            }
+        }
+    });
 
 });

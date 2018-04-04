@@ -36,19 +36,19 @@
     <div class="col-md-4">
         <div class="panel panel-default">                                
             <div class="panel-body">
-                <h3><span class="fa fa-user"></span> <?php echo $_SESSION["usuario"]["nombreUsuario"]." ".$_SESSION["usuario"]["apellidosUsuario"]; ?></h3>
+                <h3><span class="fa fa-user"></span> <?php echo $_SESSION["usuario"]["nombreUsuario"] . " " . $_SESSION["usuario"]["apellidosUsuario"]; ?></h3>
                 <p><span class="fa fa-industry"></span> <?php echo $_SESSION["usuario"]["idPerfil"]; ?></p>
                 <div class="text-center fotoPerfil">
                     <img src="<?php
-                              $isavatar = "img/users/" . $_SESSION["usuario"]["nombreUsuario"] . ".jpg";
-                              if (file_exists($isavatar)) {
-                                  echo "img/users/" . $_SESSION["usuario"]["nombreUsuario"];
-                                  $avatar = "img/users/" . $_SESSION["usuario"]["nombreUsuario"] .".jpg"; 
-                              } else {
-                                  echo  "img/users/user";
-                                  $avatar = "img/users/user.jpg";
-                              }
-                              ?>.jpg" class="img-thumbnail">
+                    $isavatar = "img/users/" . $_SESSION["usuario"]["nombreUsuario"] . ".jpg";
+                    if (file_exists($isavatar)) {
+                        echo "img/users/" . $_SESSION["usuario"]["nombreUsuario"];
+                        $avatar = "img/users/" . $_SESSION["usuario"]["nombreUsuario"] . ".jpg";
+                    } else {
+                        echo "img/users/user";
+                        $avatar = "img/users/user.jpg";
+                    }
+                    ?>.jpg" class="img-thumbnail">
                 </div>                                    
             </div>
             <div class="panel-body form-group-separated">
@@ -66,15 +66,15 @@
         </div>
     </div>
     <div class="col-md-4">  
-        
+
         <a class="tile tile-primary widgetEstablecimiento" style="cursor:pointer" data-toggle="tooltip" title="Haga click para cambiar de establecimiento">
-            <h1 class="nombreEstablecimiento" style="color:white;"><?php echo $_SESSION["usuario"]["nombreEstablecimiento"]." ".$_SESSION["usuario"]["sectorEstablecimiento"]; ?></h1>  
+            <h1 class="nombreEstablecimiento" style="color:white;"><?php echo $_SESSION["usuario"]["nombreEstablecimiento"] . " " . $_SESSION["usuario"]["sectorEstablecimiento"]; ?></h1>  
             <p>Establecimiento</p>                            
             <div class="informer informer-default"><span class="fa fa-home"></span></div>
         </a>  
     </div>
     <div class="col-md-4">
-       
+
         <div class="panel panel-default">
             <form id="themeform" name="themeform" class="form-horizontal" action="scripts/cambiartema.php" method="post" enctype="multipart/form-data">
                 <div class="panel-heading">
@@ -179,6 +179,15 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label">Contraseña anterior</label>
                         <div class="col-md-9">
+                            <?php
+                            $query = "SELECT passwordUsuario FROM usuario where idUsuario = " . $_SESSION["usuario"]["idUsuario"];
+                            $result = $conn->query($query);
+                            $result->data_seek(0);
+                            $row = $result->fetch_array(MYSQLI_ASSOC);
+                            echo '<input id="mypass" type="hidden" value="' . $row['passwordUsuario'] . '"/>';
+                            ?>
+
+
                             <input name="oldpass" id="oldpass" type="password" class="form-control"/>
                             <span class="help-block">ingrese su contraseña actual</span>
                         </div>

@@ -2,7 +2,7 @@
 <ul class="breadcrumb">
     <li><a href="index.php?panel=index.php">DiRulo</a></li>
     <li><a href="index.php?panel=domicilio.php">Domicilio</a></li>
-    <li id="showmodal">Pedido a domicilio</li>
+    <li id="showmodal">Pedido para llevar</li>
 </ul>
 <!-- FIN BREADCRUMB -->
 <div class="page-content-wrap">
@@ -10,14 +10,14 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="page-title">                    
-                    <h2><span class="fa fa-motorcycle"></span> Nuevo pedido a domicilio</h2>
+                    <h2><span class="fa fa-cutlery"></span> Nuevo pedido para llevar</h2>
                 </div>
                 <center>
                     <h2 class="numeroMesa"></h2>
                 </center>
                 <center>
                     <h5 class="idPedido"></h5>
-                </center><br/>
+                </center>
                 <div class="invoice">
                     <div class="row">
                         <div class="col-md-12 border-primary" style="border: 1px solid ;border-radius: 6px;padding: 20px;">
@@ -28,7 +28,7 @@
                                 <div class="col-md-6">
                                     <label for="cedula_cliente" class="col-md-3 control-label" style="padding: 5px;text-align: right;">Cédula/RUC</label>
                                     <div class="col-md-9" style="padding: 5px;">
-                                        <input type="text" class="form-control" id="cedula_cliente" placeholder="Ingrese la cédula de identidad">
+                                        <input type="text" class="form-control" id="cedula_cliente" placeholder="Ingrese la cédula de identidad del cliente">
                                         <input type="hidden" class="form-control" id="id_cliente" placeholder="Ingrese la cédula de identidad del cliente">
                                     </div>
                                     <label for="telefono_cliente" class="col-md-3 control-label" style="padding: 5px;text-align: right;">Teléfono</label>
@@ -71,7 +71,7 @@
                     </div>
                     <div class="row">
                         <br>
-                        <div class="col-md-12 border-primary" style="border: 1px solid ;border-radius: 6px;padding: 20px;">
+                        <div class="col-md-12 border-primary" style="border: 1px solid;border-radius: 6px;padding: 20px;">
                             <div class="col-md-12">
                                 <h3>2. Selección de productos</h3>
                             </div>
@@ -95,7 +95,7 @@
                                     </div>
                                     <br><br>
                                 </div>
-                                <div id="menuwizard" class="panel panel-default displaynone dom_menupanel">
+                                <div id="menuwizard" class="panel panel-default displaynone dom_menupanel ">
                                     <div class="panel-body">
                                         <br>
                                         <center><h4>Seleccione los pedidos del men&uacute;</h4></center>
@@ -105,13 +105,13 @@
                                             </ul>
                                         </div>
                                         <div class="panel-body tab-content tabContent">
-                                            <!-- contenido de los tabs-->
                                         </div>                                                  
                                         <!-- END TABS --> 
                                     </div>
                                 </div>
 
-                                <!---------------------------------------------------------------------------->
+
+                                <!---------------------------------------------------------------------->
 
                                 <div id="ModalSeleccionaProducto" class="displaynone" >
                                     <div class="panel panel-default">
@@ -127,14 +127,15 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="panel-footer  label-primary">
+                                            <div class="modal-footer  label-primary">
                                                 <button type="button" class="btn btn-default pull-right closeSeleccionProducto"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
                                             </div>
                                         </div>
 
                                     </div>
                                 </div>
-                                <div id="ModalPreferencias" class="displaynone">
+
+                                <div id="ModalPreferencias" class="displaynone" >
                                     <div class="panel panel-default">
                                         <!-- Modal content-->
                                         <div class="panel-content">
@@ -153,8 +154,28 @@
                                     </div>
                                 </div>
 
+
+                                <div id="ModalConfirmacion" class="displaynone" >
+                                    <div class="panel panel-default">
+                                        <!-- Modal content-->
+                                        <div class="panel-content">
+                                            <div class="modal-header label-primary">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
+                                            </div>
+                                            <div class="panel-body contenidoModalConfirmacion">
+                                            </div>
+                                            <div class="modal-footer label-primary">
+                                                <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fa fa-cutlery" aria-hidden="true"></i> Enviar pedido a cocina</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
                                 <!--MODAL PARA LAS PIZZAS--> 
-                                <div id="ModalSeleccionPizza" class="displaynone" >
+                                <div id="ModalSeleccionPizza" class="displaynone">
                                     <div class="panel panel-default">
                                         <!-- Modal content-->
                                         <div class="panel-content">
@@ -175,7 +196,7 @@
                                     </div>
                                 </div>
                                 <!--MODAL PARA SELECCIONAR LOS INGREDIENTES-->
-                                <div id="ModalSeleccionaIngredientes" class="displaynone">
+                                <div id="ModalSeleccionaIngredientes" class="displaynone" >
                                     <div class="panel panel-default">
                                         <!-- Modal content-->
                                         <div class="panel-content">
@@ -194,34 +215,15 @@
                                                 <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                                <div id="ModalConfirmacion" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
-                                            </div>
-                                            <div class="panel-body contenidoModalConfirmacion">
-                                            </div>
-                                            <div class="modal-footer label-primary">
-                                                <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fa fa-cutlery" aria-hidden="true"></i> Enviar pedido a cocina</button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
-                                <!---------------------------------------------------------------------------->
+                                <!---------------------------------------------------------------------->
                                 <br><br>
-                                <div id="resumen_pedido" class="panel-body list-group list-group-contacts">  
+                                <div id="resumen_pedido" class="panel-body">
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="resumen_pedido" class="panel-body list-group list-group-contacts" style="margin-bottom: 32px;">  
                     </div>
                     <div class="row">
                         <br>
@@ -272,7 +274,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 payment_method_single">
+                                        <div class="col-md-12 payment_method_single" style="align-items: center;-webkit-box-align: center;display: flex;">
                                             <div class="col-md-2">
                                                 <div class="checkbox">
                                                     <label>
@@ -321,7 +323,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 payment_method_single">
+
+                                        <div class="col-md-12 payment_method_single" style="align-items: center;-webkit-box-align: center;display: flex;">
                                             <div class="col-md-2">
                                                 <div class="checkbox">
                                                     <label>
@@ -367,39 +370,39 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <h4>DETALLE DE PAGO</h4>
-                                <table class="table table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <td width="200"><strong>SUB TOTAL:</strong></td>
-                                            <td class="text-right subtotalFactura"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>DESCUENTO:</strong></td>
-                                            <td class="text-right descuentoFactura">
-                                                <input style="width: 50%" type="text" id="descuento_factura" class="form-control pull-right" placeholder="$$" required>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>IVA (12%):</strong></td>
-                                            <td class="text-right ivaFactura"></td>
-                                        </tr>
-                                        <tr class="total">
-                                            <td>TOTAL A PAGAR :</td>
-                                            <td class="text-right totalapagarFactura"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <h4>DETALLE DE PAGO</h4>
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td width="200"><strong>SUB TOTAL:</strong></td>
+                                        <td class="text-right subtotalFactura"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>DESCUENTO:</strong></td>
+                                        <td class="text-right descuentoFactura">
+                                            <input style="width: 50%" type="text" id="descuento_factura" class="form-control pull-right" placeholder="$$" required>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IVA (12%):</strong></td>
+                                        <td class="text-right ivaFactura"></td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td>TOTAL A PAGAR :</td>
+                                        <td class="text-right totalapagarFactura"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="pull-right push-down-20">
-                                <button class="btn btn-success" id="payment_checkout"><span class="fa fa-credit-card"></span>Proceder al Pago</button>
-                            </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pull-right push-down-20">
+                            <button class="btn btn-success" id="payment_checkout"><span class="fa fa-credit-card"></span> Proceder al Pago</button>
                         </div>
                     </div>
                 </div>
@@ -463,6 +466,7 @@
         </div>
     </div>
 </div>
+
 <!-- MODAL NUEVO CLIENTE -->
 <div id="nuevoCliente" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -677,3 +681,5 @@
         </div>
     </div>
 </div>
+
+

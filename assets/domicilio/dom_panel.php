@@ -20,7 +20,7 @@
         <div id="autoscroll" class="panel-body panel-body-image" style="background-image: url('img/resumenmesas.jpg');height: 600px; overflow: auto">
             <!--<img src="img/resumenmesas.jpg" alt="Landing Page banner">-->
             <div class="col-md-12 contenedorPedido" style="padding: 30px;">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <form id="newdom_form" style="display: none;" method="POST" action="index.php?panel=domicilio.php">
                         <input type="hidden" name="nuevodmicilio" value="nuevodmicilio">
                     </form>

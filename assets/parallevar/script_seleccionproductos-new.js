@@ -90,7 +90,11 @@ $(document).ready(function () {
                         nombreMenu == "Crepes y Postres") {
                     asignaIngredientes(nombreMenu);
                     $(".tituloSeleccionaIngredientes").html("Ingredientes " + nombre);
-                    $("#ModalSeleccionaIngredientes").modal("show");
+                    //$("#ModalSeleccionaIngredientes").modal("show");
+                    $.when($("#menuwizard,#ModalSeleccionaProducto,#ModalPreferencias").slideUp("slow")).then(function () {
+                        $("#ModalSeleccionaIngredientes").slideDown("slow");
+                    });
+
                 } else if (nombreMenu == "Pizzas") {
 
                     $(".tituloSeleccionPizza").html("<center>" + nombre + " " + nombreSubmenu + "</center>");
@@ -167,7 +171,7 @@ $(document).ready(function () {
                             '</div>'
                             );
                     funcionalidadCantidad();
-                    // $("#ModalPreferencias").modal("show");
+                    //$("#ModalPreferencias").modal("show");
                     $.when($("#ModalSeleccionaProducto,#ModalSeleccionaIngredientes").slideUp("slow")).then(function () {
                         $("#ModalPreferencias").slideDown("slow");
                     });
@@ -186,6 +190,37 @@ $(document).ready(function () {
     }
 
 });
+
+/////////////////////////////////// para cerrar modales
+
+$(document).on("click", ".closeingredientes", function (event) {
+    $.when($("#ModalSeleccionaIngredientes").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+$(document).on("click", ".closeSeleccionProducto", function (event) {
+    $.when($("#ModalSeleccionaProducto").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+$(document).on("click", ".closePreferencias", function (event) {
+    $.when($("#ModalPreferencias").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+$(document).on("click", ".closeConfirmacion", function (event) {
+    $.when($("#ModalConfirmacion").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+
+$(document).on("click", ".closepizzas", function (event) {
+    $.when($("#ModalSeleccionPizza").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+
+
 
 ////////////////////////////////////////////////////////////////////////////////COMBINACIONES DE PIZZA POR CODIGO
 $(document).on('change', '.radioPizza input[type=radio]', function () {
@@ -249,16 +284,16 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                        if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                        }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3'>" +
-                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px; '>" +
                             "<div class='col-md-12'>" +
                             "<br>" + "<br>" +
                             "<div class='col-md-12'>" +
@@ -284,7 +319,7 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                             '<br><div class="row">' +
                             '<div class="col-md-12">' +
                             '<div class="col-md-5">' +
-                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>' +
+                            '<h4 class="txt-primary" style=";padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>' +
                             '</div>' +
                             '<div class="col-md-7">' +
                             '<div class="col-md-9 col-md-offset-3">' +
@@ -311,7 +346,7 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                             '</div>' +
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
-                            '<h4 >Observación del pedido :</h4>' +
+                            '<h4 class="txt-primary">Observación del pedido :</h4>' +
                             '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
@@ -357,9 +392,9 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                            if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                            }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
@@ -447,7 +482,7 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                             '</div>' +
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
-                            '<h4 >Observación del pedido :</h4>' +
+                            '<h4 class="txt-primary">Observación del pedido :</h4>' +
                             '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
@@ -492,9 +527,9 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                                if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                                }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
@@ -625,9 +660,9 @@ $(document).on('change', '.radioPizza input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                                    if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                                    }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
@@ -869,6 +904,130 @@ $.ajax({
     }
 });
 
+////////////////////////////////////////////////////////////////////////////CUANDO HACEMOS CLIC EN UN BOTON DEL MENU
+$(document).on("click", ".tab-pane .btn-submenu", function (event) {
+
+    nombreSubmenu = $(this).find("#nombreSubmenu").html();
+    idSubmenu = $(this).find(".idsubmenu").html();
+    nombreMenu = $(this).find(".nombremenu").html();
+    idMenu = $(this).find(".idmenu").html();
+
+    var nombreMenu = $(this).find(".nombremenu").html();
+
+    $(".tituloSeleccionaProducto").html("<center>" + nombreSubmenu + "</center>");
+
+    if (nombreMenu == "Pizzas") {
+
+        $(".tituloSeleccionPizza").html("<center>Pizza " + nombreSubmenu + "</center>");
+        $(".contenidoSeleccionPizza").html("");
+        $.ajax({
+            // Verificacion de los datos introducidos
+            url: 'assets/hacerpedido/getProductos.php',
+            dataType: "json",
+            type: 'POST',
+            data: {
+                idsubmenu: idSubmenu,
+            },
+            success: function (productos) {
+                var htmlselect = '<center><div class="btn-group radioTipopizzas" data-toggle="buttons">' +
+                        '<label class="btn btn-primary active">' +
+                        '<input type="radio" name="options" value="" autocomplete="off" checked>Seleccione ..' +
+                        '</label>';
+                $.when(
+                        $(productos).each(function (index, value) {
+
+                    htmlselect += '<label class="btn btn-primary">' +
+                            '<input type="radio" name="options" id="' + value.idProducto + '" value="' + value.idProducto + '" autocomplete="off">' + value.nombreProducto +
+                            "<div class='nombreproducto' style='display: none;'>" + value.nombreProducto + "</div>" +
+                            "<div class='precioproducto' style='display: none;'>" + value.precioProducto + "</div>" +
+                            "<div class='idproducto' style='display: none;'>" + value.idProducto + "</div>" +
+                            "<div class='idsubmenu' style='display: none;'>" + value.idSubmenu + "</div>" +
+                            "<div class='nombresubmenu' style='display: none;'>" + nombreSubmenu + "</div>" +
+                            "<div class='nombremenu' style='display: none;'>" + nombreMenu + "</div>" +
+                            "<div class='idmenu' style='display: none;'>" + idMenu + "</div>" +
+                            '</label>';
+                })
+                        ).then(function () {
+                    htmlselect += '</div>' +
+                            '</center><br>' +
+                            '<div id="contentPizzasPrincipal"></div>';
+                    $(".contenidoSeleccionPizza").append(htmlselect);
+                    //$(".contenidoSeleccionaProducto").html(htmlsubmenu);
+                });
+
+            },
+            error: function (error) {
+                console.log('Disculpe, existió un problema al consultar los productos');
+                console.log(error);
+            },
+            complete: function (xhr, status) {
+                console.log('Petición realizada');
+            }
+        });
+
+        //$("#ModalSeleccionPizza").modal("show");
+        $.when($("#menuwizard").slideUp("slow")).then(function () {
+            $("#ModalSeleccionPizza").slideDown("slow");
+        });
+
+    } else {
+        $.ajax({
+            // Verificacion de los datos introducidos
+            url: 'assets/hacerpedido/getProductos.php',
+            dataType: "json",
+            type: 'POST',
+            data: {
+                idsubmenu: idSubmenu,
+            },
+            success: function (productos) {
+                var htmlsubmenu = "";
+                $.when(
+                        $(productos).each(function (index, value) {
+
+                    htmlsubmenu += '<div class="col-md-4"> ' +
+                            '<button class="tile tile-primary btn-menu"><h4 id="nombreProducto" style="color:white;">' +
+                            value.nombreProducto +
+                            '</h4>' +
+                            "<div class='precioproducto' style='display: none;'>" + value.precioProducto + "</div>" +
+                            "<div class='idproducto' style='display: none;'>" + value.idProducto + "</div>" +
+                            "<div class='idsubmenu' style='display: none;'>" + value.idSubmenu + "</div>" +
+                            "<div class='nombresubmenu' style='display: none;'>" + nombreSubmenu + "</div>" +
+                            "<div class='nombremenu' style='display: none;'>" + nombreMenu + "</div>" +
+                            "<div class='idmenu' style='display: none;'>" + idMenu + "</div>" +
+                            '</button>' +
+                            '</div>';
+
+                })
+                        ).then(function () {
+                    $(".contenidoSeleccionaProducto").html(htmlsubmenu);
+                });
+
+            },
+            error: function (error) {
+                console.log('Disculpe, existió un problema al consultar los productos');
+                console.log(error);
+            },
+            complete: function (xhr, status) {
+                console.log('Petición realizada');
+            }
+        });
+        //$("#ModalSeleccionaProducto").modal("show");
+        $.when($("#menuwizard").slideUp("slow")).then(function () {
+            $("#ModalSeleccionaProducto").slideDown("slow");
+        });
+    }
+});
+
+//este modal es exclusivamente para bebidas
+$(".btnguardapropiedades").click(function () {
+    enviaProducto([], "");
+    //$("#ModalSeleccionaProducto").modal("hide");
+    //$("#ModalPreferencias").modal("hide");
+    $.when($("#ModalSeleccionaProducto,#ModalPreferencias").slideUp("slow")).then(function () {
+        $("#menuwizard").slideDown("slow");
+    });
+});
+
 ////////////////////////////////////////////////////////////////////////////CUANDO HACEMOS CLCI ENEL MODAL DEL SUBMENU
 var arrayProductos = [], descripcionPedido = [];
 var nombre, id, precio, idsubmenu, nombreSubmenu, detalle, nombreMenu, idMenu;
@@ -886,11 +1045,11 @@ $(document).on("click", ".btn-menu", function (event) {
     if (nombreMenu == "Ensaladas y Bocaditos" || nombreMenu == "Pastas" || nombreMenu == "Carnes" || nombreMenu == "Crepes y Postres") {
         $(".tituloSeleccionaIngredientes").html("Ingredientes " + nombre);
         asignaIngredientes(nombreMenu);
-        $("#ModalSeleccionaIngredientes").modal("show");
-        
-        $.when($("#ModalPreferencias,#menuwizard,#ModalSeleccionaProducto").slideUp("slow")).then(function () {
+        //$("#ModalSeleccionaIngredientes").modal("show");
+        $.when($("#menuwizard,#ModalSeleccionaProducto,#ModalPreferencias").slideUp("slow")).then(function () {
             $("#ModalSeleccionaIngredientes").slideDown("slow");
         });
+
     } else {
         //aqui es la seccion de bebidas
 
@@ -942,19 +1101,34 @@ $(document).on("click", ".btn-menu", function (event) {
     }
 });
 
-//este modal es exclusivamente para bebidas
-$(".btnguardapropiedades").click(function () {
-    enviaProducto([], "");
-    //$("#ModalSeleccionaProducto").modal("hide");
-    //$("#ModalPreferencias").modal("hide");
-    $.when($("#ModalSeleccionaProducto,#ModalPreferencias").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-
 $(document).on("click", "#dom_mostrarmenu", function (event) {
     $(".dom_menupanel").toggle(1000);
 });
+
+$('#ModalSeleccionPizza').on('hidden.bs.modal', function () {
+    $(".contentIngredientes").html("");
+    $(".contentIngredientes").hide();
+    $(".btnEnviaSeleccion").hide();
+    $(".input-number").val(1);
+});
+
+$('#ModalSeleccionaIngredientes').on('hidden.bs.modal', function () {
+    $(".contenidoSeleccionaIngredientes").html("");
+    $(".input-number").val(1);
+});
+
+$('#ModalPreferencias').on('hidden.bs.modal', function () {
+    $(".contentModalPreferencias").html("");
+    $(".input-number").val(1);
+});
+
+
+$('#ModalSeleccionPizza').on('hidden.bs.modal', function () {
+    $(".btnEnviaSeleccion").hide();
+});
+
+
+
 
 function asignaPedido(idpedido) {
 
@@ -980,6 +1154,10 @@ function asignaPedido(idpedido) {
         }
     });
 }
+
+$(document).on('click', '.modal_facturarpedido_btn', function () {
+    window.location.href = "index.php?panel=caja.php";
+});
 
 //Para establecer los menus existentes en la pantalla
 function asignaMenu(menu) {
@@ -1289,126 +1467,7 @@ function asignaMenu(menu) {
         $(".tabMenu").html(htmlmenu);
 
     });
-}
-
-$(document).on("click", ".tab-pane .btn-submenu", function (event) {
-
-    nombreSubmenu = $(this).find("#nombreSubmenu").html();
-    idSubmenu = $(this).find(".idsubmenu").html();
-    nombreMenu = $(this).find(".nombremenu").html();
-    idMenu = $(this).find(".idmenu").html();
-
-    var nombreMenu = $(this).find(".nombremenu").html();
-
-    $(".tituloSeleccionaProducto").html("<center>" + nombreSubmenu + "</center>");
-
-    if (nombreMenu == "Pizzas") {
-
-        $(".tituloSeleccionPizza").html("<center>Pizza " + nombreSubmenu + "</center>");
-        $(".contenidoSeleccionPizza").html("");
-        $.ajax({
-            // Verificacion de los datos introducidos
-            url: 'assets/hacerpedido/getProductos.php',
-            dataType: "json",
-            type: 'POST',
-            data: {
-                idsubmenu: idSubmenu,
-            },
-            success: function (productos) {
-                var htmlselect = '<center><div class="btn-group radioTipopizzas" data-toggle="buttons">' +
-                        '<label class="btn btn-primary active">' +
-                        '<input type="radio" name="options" value="" autocomplete="off" checked>Seleccione ..' +
-                        '</label>';
-                $.when(
-                        $(productos).each(function (index, value) {
-
-                    htmlselect += '<label class="btn btn-primary">' +
-                            '<input type="radio" name="options" id="' + value.idProducto + '" value="' + value.idProducto + '" autocomplete="off">' + value.nombreProducto +
-                            "<div class='nombreproducto' style='display: none;'>" + value.nombreProducto + "</div>" +
-                            "<div class='precioproducto' style='display: none;'>" + value.precioProducto + "</div>" +
-                            "<div class='idproducto' style='display: none;'>" + value.idProducto + "</div>" +
-                            "<div class='idsubmenu' style='display: none;'>" + value.idSubmenu + "</div>" +
-                            "<div class='nombresubmenu' style='display: none;'>" + nombreSubmenu + "</div>" +
-                            "<div class='nombremenu' style='display: none;'>" + nombreMenu + "</div>" +
-                            "<div class='idmenu' style='display: none;'>" + idMenu + "</div>" +
-                            '</label>';
-                })
-                        ).then(function () {
-                    htmlselect += '</div>' +
-                            '</center><br>' +
-                            '<div id="contentPizzasPrincipal"></div>';
-                    $(".contenidoSeleccionPizza").append(htmlselect);
-                    //$(".contenidoSeleccionaProducto").html(htmlsubmenu);
-                });
-
-            },
-            error: function (error) {
-                console.log('Disculpe, existió un problema al consultar los productos');
-                console.log(error);
-            },
-            complete: function (xhr, status) {
-                console.log('Petición realizada');
-            }
-        });
-
-        //$("#ModalSeleccionPizza").modal("show");
-        $.when($("#menuwizard").slideUp("slow")).then(function () {
-            $("#ModalSeleccionPizza").slideDown("slow");
-        });
-
-    } else {
-        $.ajax({
-            // Verificacion de los datos introducidos
-            url: 'assets/hacerpedido/getProductos.php',
-            dataType: "json",
-            type: 'POST',
-            data: {
-                idsubmenu: idSubmenu,
-            },
-            success: function (productos) {
-                var htmlsubmenu = "";
-                $.when(
-                        $(productos).each(function (index, value) {
-
-                    htmlsubmenu += '<div class="col-md-4"> ' +
-                            '<button class="tile tile-primary btn-menu"><h4 id="nombreProducto" style="color:white;">' +
-                            value.nombreProducto +
-                            '</h4>' +
-                            "<div class='precioproducto' style='display: none;'>" + value.precioProducto + "</div>" +
-                            "<div class='idproducto' style='display: none;'>" + value.idProducto + "</div>" +
-                            "<div class='idsubmenu' style='display: none;'>" + value.idSubmenu + "</div>" +
-                            "<div class='nombresubmenu' style='display: none;'>" + nombreSubmenu + "</div>" +
-                            "<div class='nombremenu' style='display: none;'>" + nombreMenu + "</div>" +
-                            "<div class='idmenu' style='display: none;'>" + idMenu + "</div>" +
-                            '</button>' +
-                            '</div>';
-
-                })
-                        ).then(function () {
-                    $(".contenidoSeleccionaProducto").html(htmlsubmenu);
-                });
-
-            },
-            error: function (error) {
-                console.log('Disculpe, existió un problema al consultar los productos');
-                console.log(error);
-            },
-            complete: function (xhr, status) {
-                console.log('Petición realizada');
-            }
-        });
-        // $("#ModalSeleccionaProducto").modal("show");
-
-        $.when($("#menuwizard").slideUp("slow")).then(function () {
-            $("#ModalSeleccionaProducto").slideDown("slow");
-        });
-    }
-});
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+}    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////********************************************************************************************//////////////////////////////////
 ///////////////////////////*************************SCRIPT DEL PANEL DE NUEVO PEDIDO DOMICILIO*************************//////////////////////////////////
 ///////////////////////////********************************************************************************************//////////////////////////////////
@@ -1714,12 +1773,10 @@ $(document).on('click', '#payment_checkout', function () {
                             $('#factura_checkout').modal('toggle');
                             return false;
                         } else {
-
                             //Proceso de confirmacion del pedido
-                            // $("#ModalConfirmacion").modal("show");
-                            $.when($("#menuwizard").slideUp("slow")).then(function () {
-                                $("#ModalConfirmacion").slideDown("slow");
-                            });
+                            //Proceso de confirmacion del pedido
+                            $("#ModalConfirmacion").modal("show");
+
                             var htmlTablaPedidos = "";
                             var total = 0;
 
@@ -1895,7 +1952,6 @@ $(document).on('click', '#payment_checkout', function () {
 
                             });
 
-
                         }
                     }
                 }
@@ -2038,16 +2094,16 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                        if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                        }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3'>" +
-                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px; '>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             "<div class='col-md-12'>" +
                             "<br>" + "<br>" +
                             "<div class='col-md-12'>" +
@@ -2146,16 +2202,16 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                            if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                            }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px; '>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">' +
                             '<label class="btn btn-primary btn-block">' +
@@ -2281,16 +2337,16 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                                if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                                }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px; '>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">' +
                             '<label class="btn btn-primary btn-block">' +
@@ -2369,7 +2425,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             '</div>' +
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
-                            '<h4 >Observación del pedido :</h4>' +
+                            '<h4 class="txt-primary">Observación del pedido :</h4>' +
                             '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
@@ -2414,16 +2470,16 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 var htmlselectPizzas = "<option value=''>Seleccione ..</option>";
                 $.when(
                         $(pizzas).each(function (index, value) {
-                    if (nombreSubmenu != value.nombreSubmenu) {
-                        htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
-                    }
+//                                    if (nombreSubmenu != value.nombreSubmenu) {
+                    htmlselectPizzas += "<option value='" + value.idProducto + "'>" + value.nombreSubmenu + "</option>";
+//                                    }
                 })
                         ).then(function () {
                     $("#contentSeleccion").html(
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px; '>" +
+                            "<div class='row row-space borde-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:101%">' +
                             '<label class="btn btn-primary" style="width: 50%;">' +
@@ -2810,24 +2866,11 @@ $(document).on('change', '.inp_personalizado4', function () {
 $('#ModalSeleccionPizza').on('hidden.bs.modal', function () {
     $(".contentIngredientes").html("");
     $(".contentIngredientes").hide();
-    $(".btnEnviaSeleccion").hide();
-    $(".input-number").val(1);
-});
-
-$('#ModalSeleccionaIngredientes').on('hidden.bs.modal', function () {
-    $(".contenidoSeleccionaIngredientes").html("");
-    $(".input-number").val(1);
-});
-
-$('#ModalPreferencias').on('hidden.bs.modal', function () {
-    $(".contentModalPreferencias").html("");
-    $(".input-number").val(1);
-});
-
+})
 
 $('#ModalSeleccionPizza').on('hidden.bs.modal', function () {
     $(".btnEnviaSeleccion").hide();
-});
+})
 
 //VERIFICACION DE SELECTS CUANDO ESTA EN LA SECCION PIZZA Y VERIFICANDO LOS INGREDIENTES:
 $(document).on('change', '.selectPizzaMedio', function () {
@@ -2911,6 +2954,7 @@ $(document).on('change', '.selectPizzaPersonalizado4', function () {
 });
 
 ////////////////////////////////////////////////////////////////////////////////CARGAMOS EL PEDIDO LA HACER CLICK
+
 $(".btnEnviaSeleccion").click(function () {
 
     var valorChecked;
@@ -2922,7 +2966,7 @@ $(".btnEnviaSeleccion").click(function () {
     }
 
     $.notify('Se agregó "' + nombre + " " + nombreSubmenu + '" al pedido ', "success");
-    //$("#ModalSeleccionPizza").modal("hide");
+    // $("#ModalSeleccionPizza").modal("hide");
     $.when($("#ModalSeleccionaIngredientes,#ModalSeleccionPizza").slideUp("slow")).then(function () {
         $("#menuwizard").slideDown("slow");
     });
@@ -2948,7 +2992,7 @@ $(".btnEnviaSeleccion").click(function () {
         htmlResumenPedido += "<div class=\"list-group-item\">" +
                 "<div class=\"list-group-status status-online\"></div>" +
                 "<span class=\"contacts-title\">" + nombre + "</span>" +
-                "<p>" + nombreSubmenu + " / " + Menu.nombreMenu + "</p>";
+                "<p>" + nombreSubmenu + " / </p>";
 
         if (pizzaTemporal.ingredientes.length != 0) {
 
@@ -3042,7 +3086,7 @@ $(".btnEnviaSeleccion").click(function () {
         htmlResumenPedido += "<div class=\"list-group-item\">" +
                 "<div class=\"list-group-status status-online\"></div>" +
                 "<span class=\"contacts-title\">" + nombre + "</span>" +
-                "<p>" + nombreSubmenu + " / " + Menu.nombreMenu + "</p>";
+                "<p>" + nombreSubmenu + " / </p>";
 
         if (pizzaTemporal.ingredientes.length != 0) {
 
@@ -3236,7 +3280,7 @@ $(".btnEnviaSeleccion").click(function () {
         htmlResumenPedido += "<div class=\"list-group-item\">" +
                 "<div class=\"list-group-status status-online\"></div>" +
                 "<span class=\"contacts-title\">" + nombre + "</span>" +
-                "<p>" + nombreSubmenu + " / " + Menu.nombreMenu + "</p>";
+                "<p>" + nombreSubmenu + " / </p>";
 
         if (pizzaTemporal.ingredientes.length != 0) {
 
@@ -3438,7 +3482,7 @@ $(".btnEnviaSeleccion").click(function () {
         htmlResumenPedido += "<div class=\"list-group-item\">" +
                 "<div class=\"list-group-status status-online\"></div>" +
                 "<span class=\"contacts-title\">" + nombre + "</span>" +
-                "<p>" + nombreSubmenu + " / " + Menu.nombreMenu + "</p>";
+                "<p>" + nombreSubmenu + " / </p>";
 
         if (pizzaTemporal.ingredientes.length != 0) {
 
@@ -4147,6 +4191,7 @@ $(".btnEnviaSeleccion").click(function () {
     }
 });
 
+
 ////////////////////////////////////////////////////////////////////////////////CUANDO CARGAMOS ALGO DISTINTO A PIZZA
 $(".btnEnviaProducto").click(function () {
     var Ingredientes = [];
@@ -4180,11 +4225,6 @@ $(document).on("click", ".eliminar_item", function () {
     $.notify('El pedido "' + $(this).parent().parent().find(".contacts-title").html() + '" ha sido eliminado ', "error");
     detalledelpago();
 });
-
-
-
-
-
 
 $(".btnEnviaPedido").click(function () {
 
@@ -4267,7 +4307,7 @@ $(".btnEnviaPedido").click(function () {
 
     $.ajax({
         // Verificacion de los datos introducidos
-        url: 'assets/domicilio/dom_controller.php',
+        url: 'assets/parallevar/parallevar_controller.php',
         type: 'POST',
         dataType: "json",
         data: {
@@ -4532,13 +4572,13 @@ function consultaIngPizzaE(nombrePizza, tipoPizza) {
                                     "<div class='col-md-12'>" +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "<p style='color:white;text-align:center;'>Ingredientes</p>" +
-                                    "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; padding: 15px;'>" +
+                                    "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesE +
                                     '</div>' +
                                     '</div>' +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "<p style='color:white;text-align:center;'>Ingredientes Extras</p>" +
-                                    "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; padding: 15px;'>" +
+                                    "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesG +
                                     '</div>' +
                                     '</div>' +
@@ -4716,7 +4756,7 @@ function asignaIngPizzaE(nombrePizza, tipoPizza, ingredientes) {
                             "<div class='col-md-12'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                             "<p style='color:white;text-align:center;'>Ingredientes</p>" +
-                            "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;  padding: 15px;'>" +
+                            "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                             htmlselectIngredientesE +
                             '</div>' +
                             '</div>' +
@@ -4977,9 +5017,6 @@ function dom_nuevoitem(codigo) {
                         $(".tituloSeleccionaIngredientes").html("Ingredientes " + nombre);
                         asignaIngredientes(nombreMenu);
                         $("#ModalSeleccionaIngredientes").modal("show");
-                        $.when($("#ModalSeleccionaProducto").slideUp("slow")).then(function () {
-                            $("#ModalSeleccionaIngredientes").slideDown("slow");
-                        });
                     } else if (idmenu == "4") {
 
                         idMenu = idmenu;
@@ -5030,7 +5067,7 @@ function dom_nuevoitem(codigo) {
                                 console.log('Petición realizada');
                             }
                         });
-                        //$("#ModalSeleccionPizza").modal("show");
+                        // $("#ModalSeleccionPizza").modal("show");
                         $.when($("#menuwizard").slideUp("slow")).then(function () {
                             $("#ModalSeleccionPizza").slideDown("slow");
                         });
@@ -5052,35 +5089,6 @@ function dom_nuevoitem(codigo) {
     }
     $("#dom_cod_dirulo").focus();
 }
-//////////////////////////////PARA CERRAR LOS MODALS
-$(document).on("click", ".closeingredientes", function (event) {
-    $.when($("#ModalSeleccionaIngredientes").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-$(document).on("click", ".closeSeleccionProducto", function (event) {
-    $.when($("#ModalSeleccionaProducto").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-$(document).on("click", ".closePreferencias", function (event) {
-    $.when($("#ModalPreferencias").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-$(document).on("click", ".closeConfirmacion", function (event) {
-    $.when($("#ModalConfirmacion").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-
-$(document).on("click", ".closepizzas", function (event) {
-    $.when($("#ModalSeleccionPizza").slideUp("slow")).then(function () {
-        $("#menuwizard").slideDown("slow");
-    });
-});
-
-
 
 ////////////////////////////////////////////////////////////////////////////////CARGAMOS LOS INGREDIENTES CORRESPONDIENTES A ESE PRODUCTO
 function asignaIngredientes(nombreMenu) {
@@ -5133,13 +5141,13 @@ function asignaIngredientes(nombreMenu) {
                                     "<div class='col-md-12'>" +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "Ingredientes" +
-                                    "<div class='col-md-12 rightIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; padding: 15px;'>" +
+                                    "<div class='col-md-12 rightIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesE +
                                     '</div>' +
                                     '</div>' +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "Ingredientes Extras" +
-                                    "<div class='col-md-12 leftIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; padding: 15px;'>" +
+                                    "<div class='col-md-12 leftIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesG +
                                     '</div>' +
                                     '</div>' +
@@ -5338,7 +5346,7 @@ function resumenfactura() {
             $("#resumen_nombrecliente").html("<span class='fa fa-user'></span> " + $("#nombre_cliente").val());
             $(".resumen_numeromesa").html("<span class='fa fa-thumb-tack'></span> Domicilio ");
             $(".resumen_numerodepedido").html("Pedido # <span id='id_pedido'> Nuevo </span>");
-            $(".resumen_fecha").html("<i class='fas fa-clock'></i>" + $("#fecha_actual").val());
+            $(".resumen_fecha").html("<span class='fa fa-clock-o'></span>" + $("#fecha_actual").val());
             $(".resumen_subtotal").html($(".subtotalFactura").html());
             var descuento = $("#descuento_factura").val();
             if (descuento === "") {

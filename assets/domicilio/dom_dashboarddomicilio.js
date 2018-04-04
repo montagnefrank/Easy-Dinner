@@ -12,39 +12,32 @@ $.ajax({
         dom_dashboard: "active",
     },
     success: function (pedidos) {
-        $(".mesas-disp").text(pedidos.length + " Pedidos");
+
+        var cont = 0
         if (pedidos.length != 0) {
             $(pedidos).each(function (index, value) {
                 console.log(value);
-                var tile, icon;
-                if(value.estadoPedido == "SOLICITADO"){
+                var title, tile, icon;
+                title = (value.estadoMesa == "DOMICILIO") ? 'PEDIDO A DOMICILIO' : 'PED. PARA LLEVAR';
+
+
+                if (value.estadoPedido == "SOLICITADO") {
                     tile = "tile-info";
                     icon = '<i class="fa fa-asterisk fa-2x" style="font-size:20px;color:white;" aria-hidden="true"></i>';
-                }
-                else if(value.estadoPedido == "EN PROCESO"){
-                        tile = "tile-warning";
-                        icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:20px;color:white;"></i>';
-                }
-                else if(value.estadoPedido == "LISTO PARA ENTREGAR"){
-                        tile = "tile-success";
-                        icon = '<i class="fa fa-check" style="font-size:20px;color:white;" aria-hidden="true"></i>';
-                }
-                else if(value.estadoPedido == "ENTREGADO"){
-                        tile = "tile-default";
-                        icon = '<i class="fas fa-thumbs-up" aria-hidden="true" style="font-size:20px;color:black;"></i>';
+                } else if (value.estadoPedido == "EN PROCESO") {
+                    tile = "tile-warning";
+                    icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:20px;color:white;"></i>';
+                } else if (value.estadoPedido == "LISTO PARA ENTREGAR") {
+                    tile = "tile-success";
+                    icon = '<i class="fa fa-check" style="font-size:20px;color:white;" aria-hidden="true"></i>';
                 }
 
-                var tipopedido;
 
-
-
-                if(value.estadoMesa == "DOMICILIO"){
-                    $(".contenedorPedido").append(
-                        '<div class="col-md-3">' +
+                var htmlContent = '<div class="col-md-3">' +
                         '<a href="#" class="tile ' + tile + ' estadoPedido" style="padding: 22px;font-size: 28px;">' +
-                        "PEDIDO A DOMICILIO" +
+                        title +
                         '<p> Pedido # ' + value.idPedido + '</p>' +
-                        '<div style="position: absolute;top: -24px;right: 2px;">' + icon + '</div>' +
+                        '<div style="position: absolute;top: -10px;right: 2px;">' + icon + '</div>' +
                         '<div style="position: absolute;top: -5px;left: 7px;"><p style="font-size:25px;color:white;">' + (index + 1) + '</p></div>' +
                         '<div style="display:none;" class="idMesa">' + value.idMesa + '</div>' +
                         '<div style="display:none;" class="numeroMesa">' + value.numeroMesa + '</div>' +
@@ -52,33 +45,20 @@ $.ajax({
                         '<div style="display:none;" class="estadoPedido">' + value.estadoPedido + '</div>' +
                         '<div style="display:none;" class="tipoPedido">' + value.estadoMesa + '</div>' +
                         '</a>' +
-                        '</div>'
-                    );
-
-                }else{
-                    $(".contenedorPedido").append(
-                        '<div class="col-md-3">' +
-                        '<a href="#" class="tile ' + tile + ' estadoPedido" style="padding: 22px;font-size: 28px;">' +
-                        "PED. PARA LLEVAR" +
-                        '<p> Pedido # ' + value.idPedido + '</p>' +
-                        '<div style="position: absolute;top: -24px;right: 2px;">' + icon + '</div>' +
-                        '<div style="position: absolute;top: -5px;left: 7px;"><p style="font-size:25px;color:white;">' + (index + 1) + '</p></div>' +
-                        '<div style="display:none;" class="idMesa">' + value.idMesa + '</div>' +
-                        '<div style="display:none;" class="numeroMesa">' + value.numeroMesa + '</div>' +
-                        '<div style="display:none;" class="idPedido">' + value.idPedido + '</div>' +
-                        '<div style="display:none;" class="estadoPedido">' + value.estadoPedido + '</div>' +
-                        '<div style="display:none;" class="tipoPedido">' + value.estadoMesa + '</div>' +
-                        '</a>' +
-                        '</div>'
-                    );
+                        '</div>';
+                if (value.estadoPedido != "ENTREGADO") {
+                    cont++;
+                    $(".contenedorPedido").append(htmlContent);
                 }
 
+                
 
             });
         } else
-            if (pedidos.length == 0) {
-                $(".listaPedidos").append("<center><p style='padding:10px;color:white;'>Ningun pedido por atender</p></center>");
-            }
+        if (pedidos.length == 0) {
+            $(".listaPedidos").append("<center><p style='padding:10px;color:white;'>Ningun pedido por atender</p></center>");
+        }
+        $(".mesas-disp").text(cont + " Pedidos Pendientes");
     },
     error: function (error) {
         console.log('Disculpe, existió un problema');
