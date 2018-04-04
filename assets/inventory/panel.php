@@ -14,7 +14,7 @@
         <div class="panel-heading">
             <div class="panel-title-box">
                 <h3>Ingredientes</h3>
-                <span>Resumen de inventario</span> <button class="btn btn-info addnew_ing_btn" style="margin-left: 16px;"><i class="fa fa-plus-square"></i> Nuevo</button>
+                <span>Resumen de inventario</span> <button class="btn btn-info addnew_ing_btn" style="margin-left: 16px;"><i class="fa fa-plus-square fa-lg"></i> Nuevo</button>
             </div>                                    
             <ul class="panel-controls" style="margin-top: 2px;">
                 <li><a id="ingredientes_toggle_list" href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
@@ -61,11 +61,11 @@
                             echo "<tr class='singleing_row'>
                                     <td class='producto text-bold'>" . $row_ingredientes_list['nombreIngrediente'] . "</td>
                                     <td class='cantidad text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val_big\" class=\"label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidadIngrediente'] . " " . $row_ingredientes_list['unidadIngrediente'] . "</span></td>
-                                    <td class='codigo text-bold'>" . $row_ingredientes_list['codgoIngrediente'] . "</td>
+                                    <td class='codigo text-bold'>" . $row_ingredientes_list['codigoIngrediente'] . "</td>
                                     <td class='precio text-bold'>" . $row_ingredientes_list['precioIngrediente'] . "</td>
                                     <td class='unidad text-bold'>" . $row_ingredientes_list['unidadIngrediente'] . "</td>
                                     <td class='estado text-bold'><span class=\"label label-" . $labelEstatus . "\">" . $texto . "</span></td>
-                                    <td class='fecha text-bold'>" . $row_ingredientes_list['fechaIngredinete'] . "</td>
+                                    <td class='fecha text-bold'>" . $row_ingredientes_list['editadoIngredinete'] . "</td>
                                     <td class='tipo text-bold'>" . $row_ingredientes_list['tipoIngrediente'] . "</td>
                                     <input type='hidden' value='" . $row_ingredientes_list['idIngrediente'] . "'>
                                 </tr>";
@@ -101,60 +101,62 @@
         <div class="panel-body">
             <form role="form" method="post" id="guardarIngrediente" name="guardarIngrediente">
                 <div class="form-group col-md-4">
-                    <label class="control-label">Codigo de Barras</label>
-                    <input type="text" class="form-control" id="barcode_new" name="barcode" placeholder="Codigo de barras" required>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">Detalle</label>
-                    <input type="text" class="form-control" id="detalle_new" name="detalle" placeholder="Detalle del producto" required>
-                </div>
-                <div class="form-group col-md-4">
                     <label class="control-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre_new" name="nombre" placeholder="Nombre del ingrediente" required>
+                    <input type="text" class="form-control textinput" id="nombre_new" name="nombre" placeholder="Nombre del ingrediente" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Cantidad</label>
-                    <input type="text" class="form-control" id="cantidad_new" name="cantidad" placeholder="Cantidad a modificar" required>
+                    <input type="text" class="form-control textinput numonly" id="cantidad_new" name="cantidad" placeholder="Cantidad a modificar" required>
                 </div>                                     
                 <div class="form-group col-md-4">
                     <label class="control-label">C&oacute;digo</label>
-                    <input type="text" class="form-control" id="codigo_new" name="codigo" placeholder="Identifcador " required>
-                </div>                                     
+                    <input type="text" class="form-control textinput" id="codigo_new" name="codigo" placeholder="Identifcador " required>
+                </div>                          
                 <div class="form-group col-md-4">
-                    <label class="control-label">Precio</label>
-                    <input type="text" class="form-control" id="precio_new" name="precio" placeholder="Ingrese el Precio" required>
-                </div>                                     
+                    <label class="control-label">Codigo de Barras</label>
+                    <input type="text" class="form-control textinput" id="barcode_new" name="barcode" placeholder="Codigo de barras" required>
+                </div>                                                                            
                 <div class="form-group col-md-4">
                     <label class="control-label">Unidad</label>
-                    <input type="text" class="form-control" id="unidad_new" name="unidad" placeholder="Unidad de medida" required>
-                </div>                                                                         
-                <div class="form-group col-md-4">
-                    <label class="control-label">Fecha</label>
-                    <input type="text" class="form-control" id="fecha_new" name="fecha" placeholder="Fecha de Ingreso" required>
-                </div>                                     
+                    <select class="form-control select" data-style="btn-primary" id="unidadselect_new">
+                        <option value='0'>Seleccione</option>
+                        <option value='1'>Unidad</option>
+                        <option value='2'>KG</option>
+                        <option value='3'>0.25KG</option>
+                    </select>
+                </div>                                                                          
                 <div class="form-group col-md-4">
                     <label class="control-label">Tipo de Ingrediente</label>
-                    <input type="text" class="form-control" id="tipo_new" name="tipo" placeholder="Seleccione el grupo del menu" required>
-                </div>
+                    <select class="form-control select" data-style="btn-primary" id="tiposelect_new">
+                        <option value='0'>Grupo del menu</option>
+                        <option value='1'>General</option>
+                        <option value='2'>Pastas</option>
+                        <option value='3'>Carnes</option>
+                        <option value='4'>Pizzas</option>
+                        <option value='5'>Crepes & Postres</option>
+                        <option value='6'>Bebidas</option>
+                        <option value='7'>Ensaladas & Bocaditos</option>
+                    </select>
+                </div>  
                 <div class="form-group col-md-4">
                     <label class="control-label">Cuenta contable</label>
-                    <input type="text" class="form-control" id="cuneta_new" name="cuneta" placeholder="Cuenta contable del producto" required>
+                    <input type="text" class="form-control textinput" id="cuneta_new" name="cuneta" placeholder="Cuenta contable del producto" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <label class="control-label">Categoria</label>
-                    <input type="text" class="form-control" id="categoria_new" name="categoria" placeholder="Seleccione la categoria" required>
+                    <label class="control-label">Detalle</label>
+                    <input type="text" class="form-control textinput" id="detalle_new" name="detalle" placeholder="Detalle del producto" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Bodega</label>
-                    <input type="text" class="form-control" id="bodega_new" name="bodega" placeholder="Bodega a Almacenar" required>
+                    <input type="text" class="form-control textinput" id="bodega_new" name="bodega" placeholder="Bodega a Almacenar" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Inventario Minimo</label>
-                    <input type="text" class="form-control" id="minimo_new" name="minimo" placeholder="Inventario Minimo" required>
+                    <input type="text" class="form-control textinput numonly" id="minimo_new" name="minimo" placeholder="Inventario Minimo" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Inventario Maximo</label>
-                    <input type="text" class="form-control" id="maximo_new" name="maximo" placeholder="Inventario Maximo" required>
+                    <input type="text" class="form-control textinput numonly" id="maximo_new" name="maximo" placeholder="Inventario Maximo" required>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Precio de Venta</label>
@@ -168,7 +170,7 @@
                     <label class="control-label">Estado</label>
                     <div class="col-md-12">
                         <label class="switch">
-                            <input type="checkbox" class="switch" id="estado" name="estado" value="1" checked="">
+                            <input type="checkbox" class="switch" id="estado_checkbox" name="estado" value="1" checked="">
                             <span></span>
                         </label>     
                     </div>                                         

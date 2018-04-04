@@ -14,20 +14,56 @@
         var self = this;
         pageLoadingFrame("show");
         setTimeout(function () {
-            if ($('#guardarIngrediente').valid()) {
+            if (
+                    $('#guardarIngrediente').valid() &&
+                    $('#unidadselect_new,#tiposelect_new').val() != '0'
+                    )
+            {
+                var formData = new FormData();
+                formData.append('addnewing', 'true');
+                formData.append('nombreIngrediente', $('#nombre_new').val());
+                formData.append('cantidadIngrediente', $('#cantidad_new').val());
+                formData.append('codigoIngrediente', $('#codigo_new').val());
+                formData.append('barcodeIngrediente', $('#barcode_new').val());
+                formData.append('unidadIngrediente', $('#unidadselect_new option:selected').val());
+                formData.append('tipoIngrediente', $('#tiposelect_new option:selected').val());
+                formData.append('ccIngrediente', $('#cuneta_new').val());
+                formData.append('detalleIngrediente', $('#detalle_new').val());
+                formData.append('bodegaIngrediente', $('#bodega_new').val());
+                formData.append('minIngrediente', $('#minimo_new').val());
+                formData.append('maxIngrediente', $('#maximo_new').val());
+                formData.append('precioIngrediente', $('#precioventa_new').val());
+                formData.append('compraIngrediente', $('#preciocompra_new').val());
+                if ($("#estado_checkbox").prop('checked') == true) {
+                    formData.append('estadoIngrediente', '1');
+                } else {
+                    formData.append('estadoIngrediente', '0');
+                }
                 $.ajax({
                     url: 'assets/inventory/control.php',
                     type: 'POST',
                     data: formData,
+                    dataType: "json",
                     success: function (data) {
-
-                        console.log('AJAX exitoso');
-                        console.log(data);
+                        if (data.status == 'ok') {
+                            pageLoadingFrame("hide");
+                            $('.succesmessage_mb').html(data.msg);
+                            $('#message-box-success').toggle();
+                            $('input[type="text"] , select').val('');
+                            console.log(data);
+                        }
+                        if (data.status == 'error') {
+                            pageLoadingFrame("hide");
+                            $('.errormessage_mb').html(data.msg);
+                            $('#message-box-danger').toggle();
+                            console.log(data);
+                        }
                     },
                     error: function (error) {
                         pageLoadingFrame("hide");
                         $('.errormessage_mb').html('Error de red, revise su conexi&oacute;n');
                         $('#message-box-danger').toggle();
+                        console.log(error);
                     },
                     cache: false,
                     contentType: false,
