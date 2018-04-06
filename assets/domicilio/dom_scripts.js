@@ -604,7 +604,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3'>" +
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             "<div class='col-md-12'>" +
                             "<br>" + "<br>" +
                             "<div class='col-md-12'>" +
@@ -671,7 +671,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">' +
                             '<label class="btn btn-primary btn-block">' +
@@ -765,7 +765,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">' +
                             '<label class="btn btn-primary btn-block">' +
@@ -857,7 +857,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             "<div class='grid'>" +
                             "<div class='row'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>" +
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>" +
                             '<center>' +
                             '<div class="btn-group" data-toggle="buttons" style="width:101%">' +
                             '<label class="btn btn-primary" style="width: 50%;">' +
@@ -2551,18 +2551,18 @@ function consultaIngPizzaE(nombrePizza, tipoPizza) {
                                 ).then(function () {
 
                             $(".contentIngredientes").html(
-                                    "<br><center><h4 style='color:white;'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
+                                    "<br><center><h4 class='txt-primary'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-12'>" +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "<p style='color:white;text-align:center;'>Ingredientes</p>" +
-                                    "<div class='col-md-12 rightIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                                    "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesE +
                                     '</div>' +
                                     '</div>' +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "<p style='color:white;text-align:center;'>Ingredientes Extras</p>" +
-                                    "<div class='col-md-12 leftIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                                    "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesG +
                                     '</div>' +
                                     '</div>' +
@@ -2735,18 +2735,18 @@ function asignaIngPizzaE(nombrePizza, tipoPizza, ingredientes) {
                         ).then(function () {
 
                     $(".contentIngredientes").html(
-                            "<br><center><h4 style='color:white;'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
+                            "<br><center><h4 class='txt-primary'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
                             "<div class='row'>" +
                             "<div class='col-md-12'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                             "<p style='color:white;text-align:center;'>Ingredientes</p>" +
-                            "<div class='col-md-12 rightIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                            "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                             htmlselectIngredientesE +
                             '</div>' +
                             '</div>' +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                             "<p style='color:white;text-align:center;'>Ingredientes Extras</p>" +
-                            "<div class='col-md-12 leftIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                            "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                             htmlselectIngredientesG +
                             '</div>' +
                             '</div>' +
@@ -3122,13 +3122,13 @@ function asignaIngredientes(nombreMenu) {
                                     "<div class='col-md-12'>" +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "Ingredientes" +
-                                    "<div class='col-md-12 rightIngrediente' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                                    "<div class='col-md-12 rightIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesE +
                                     '</div>' +
                                     '</div>' +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
                                     "Ingredientes Extras" +
-                                    "<div class='col-md-12 leftIngrediente' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>" +
+                                    "<div class='col-md-12 leftIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>" +
                                     htmlselectIngredientesG +
                                     '</div>' +
                                     '</div>' +

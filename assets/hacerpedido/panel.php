@@ -8,7 +8,7 @@
 <!-- FIN BREADCRUMB -->
 
 <div class="page-title">                    
-    <h2><span class="fa fa-pencil"></span> Nuevo pedido en <b><?php echo $_SESSION["numeromesa"]; ?></b></h2>
+    <h2><span class="fas fa-pencil-alt"></span> Nuevo pedido en <b><?php echo $_SESSION["numeromesa"]; ?></b></h2>
 </div>
 <!--WIZARD PARA PEDIDOS-->
 <div class="row">
@@ -100,15 +100,18 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close closepizzas" >&times;</button>
-                        <h4 class="modal-title tituloSeleccionPizza" style="color:white;"></h4>
+                        <h4 class="modal-title tituloSeleccionPizza txt-primary" ></h4>
                     </div>
                     <div class="panel-body contenidoSeleccionPizza">
                     </div>
-                    <div class="panel-body label-primary contentIngredientes" hidden>
+                    <div class="panel-body contentIngredientes" hidden>
                     </div>
                     <div class="panel-footer label-primary">
                         <button type="button" class="btn btn-primary pull-right btnEnviaSeleccion" style="border: 1px solid;display: none;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                        <button type="button" class="btn btn-default pull-right closepizzas"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
+                        <button type="button" class="btn btn-default pull-right closepizzas">
+                          
+                            
+                            <i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar </button>
                     </div>
                 </div>
 
@@ -128,7 +131,7 @@
                     </div>
                     <div class="modal-footer label-primary">
                         <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fa fa-cutlery" aria-hidden="true"></i> Enviar pedido a cocina</button>
+                        <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fas fa-utensils" aria-hidden="true"></i> Enviar pedido a cocina</button>
                     </div>
                 </div>
 
@@ -163,7 +166,7 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
+                        <h4 class="modal-title tituloSeleccionaProducto txt-primary" ></h4>
                     </div>
                     <div class="panel-body">
                         <div class="row">

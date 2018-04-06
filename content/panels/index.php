@@ -124,7 +124,7 @@
             </div>
             <div class="modal-body contenidoEditaPizza">
             </div>
-            <div class="modal-body label-primary contentIngredientes" hidden>
+            <div class="modal-body contentIngredientes" hidden>
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>

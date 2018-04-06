@@ -83,10 +83,10 @@
                 <div class="panel-body">
                     <p> Seleccione un tema de la lista</p>
                     <div class="panel-body list-group">
-                        <a style="background-color: #3780BF;" class="list-group-item"><span class="fa fa-paint-brush"></span> Azul <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="blue" checked="checked"/></label></a>
-                        <a style="background-color: #37bf39;" class="list-group-item"><span class="fa fa-paint-brush"></span> Verde <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="green"/></label></a>
-                        <a style="background-color: #bf3737;" class="list-group-item"><span class="fa fa-paint-brush"></span> Rojo <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="red"/></label></a>
-                        <a style="background-color: #2d3945;" class="list-group-item"><span class="fa fa-paint-brush"></span> Oscuro <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="dark"/></label></a>
+                        <a style="background-color: #3780BF;" class="list-group-item"><span class="fa fa-paint-brush txtwhite"></span> <span class="txtwhite">Azul</span> <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="blue" checked="checked"/></label></a>
+                        <a style="background-color: #37bf39;" class="list-group-item"><span class="fa fa-paint-brush txtwhite"></span> <span class="txtwhite">Verde</span> <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="green"/></label></a>
+                        <a style="background-color: #bf3737;" class="list-group-item"><span class="fa fa-paint-brush txtwhite"></span> <span class="txtwhite">Rojo</span> <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="red"/></label></a>
+                        <a style="background-color: #2d3945;" class="list-group-item"><span class="fa fa-paint-brush txtwhite"></span> <span class="txtwhite">Oscuro</span> <label class="pull-right check"><input type="radio" class="icheckbox iradio" name="theme" value="dark"/></label></a>
                     </div>
                 </div>
                 <div class="panel-footer">

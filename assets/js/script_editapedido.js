@@ -246,7 +246,7 @@ function asignaPizza(elemento){
                         "<div class='grid'>"+
                         "<div class='row'>"+
                         "<div class='col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3'>"+
-                        "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                        "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                         "<div class='col-md-12'>"+
                         "<br>"+"<br>"+
                         "<div class='col-md-12'>"+
@@ -272,7 +272,7 @@ function asignaPizza(elemento){
                         '<br><div class="row">'+
                         '<div class="col-md-12">'+
                         '<div class="col-md-5">'+
-                        '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                        '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                         '</div>'+
                         '<div class="col-md-7">'+
                         '<div class="col-md-9 col-md-offset-3">'+
@@ -299,8 +299,8 @@ function asignaPizza(elemento){
                         '</div>'+
                         '<div class="col-md-12">'+
                         '<div class="form-group">'+
-                        '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                        '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
+                        '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                        '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
                         '</div>'+
                         '</div>'+
                         '</div>'+
@@ -357,7 +357,7 @@ function asignaPizza(elemento){
                             "<div class='grid'>"+
                             "<div class='row'>"+
                             "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                             '<center>'+
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">'+
                             '<label class="btn btn-primary btn-block">'+
@@ -414,7 +414,7 @@ function asignaPizza(elemento){
                             '<br><div class="row">'+
                             '<div class="col-md-12">'+
                             '<div class="col-md-5">'+
-                            '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                             '</div>'+
                             '<div class="col-md-7">'+
                             '<div class="col-md-9 col-md-offset-3">'+
@@ -441,8 +441,8 @@ function asignaPizza(elemento){
                             '</div>'+
                             '<div class="col-md-12">'+
                             '<div class="form-group">'+
-                            '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                            '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
+                            '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
                             '</div>'+
                             '</div>'+
                             '</div>'+
@@ -500,7 +500,7 @@ function asignaPizza(elemento){
                             "<div class='grid'>"+
                             "<div class='row'>"+
                             "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                             '<center>'+
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">'+
                             '<label class="btn btn-primary btn-block">'+
@@ -553,7 +553,7 @@ function asignaPizza(elemento){
                             '<br><div class="row">'+
                             '<div class="col-md-12">'+
                             '<div class="col-md-5">'+
-                            '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                             '</div>'+
                             '<div class="col-md-7">'+
                             '<div class="col-md-9 col-md-offset-3">'+
@@ -580,8 +580,8 @@ function asignaPizza(elemento){
                             '</div>'+
                             '<div class="col-md-12">'+
                             '<div class="form-group">'+
-                            '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                            '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
+                            '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
                             '</div>'+
                             '</div>'+
                             '</div>'+
@@ -668,7 +668,7 @@ function asignaPizza(elemento){
                                     "<div class='grid'>"+
                                     "<div class='row'>"+
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                                    "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                                    "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                                     '<center>'+
                                     '<div class="btn-group" data-toggle="buttons" style="width:101%">'+
                                     '<label class="btn btn-primary" style="width: 50%;">'+
@@ -761,7 +761,7 @@ function asignaPizza(elemento){
                                     '<br><div class="row">'+
                                     '<div class="col-md-12">'+
                                     '<div class="col-md-5">'+
-                                    '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                                    '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                                     '</div>'+
                                     '<div class="col-md-7">'+
                                     '<div class="col-md-9 col-md-offset-3">'+
@@ -788,8 +788,8 @@ function asignaPizza(elemento){
                                     '</div>'+
                                     '<div class="col-md-12">'+
                                     '<div class="form-group">'+
-                                    '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                                    '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
+                                    '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                                    '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
                                     '</div>'+
                                     '</div>'+
                                     '</div>'+
@@ -1153,7 +1153,7 @@ function asignaIngredientes(nombreMenu,id){
                                 "<div class='col-md-12'>"+
                                 "<div class='col-md-6 col-sm-6 col-xs-6'>"+
                                 "Ingredientes"+
-                                "<div class='col-md-12 rightIngrediente' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                                "<div class='col-md-12 rightIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                                 htmlselectIngredientesE+
                                 '</div>'+
                                 '</div>'+
@@ -1162,7 +1162,7 @@ function asignaIngredientes(nombreMenu,id){
 
 
 
-                                "<div class='col-md-12 leftIngrediente' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                                "<div class='col-md-12 leftIngrediente border-primary' style='height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                                 htmlselectIngredientesG+
                                 '</div>'+
                                 '</div>'+
@@ -1173,7 +1173,7 @@ function asignaIngredientes(nombreMenu,id){
                                 '<br><div class="row">'+
                                 '<div class="col-md-12">'+
                                 '<div class="col-md-5">'+
-                                '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                                '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                                 '</div>'+
                                 '<div class="col-md-7">'+
                                 '<div class="col-md-9 col-md-offset-3">'+
@@ -1200,8 +1200,8 @@ function asignaIngredientes(nombreMenu,id){
                                 '</div>'+
                                 '<div class="col-md-12">'+
                                 '<div class="form-group">'+
-                                '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                                '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
+                                '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                                '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual.">'+observacionpedidoproducto+'</textarea>'+
                                 '</div>'+
                                 '</div>'+
                                 '</div>'+
@@ -1377,7 +1377,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                         "<div class='grid'>"+
                         "<div class='row'>"+
                         "<div class='col-md-6 col-sm-6 col-xs-6 col-md-offset-3 col-sm-offset-3 col-xs-offset-3'>"+
-                        "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                        "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                         "<div class='col-md-12'>"+
                         "<br>"+"<br>"+
                         "<div class='col-md-12'>"+
@@ -1403,7 +1403,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                         '<br><div class="row">'+
                         '<div class="col-md-12">'+
                         '<div class="col-md-5">'+
-                        '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                        '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                         '</div>'+
                         '<div class="col-md-7">'+
                         '<div class="col-md-9 col-md-offset-3">'+
@@ -1430,8 +1430,8 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                         '</div>'+
                         '<div class="col-md-12">'+
                         '<div class="form-group">'+
-                        '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                        '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
+                        '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                        '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
                         '</div>'+
                         '</div>'+
                         '</div>'+
@@ -1486,7 +1486,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             "<div class='grid'>"+
                             "<div class='row'>"+
                             "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                             '<center>'+
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">'+
                             '<label class="btn btn-primary btn-block">'+
@@ -1543,7 +1543,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '<br><div class="row">'+
                             '<div class="col-md-12">'+
                             '<div class="col-md-5">'+
-                            '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                             '</div>'+
                             '<div class="col-md-7">'+
                             '<div class="col-md-9 col-md-offset-3">'+
@@ -1570,8 +1570,8 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '</div>'+
                             '<div class="col-md-12">'+
                             '<div class="form-group">'+
-                            '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                            '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
+                            '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
                             '</div>'+
                             '</div>'+
                             '</div>'+
@@ -1625,7 +1625,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             "<div class='grid'>"+
                             "<div class='row'>"+
                             "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                             '<center>'+
                             '<div class="btn-group" data-toggle="buttons" style="width:100%">'+
                             '<label class="btn btn-primary btn-block">'+
@@ -1678,7 +1678,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '<br><div class="row">'+
                             '<div class="col-md-12">'+
                             '<div class="col-md-5">'+
-                            '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                             '</div>'+
                             '<div class="col-md-7">'+
                             '<div class="col-md-9 col-md-offset-3">'+
@@ -1705,8 +1705,8 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '</div>'+
                             '<div class="col-md-12">'+
                             '<div class="form-group">'+
-                            '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                            '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
+                            '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
                             '</div>'+
                             '</div>'+
                             '</div>'+
@@ -1761,7 +1761,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             "<div class='grid'>"+
                             "<div class='row'>"+
                             "<div class='col-md-6 col-sm-6 col-xs-6'>"+
-                            "<div class='row row-space' style='border: 1px solid; border-radius: 6px; border-color: #b64645;'>"+
+                            "<div class='row row-space border-primary' style='border: 1px solid; border-radius: 6px;'>"+
                             '<center>'+
                             '<div class="btn-group" data-toggle="buttons" style="width:101%">'+
                             '<label class="btn btn-primary" style="width: 50%;">'+
@@ -1856,7 +1856,7 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '<br><div class="row">'+
                             '<div class="col-md-12">'+
                             '<div class="col-md-5">'+
-                            '<h4 style="color: #b64645;padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
+                            '<h4 class="txt-primary" style="padding-top: 12px;" class="tituloCantidad">Cantidad producto :</h4>'+
                             '</div>'+
                             '<div class="col-md-7">'+
                             '<div class="col-md-9 col-md-offset-3">'+
@@ -1883,8 +1883,8 @@ $(document).on('change','.radioPizzas input[type=radio]', function() {
                             '</div>'+
                             '<div class="col-md-12">'+
                             '<div class="form-group">'+
-                            '<h4 style="color: #b64645;">Observación del pedido :</h4>'+
-                            '<textarea class="form-control observacionProducto" rows="3" id="comment" style="resize: none;border-color: #b64645;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
+                            '<h4 class="txt-primary">Observación del pedido :</h4>'+
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquí la observación del pedido actual."></textarea>'+
                             '</div>'+
                             '</div>'+
                             '</div>'+
@@ -2569,18 +2569,18 @@ function consultaIngPizzaE(nombrePizza,tipoPizza){
                         ).then(function(){
 
                             $(".contentIngredientes").html(
-                                "<br><center><h4 style='color:white;'>Ingredientes Pizza "+nombrePizza+"</h4></center><br>"+
+                                "<br><center><h4 class='txt-primary'>Ingredientes Pizza "+nombrePizza+"</h4></center><br>"+
                                 "<div class='row'>"+
                                 "<div class='col-md-12'>"+
                                 "<div class='col-md-6 col-sm-6 col-xs-6'>"+
                                 "<p style='color:white;text-align:center;'>Ingredientes</p>"+
-                                "<div class='col-md-12 rightIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                                "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                                 htmlselectIngredientesE+
                                 '</div>'+
                                 '</div>'+
                                 "<div class='col-md-6 col-sm-6 col-xs-6'>"+
                                 "<p style='color:white;text-align:center;'>Ingredientes Extras</p>"+
-                                "<div class='col-md-12 leftIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                                "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                                 htmlselectIngredientesG+
                                 '</div>'+
                                 '</div>'+
@@ -2741,18 +2741,18 @@ function asignaIngPizzaE(nombrePizza,tipoPizza,ingredientes){
                 ).then(function(){
 
                     $(".contentIngredientes").html(
-                        "<br><center><h4 style='color:white;'>Ingredientes Pizza "+nombrePizza+"</h4></center><br>"+
+                        "<br><center><h4 class='txt-primary'>Ingredientes Pizza "+nombrePizza+"</h4></center><br>"+
                         "<div class='row'>"+
                         "<div class='col-md-12'>"+
                         "<div class='col-md-6 col-sm-6 col-xs-6'>"+
                         "<p style='color:white;text-align:center;'>Ingredientes</p>"+
-                        "<div class='col-md-12 rightIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                        "<div class='col-md-12 rightIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                         htmlselectIngredientesE+
                         '</div>'+
                         '</div>'+
                         "<div class='col-md-6 col-sm-6 col-xs-6'>"+
                         "<p style='color:white;text-align:center;'>Ingredientes Extras</p>"+
-                        "<div class='col-md-12 leftIng' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px; border-color: #b64645;padding: 15px;'>"+
+                        "<div class='col-md-12 leftIng border-primary' style='background: white;height:250px; overflow: auto ;border: 1px solid; border-radius: 6px;padding: 15px;'>"+
                         htmlselectIngredientesG+
                         '</div>'+
                         '</div>'+

@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="page-title">                    
-                    <h2><span class="fa fa-utensils"></span> Nuevo pedido para llevar</h2>
+                    <h2><span class="fa fa-cutlery"></span> Nuevo pedido para llevar</h2>
                 </div>
                 <center>
                     <h2 class="numeroMesa"></h2>
@@ -19,9 +19,8 @@
                     <h5 class="idPedido"></h5>
                 </center>
                 <div class="invoice">
-                    <!-- SELECCION DE USUARIOS -->
                     <div class="row">
-                        <div id="seccion_cliente" class="col-md-12 border-primary" style="border: 1px solid ;border-radius: 6px;padding: 20px;">
+                        <div class="col-md-12" style="border: 1px solid red;border-radius: 6px;padding: 20px;">
                             <div class="col-md-12">
                                 <h3>1. Selección de cliente</h3>
                             </div>
@@ -62,7 +61,7 @@
                                     <i class="fa fa-trash" aria-hidden="true"></i> Eliminar cliente
                                 </button>
                                 <button class="btn btn-default btnEditaCliente" style="display:none;" data-toggle="modal" data-target="#editaCliente">
-                                    <i class="fa fa-edit" aria-hidden="true"></i> Editar cliente
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar cliente
                                 </button>
                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#nuevoCliente">
                                     <span class="glyphicon glyphicon-user"></span> Nuevo cliente
@@ -70,11 +69,10 @@
                             </div>
                         </div>
                     </div>
-                    <!-- SELECCION DE PRODUCTOS -->
                     <div class="row">
                         <br>
-                        <div class="col-md-12 border-primary" style="border: 1px solid;border-radius: 6px;padding: 20px;">
-                            <div id="selProd_name" class="col-md-12">
+                        <div class="col-md-12" style="border: 1px solid red;border-radius: 6px;padding: 20px;">
+                            <div class="col-md-12">
                                 <h3>2. Selección de productos</h3>
                             </div>
                             <div class="col-md-12">
@@ -90,16 +88,14 @@
                                         </label>
                                     </div>
                                 </center>
-                                <!--codigo del producto-->
-                                <div class="col-md-8 col-md-offset-2 codigoproducto" style="margin-top: 32px;" hidden>
+                                <div class="col-md-8 col-md-offset-2 dom_codigoproducto" style="margin-top: 32px;" hidden>
                                     <label for="email_cliente" class="col-md-4 control-label" style="padding: 5px;text-align: right;">C&oacute;digo del producto</label>
                                     <div class="col-md-8" style="padding: 5px;">
                                         <input type="text" class="form-control" id="parallevar_cod_dirulo" placeholder="Ingrese el c&oacute;digo de producto aquí">
                                     </div>
                                     <br><br>
                                 </div>
-                                <!--menu de productos-->
-                                <div id="menuwizard" class="panel panel-default displaynone menupanel ">
+                                <div class="panel panel-default displaynone dom_menupanel">
                                     <div class="panel-body">
                                         <br>
                                         <center><h4>Seleccione los pedidos del men&uacute;</h4></center>
@@ -113,127 +109,15 @@
                                         <!-- END TABS --> 
                                     </div>
                                 </div>
-
-
-                                <!---------------------------------------------------------------------->
-
-                                <div id="ModalSeleccionaProducto" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloSeleccionaProducto txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 contenidoSeleccionaProducto">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer  label-primary">
-                                                <button type="button" class="btn btn-default pull-right closeSeleccionProducto"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div id="ModalPreferencias" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloModalPreferencias txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body contentModalPreferencias">
-                                            </div>
-                                            <div class="modal-footer label-primary">
-                                                <button type="button" class="btn btn-default closePreferencias" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                                <button type="button" class="btn btn-primary btnguardapropiedades" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div id="ModalConfirmacion" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title txt-primary" style="text-align:center;">Confirmación de pedido</h4>
-                                            </div>
-                                            <div class="panel-body contenidoModalConfirmacion">
-                                            </div>
-                                            <div class="modal-footer label-primary">
-                                                <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fas fa-utensils" aria-hidden="true"></i> Enviar pedido a cocina</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!--MODAL PARA LAS PIZZAS--> 
-                                <div id="ModalSeleccionPizza" class="displaynone">
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloSeleccionPizza txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body contenidoSeleccionPizza">
-                                            </div>
-                                            <div class="panel-body contentIngredientes displaynone" >
-                                            </div>
-                                            <div class="panel-footer label-primary">
-                                                <input  id="pizza_value" type="hidden" value="1" />
-                                                <button type="button" class="btn btn-primary pull-right btnEnviaSeleccion" style="border: 1px solid;display: none;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                                <button type="button" class="btn btn-default pull-right closepizzas"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!--MODAL PARA SELECCIONAR LOS INGREDIENTES-->
-                                <div id="ModalSeleccionaIngredientes" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <center><h4 class="modal-title tituloSeleccionaIngredientes txt-primary" ></h4></center>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 contenidoSeleccionaIngredientes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel-footer">
-                                                <button type="button" class="btn btn-primary btnEnviaProducto pull-right" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                                <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!---------------------------------------------------------------------->
                                 <br><br>
                                 <div id="resumen_pedido" class="panel-body">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- SECCION PAGOS -->
                     <div class="row">
                         <br>
-                        <div id="seccion_pagos" class="col-md-12 border-primary" style="border: 1px solid ;border-radius: 6px;padding: 20px;">
+                        <div class="col-md-12" style="border: 1px solid red;border-radius: 6px;padding: 20px;">
                             <div class="col-md-12">
                                 <h3>3. Sección de pagos</h3>
                             </div>
@@ -377,7 +261,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="detalle_pago" class="col-md-12">
+                        <div class="col-md-12">
                             <h4>DETALLE DE PAGO</h4>
                             <table class="table table-striped">
                                 <tbody>
@@ -611,7 +495,7 @@
                                     <button class="btn btn-info btn-block resumen_numeromesa"><span class="fa fa-thumb-tack"></span> Mesa</button>
                                 </div>
                                 <div class="pull-right" style="width: 100px; margin-right:16px;">
-                                    <button class="btn btn-primary btn-block resumen_fecha"><i class="fas fa-clock"></i> Fecha</button>
+                                    <button class="btn btn-primary btn-block resumen_fecha"><span class="fa fa-clock-o"></span> Fecha</button>
                                 </div>
                             </div>
                         </div>
@@ -649,10 +533,10 @@
                 <img id="pizza_loading" src="img/loading.gif" style="width:25%; margin: auto;" />
                 <div id="success_icon" class="svg" style="display:none; text-align: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" style="width: 30%; margin: auto;" viewBox="-263.5 236.5 26 26">
-                    <g class="svg-success">
-                    <circle cx="-250.5" cy="249.5" r="12"/>
-                    <path d="M-256.46 249.65l3.9 3.74 8.02-7.8"/>
-                    </g>
+                        <g class="svg-success">
+                            <circle cx="-250.5" cy="249.5" r="12"/>
+                            <path d="M-256.46 249.65l3.9 3.74 8.02-7.8"/>
+                        </g>
                     </svg>
                 </div>
             </div>
@@ -666,9 +550,69 @@
     </tbody>
 </table>
 
+<!--MODAL PARA LAS PIZZAS--> 
+<div id="ModalSeleccionPizza" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header label-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title tituloSeleccionPizza" style="color:white;"></h4>
+            </div>
+            <div class="modal-body contenidoSeleccionPizza">
+            </div>
+            <div class="modal-body label-primary contentIngredientes" hidden>
+            </div>
+            <div class="modal-footer label-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
+                <button type="button" class="btn btn-primary btnEnviaSeleccion" style="border: 1px solid;display: none;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar pizza al pedido</button>
+            </div>
+        </div>
 
+    </div>
+</div>
+<!--MODAL PARA SELECCIONAR LOS INGREDIENTES-->
+<div id="ModalSeleccionaIngredientes" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header label-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <center><h4 class="modal-title tituloSeleccionaIngredientes" style="color:white;"></h4></center>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 contenidoSeleccionaIngredientes">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer label-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btnEnviaProducto" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido </button>
+            </div>
+        </div>
 
+    </div>
+</div>
 
+<div id="ModalConfirmacion" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header label-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
+            </div>
+            <div class="modal-body contenidoModalConfirmacion">
+            </div>
+            <div class="modal-footer label-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 <div class="message-box animated fadeIn" id="mb-loading">
     <div class="mb-container">
         <div class="mb-middle">
@@ -677,15 +621,52 @@
                 <img id="pizza_loading" src="img/loading.gif" style="width:25%; margin: auto;" />
                 <div id="success_icon" class="svg" style="display:none; text-align: center;">
                     <svg xmlns="http://www.w3.org/2000/svg" style="width: 30%; margin: auto;" viewBox="-263.5 236.5 26 26">
-                    <g class="svg-success">
-                    <circle cx="-250.5" cy="249.5" r="12"/>
-                    <path d="M-256.46 249.65l3.9 3.74 8.02-7.8"/>
-                    </g>
+                        <g class="svg-success">
+                            <circle cx="-250.5" cy="249.5" r="12"/>
+                            <path d="M-256.46 249.65l3.9 3.74 8.02-7.8"/>
+                        </g>
                     </svg>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div id="ModalSeleccionaProducto" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header label-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 contenidoSeleccionaProducto">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer  label-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
 
+    </div>
+</div>
+<div id="ModalPreferencias" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header label-primary">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title tituloModalPreferencias" style="color:white;"></h4>
+            </div>
+            <div class="modal-body contentModalPreferencias">
+            </div>
+            <div class="modal-footer label-primary">
+                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
+                <button type="button" class="btn btn-primary btnguardapropiedades" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
+            </div>
+        </div>
 
+    </div>
+</div>

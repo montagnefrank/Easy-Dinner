@@ -519,11 +519,11 @@
         <div class="modal-content">
             <div class="modal-header label-primary">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title tituloSeleccionPizza" style="color:white;"></h4>
+                <h4 class="modal-title tituloSeleccionPizza txt-primary "></h4>
             </div>
             <div class="modal-body contenidoSeleccionPizza">
             </div>
-            <div class="modal-body label-primary contentIngredientes" hidden>
+            <div class="modal-body contentIngredientes" hidden>
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -599,7 +599,7 @@
         <div class="modal-content">
             <div class="modal-header label-primary">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
+                <h4 class="modal-title tituloSeleccionaProducto txt-primary" "></h4>
             </div>
             <div class="modal-body">
                 <div class="row">

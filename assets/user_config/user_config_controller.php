@@ -25,9 +25,11 @@ if(isset($_POST["imagenNueva"])){
     session_start();
     $data = $_POST["imagenNueva"];
     $target_dir = "../../img/users/";
-    file_put_contents($target_dir.$_SESSION["usuario"]["nombreUsuario"].'.jpg', base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $data)));
+    $msj = file_put_contents($target_dir.$_SESSION["usuario"]["nombreUsuario"].'.jpg', base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $data)));
     echo true;
 }
+
+
 
 //Para establecer el establecimiento del usuario
 if(isset($_POST["establecimiento"])){

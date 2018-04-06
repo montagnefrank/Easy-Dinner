@@ -81,7 +81,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Cerrar</span></button>
-                        <h4 class="modal-title" id="smallModalHead">Confirmación de envio de pedido</h4>
+                        <h4 class="modal-title txt-primary" id="smallModalHead">Confirmación de envio de pedido</h4>
                     </div>
                     <div class="modal-body contenidoModalConfirmacion">
                         Ventana en construcción
@@ -99,7 +99,7 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title" style="color:white;text-align:center;">Confirmación de pedido</h4>
+                        <h4 class="modal-title txt-primary" style="text-align:center;">Confirmación de pedido</h4>
                     </div>
                     <div class="modal-body contenidoModalConfirmacion">
                     </div>
@@ -118,11 +118,11 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title tituloSeleccionPizza" style="color:white;"></h4>
+                        <h4 class="modal-title tituloSeleccionPizza txt-primary" ></h4>
                     </div>
                     <div class="panel-body contenidoSeleccionPizza">
                     </div>
-                    <div class="panel-body label-primary contentIngredientes" hidden>
+                    <div class="panel-body contentIngredientes" hidden>
                     </div>
                     <div class="panel-footer label-primary">
                         <button type="button" class="btn btn-primary pull-right btnEnviaSeleccion" style="border: 1px solid;display: none;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
@@ -138,7 +138,7 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title tituloModalPreferencias" style="color:white;"></h4>
+                        <h4 class="modal-title tituloModalPreferencias txt-primary" ></h4>
                     </div>
                     <div class="modal-body contentModalPreferencias">
                     </div>
@@ -156,7 +156,7 @@
                 <div class="panel-content">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title tituloSeleccionaProducto" style="color:white;"></h4>
+                        <h4 class="modal-title tituloSeleccionaProducto txt-primary" ></h4>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -177,7 +177,7 @@
                 <div class="panel-heading">
                     <div class="modal-header label-primary">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <center><h4 class="modal-title tituloSeleccionaIngredientes" style="color:white;"></h4></center>
+                        <center><h4 class="modal-title tituloSeleccionaIngredientes txt-primary" ></h4></center>
                     </div>
                     <div class="panel-body">
                         <div class="row">

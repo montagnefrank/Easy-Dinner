@@ -3546,7 +3546,7 @@ function consultaIngPizzaE(nombrePizza, tipoPizza) {
                                 ).then(function () {
 
                             $(".contentIngredientes").html(
-                                    "<br><center><h4 style='color:white;'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
+                                    "<br><center><h4 class='txt-primary'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
                                     "<div class='row'>" +
                                     "<div class='col-md-12'>" +
                                     "<div class='col-md-6 col-sm-6 col-xs-6'>" +
@@ -3717,7 +3717,7 @@ function asignaIngPizzaE(nombrePizza, tipoPizza, ingredientes) {
                         ).then(function () {
 
                     $(".contentIngredientes").html(
-                            "<br><center><h4 style='color:white;'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
+                            "<br><center><h4 class='txt-primary'>Ingredientes Pizza " + nombrePizza + "</h4></center><br>" +
                             "<div class='row'>" +
                             "<div class='col-md-12'>" +
                             "<div class='col-md-6 col-sm-6 col-xs-6'>" +

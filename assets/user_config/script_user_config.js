@@ -34,7 +34,8 @@ $(document).ready(function () {
                 imagenNueva: imagen,
             },
             success: function (respuesta) {
-                if(respuesta){                    
+                if(respuesta){  
+                    
                     $(".fotoPerfil img").attr("src",imagen);
                     $(".fotoAntigua img").attr("src",imagen);
                     $("#confirmacionCambioFoto").modal("hide");
