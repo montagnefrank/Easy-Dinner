@@ -17,8 +17,9 @@ if (isset($_POST["addnewing"])) {
         $json['msg'] = " Ya existe el ingrediente en sistema, por favor seleccione un codigo diferente.";
         echo json_encode($json);
     } else {
-        $query = "INSERT INTO ingrediente (nombreIngrediente,cantidadIngrediente,codigoIngrediente,barcodeIngrediente,unidadIngrediente,tipoIngrediente,ccIngrediente,detalleIngrediente,bodegaIngrediente,minIngrediente,maxIngrediente,precioIngrediente,compraIngrediente,editadoIngredinete,estadoIngrediente) "
-                . " VALUES ('" . $_POST['nombreIngrediente'] . "','" . $_POST['cantidadIngrediente'] . "','" . $_POST['codigoIngrediente'] . "','" . $_POST['barcodeIngrediente'] . "','" . $_POST['unidadIngrediente'] . "','" . $_POST['tipoIngrediente'] . "','" . $_POST['ccIngrediente'] . "','" . $_POST['detalleIngrediente'] . "','" . $_POST['bodegaIngrediente'] . "','" . $_POST['minIngrediente'] . "','" . $_POST['maxIngrediente'] . "','" . $_POST['precioIngrediente'] . "','" . $_POST['compraIngrediente'] . "','" . date('Y-m-d') . "','" . $_POST['estadoIngrediente'] . "')";
+        $query = "INSERT INTO ingrediente (nombreIngrediente,cantidad" . $_POST['establecimiento'] . ",codigoIngrediente,barcodeIngrediente,unidadIngrediente,tipoIngrediente,ccIngrediente,detalleIngrediente,bodegaIngrediente,minIngrediente,maxIngrediente,precioIngrediente,compraIngrediente,editadoIngredinete,estadoIngrediente) "
+                . " VALUES ('" . $_POST['nombreIngrediente'] . "','" . $_POST['cantidad'] . "','" . $_POST['codigoIngrediente'] . "','" . $_POST['barcodeIngrediente'] . "','" . $_POST['unidadIngrediente'] . "','" . $_POST['tipoIngrediente'] . "','" . $_POST['ccIngrediente'] . "','" . $_POST['detalleIngrediente'] . "','" . $_POST['bodegaIngrediente'] . "','" . $_POST['minIngrediente'] . "','" . $_POST['maxIngrediente'] . "','" . $_POST['precioIngrediente'] . "','" . $_POST['compraIngrediente'] . "','" . date('Y-m-d') . "','" . $_POST['estadoIngrediente'] . "')";
+//        echo $query;
         $val_result = $conn->query($query) or die($conn->error);
 
         if ($val_result) {

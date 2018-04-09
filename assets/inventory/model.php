@@ -1,5 +1,6 @@
 <script type='text/javascript'>
 
+    //////////////////////////////// CUANDO PRESIONAMOS CLIC EN EL BOTON DE AGREGAR NUEVO INGREDIENTE
     $(document).on('click', '.addnew_ing_btn', function (e) {
         e.preventDefault();
         var self;
@@ -9,20 +10,21 @@
         });
     });
 
+    //////////////////////////////// ACCION AL HACER CLIC EN GUARDAR NEUVO INGREDIENTE
     $(document).on('click', '.savenew_btn', function (e) {
         e.preventDefault();
-        var self = this;
+        var self = this, formData = new FormData(), est;
         pageLoadingFrame("show");
         setTimeout(function () {
             if (
                     $('#guardarIngrediente').valid() &&
-                    $('#unidadselect_new,#tiposelect_new').val() != '0'
+                    $('#unidadselect_new,#tiposelect_new,#estselect_new').val() != '0'
                     )
             {
-                var formData = new FormData();
+                est = $('#estselect_new').val();
                 formData.append('addnewing', 'true');
                 formData.append('nombreIngrediente', $('#nombre_new').val());
-                formData.append('cantidadIngrediente', $('#cantidad_new').val());
+                formData.append('cantidad'+est, $('#cantidad_new').val());
                 formData.append('codigoIngrediente', $('#codigo_new').val());
                 formData.append('barcodeIngrediente', $('#barcode_new').val());
                 formData.append('unidadIngrediente', $('#unidadselect_new option:selected').val());
@@ -34,6 +36,7 @@
                 formData.append('maxIngrediente', $('#maximo_new').val());
                 formData.append('precioIngrediente', $('#precioventa_new').val());
                 formData.append('compraIngrediente', $('#preciocompra_new').val());
+                formData.append('establecimiento', est);
                 if ($("#estado_checkbox").prop('checked') == true) {
                     formData.append('estadoIngrediente', '1');
                 } else {
@@ -77,6 +80,7 @@
         }, 1000);
     });
 
+    //////////////////////////////////// CUANDO QUEREMOS REGRESAR A VER LA LISTA DE INGREDIENTES
     $(document).on('click', '.goback_ing_btn', function (e) {
         e.preventDefault();
         var self;
@@ -86,6 +90,7 @@
         });
     });
 
+    ///////////////////////////////////////////////////////////////////// CUANDO HACES CLIC EN UNA COLUMNA PARA EDITAR EL INGREDIENTE
     $(document).on('click', '.singleing_row', function (e) {
         e.preventDefault();
         var self;
@@ -117,6 +122,99 @@
             console.log("estado: " + $("td.estado").html());
             console.log("cantidad: " + $("td.cantidad").html());
 
+        });
+    });
+
+    ////////////////////////////////////////////////// PARA CAMBIAR EL LISTADO A QUITO SUR
+    $(document).on('click', '#ingredientes_quitosur_btn', function (e) {
+        $.when(
+                $("#ingredientes_graph_peq").slideUp("slow")
+                ).then(function (e) {
+<?php
+$select_ingredientes_list = "SELECT * FROM ingrediente";
+$result_ingredientes_list = $conn->query($select_ingredientes_list) or die($conn->error);
+while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_ASSOC)) {
+    $random = $row_ingredientes_list['cantidad1'];
+    if ($random <= 24) {
+        $progbar_color = 'danger';
+    } elseif ($random >= 25 && $random <= 49) {
+        $progbar_color = 'warning';
+    } elseif ($random >= 50 && $random <= 74) {
+        $progbar_color = 'info';
+    } elseif ($random >= 75 && $random <= 100) {
+        $progbar_color = 'success';
+    }
+    echo "
+            $('#ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val')
+                    .html('" . $random . " KG')
+                    .removeClass('label-danger label-info label-warning label-success')
+                    .addClass('label-" . $progbar_color . "');";
+}
+?>
+            $("#ingredientes_graph_peq").slideDown("slow");
+            getSucursales();
+        });
+    });
+
+    ////////////////////////////////////////////////// PARA CAMBIAR EL LISTADO A VILLAFLORA
+    $(document).on('click', '#ingredientes_villaflora_btn', function (e) {
+        $.when(
+                $("#ingredientes_graph_peq").slideUp("slow")
+                ).then(function (e) {
+<?php
+$select_ingredientes_list = "SELECT * FROM ingrediente";
+$result_ingredientes_list = $conn->query($select_ingredientes_list) or die($conn->error);
+while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_ASSOC)) {
+    $random = $row_ingredientes_list['cantidad2'];
+    if ($random <= 24) {
+        $progbar_color = 'danger';
+    } elseif ($random >= 25 && $random <= 49) {
+        $progbar_color = 'warning';
+    } elseif ($random >= 50 && $random <= 74) {
+        $progbar_color = 'info';
+    } elseif ($random >= 75 && $random <= 100) {
+        $progbar_color = 'success';
+    }
+    echo "
+                    $('#ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val')
+                            .html('" . $random . " KG')
+                            .removeClass('label-danger label-info label-warning label-success')
+                            .addClass('label-" . $progbar_color . "');";
+}
+?>
+            $("#ingredientes_graph_peq").slideDown("slow");
+            getSucursales();
+        });
+    });
+
+    ////////////////////////////////////////////////// PARA CAMBIAR EL LISTADO A COTOCOLLAO
+    $(document).on('click', '#ingredientes_quitonorte_btn', function (e) {
+        $.when(
+                $("#ingredientes_graph_peq").slideUp("slow")
+                ).then(function (e) {
+<?php
+$select_ingredientes_list = "SELECT * FROM ingrediente";
+$result_ingredientes_list = $conn->query($select_ingredientes_list) or die($conn->error);
+while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_ASSOC)) {
+    $random = $row_ingredientes_list['cantidad3'];
+    if ($random <= 24) {
+        $progbar_color = 'danger';
+    } elseif ($random >= 25 && $random <= 49) {
+        $progbar_color = 'warning';
+    } elseif ($random >= 50 && $random <= 74) {
+        $progbar_color = 'info';
+    } elseif ($random >= 75 && $random <= 100) {
+        $progbar_color = 'success';
+    }
+    echo "
+                    $('#ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val')
+                            .html('" . $random . " KG')
+                            .removeClass('label-danger label-info label-warning label-success')
+                            .addClass('label-" . $progbar_color . "');";
+}
+?>
+            $("#ingredientes_graph_peq").slideDown("slow");
+            getSucursales();
         });
     });
 </script>
