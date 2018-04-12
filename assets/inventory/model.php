@@ -24,7 +24,7 @@
                 est = $('#estselect_new').val();
                 formData.append('addnewing', 'true');
                 formData.append('nombreIngrediente', $('#nombre_new').val());
-                formData.append('cantidad'+est, $('#cantidad_new').val());
+                formData.append('cantidad' + est, $('#cantidad_new').val());
                 formData.append('codigoIngrediente', $('#codigo_new').val());
                 formData.append('barcodeIngrediente', $('#barcode_new').val());
                 formData.append('unidadIngrediente', $('#unidadselect_new option:selected').val());
@@ -93,22 +93,25 @@
     ///////////////////////////////////////////////////////////////////// CUANDO HACES CLIC EN UNA COLUMNA PARA EDITAR EL INGREDIENTE
     $(document).on('click', '.singleing_row', function (e) {
         e.preventDefault();
-        var self;
+        var self = this, nombre = $(self).find*("td.producto").html(),
+                cantidad = $(self).find("td.codigo").html(),
+                codigo = $("td.precio").html(),
+                codebar = $("td.unidad").html(),
+                unidad = $("td.fecha").html(),
+                tipo = $("td.tipo").html(),
+                cuentacont = $("td.cantidad .label-info").html(),
+                detalle = $("td.cantidad .label-info").html(),
+                bodega = $("td.cantidad .label-info").html(),
+                min = $("td.cantidad .label-info").html(),
+                max = $("td.cantidad .label-info").html(),
+                venta = $("td.cantidad .label-info").html(),
+                compra = $("td.cantidad .label-info").html(),
+                estado = $("td.estado").html();
         self = this;
+        console.log(self);
         $.when($(".agregarnuevo_panel,.ingredientes_lista").slideUp("slow")).then(function () {
-            $(".editing_panel").slideDown("slow");
             console.log(self);
-
-            // guardo los valores en variables..
-            var producto = $("td.producto").html(),
-                    codigo = $("td.codigo").html(),
-                    precio = $("td.precio").html(),
-                    unidad = $("td.unidad").html(),
-                    fecha = $("td.fecha").html(),
-                    tipo = $("td.tipo").html(),
-                    cantidad = $("td.cantidad .label-info").html(),
-                    estado = $("td.estado").html();
-
+            
             // Asignacion de valores a ingrediente 
             $("#nombre_edit").val(producto);
             $("#codigo_edit").val(codigo);
@@ -121,6 +124,7 @@
 
             console.log("estado: " + $("td.estado").html());
             console.log("cantidad: " + $("td.cantidad").html());
+            $(".editing_panel").slideDown("slow");
 
         });
     });
