@@ -2118,7 +2118,7 @@ function asignaIngredientes(nombreMenu) {
 
 }
 
-
+////////////////////////////////////////////////////////////////////////////////CUANDO CARGAMOS ALGO DISTINTO A PIZZA
 $(".btnEnviaProducto").click(function () {
 
     var Ingredientes = [];
@@ -3876,3 +3876,126 @@ function funcionalidadCantidad() {
     //FIN ----FUNCIONALIDAD DE LA CANTIDAD DEL PRODUCTO
 }
 
+////////////////////////////////////////////////////////////////////////////////FUINCION TOMA EL CODIGO INGRESADO Y BUSCA EN LA DB EL PRODUCTO ASIGNADO Y LO AGREGA AL PEDIDO
+function dom_nuevoitem(codigo) {
+    var codigo = $("#dom_cod_dirulo").val().replace(/\s+/g, '');
+    if (codigo !== "") {
+////////////////////////////////////////////////////////////////////////PRIMERO BUSCAMOS EN LA DB EL ITEM
+        $.ajax({
+// Verificacion de los datos introducidos
+            url: 'assets/domicilio/dom_controller.php',
+            type: 'POST',
+            dataType: "json",
+            data: {
+                dom_newprod: codigo,
+            },
+            success: function (event) {
+                if (event.status == "empty") {
+                    $.notify('El código "' + codigo + '" no existe en sistema ', "error");
+                    $("#dom_cod_dirulo").val("");
+                } else {
+                    $("#dom_cod_dirulo").val("");
+                    nombre = event.nombreProducto;
+                    precio = event.precioProducto;
+                    id = event.idProducto;
+                    idSubmenu = event.idSubmenu;
+                    nombreSubmenu = event.nombreSubmenu;
+                    idmenu = event.idMenu;
+                    nombreMenu = event.nombreMenu;
+                    if (idmenu == "1" || idmenu == "2" || idmenu == "3" || idmenu == "5") {
+                        $(".tituloSeleccionaIngredientes").html("Ingredientes " + nombre);
+                        asignaIngredientes(nombreMenu);
+                        //****************Muestra modal Seleccion Ingredientes
+                        $("#ModalSeleccionaIngredientes").modal("show");
+                        /*
+                         $.when($("#ModalSeleccionaProducto").slideUp("slow")).then(function () {
+                         $("#ModalSeleccionaIngredientes").slideDown("slow");
+                         });                          
+                         */
+                    } else if (idmenu == "4") {
+                        idMenu = idmenu;
+                        $(".tituloSeleccionPizza").html("<center>Pizza " + nombreSubmenu + "</center>");
+                        $(".contenidoSeleccionPizza").html("");
+                        $.ajax({
+                            // Verificacion de los datos introducidos
+                            url: 'assets/hacerpedido/getProductos.php',
+                            type: 'POST',
+                            dataType: "json",
+                            data: {
+                                idsubmenu: idSubmenu,
+                            },
+                            success: function (productos) {
+                                var htmlselect = '<center><div class="btn-group radioTipopizzas" data-toggle="buttons">' +
+                                        '<label class="btn btn-primary active">' +
+                                        '<input type="radio" name="options" value="" autocomplete="off" checked>Seleccione ..' +
+                                        '</label>';
+                                $.when(
+                                        $(productos).each(function (index, value) {
+                                    htmlselect += '<label class="btn btn-primary">' +
+                                            '<input type="radio" name="options" id="' + value.idProducto + '" value="' + value.idProducto + '" autocomplete="off">' + value.nombreProducto +
+                                            "<div class='nombreproducto' style='display: none;'>" + value.nombreProducto + "</div>" +
+                                            "<div class='precioproducto' style='display: none;'>" + value.precioProducto + "</div>" +
+                                            "<div class='idproducto' style='display: none;'>" + value.idProducto + "</div>" +
+                                            "<div class='idsubmenu' style='display: none;'>" + value.idSubmenu + "</div>" +
+                                            "<div class='nombresubmenu' style='display: none;'>" + nombreSubmenu + "</div>" +
+                                            "<div class='nombremenu' style='display: none;'>" + nombreMenu + "</div>" +
+                                            "<div class='idmenu' style='display: none;'>" + idMenu + "</div>" +
+                                            '</label>';
+                                })
+                                        ).then(function () {
+                                    htmlselect += '</div>' +
+                                            '</center><br>' +
+                                            '<div id="contentPizzasPrincipal"></div>';
+                                    $(".contenidoSeleccionPizza").append(htmlselect);
+                                    //$(".contenidoSeleccionaProducto").html(htmlsubmenu);
+                                });
+                            },
+                            error: function (error) {
+                                console.log('Disculpe, existió un problema al consultar los productos');
+                                console.log(error);
+                            },
+                            complete: function (xhr, status) {
+                                console.log('Petición realizada');
+                            }
+                        });
+                        //***************mostrar modal de pizza
+                        $("#ModalSeleccionPizza").modal("show");
+                        $(".contentIngredientes").hide("slow");
+                        /*
+                         $.when($("#menuwizard").slideUp("slow")).then(function () {
+                         $("#ModalSeleccionPizza").slideDown("slow");
+                         });
+                         */
+                    } else if (idmenu == "6") {
+                        enviaProducto([], "");
+                    } else {
+                        console.log("NO HUBO COINCIDENCIA" + idmenu);
+                    }
+                }
+            },
+            error: function (error) {
+                console.log('Disculpe, existió un problema llamando los datos del item');
+                console.log(error);
+            },
+            complete: function (xhr, status) {
+                console.log('Llamando Nombre del menu: LISTO');
+            }
+        });
+    }
+    $("#dom_cod_dirulo").focus();
+}
+
+////////////////////////////////////////////////////////////////////////////////ELIMINAR UN ITEM DE LA LISTA.
+$(document).on("click", ".eliminar_item", function () {
+    $(this).parent().parent().remove();
+    id = $(this).find(".idproducto").html();
+    //Para cuando el usuario da click sobre eliminar item
+    for (var i = 0; i < arrayProductos.length; i++) {
+        if (arrayProductos[i].idProducto == id) {
+            arrayProductos.splice(i, 1);
+            break;
+        }
+    }
+    $.notify('El pedido "' + $(this).parent().parent().find(".contacts-title").html() + '" ha sido eliminado ', "error");
+    detalledelpago();
+});

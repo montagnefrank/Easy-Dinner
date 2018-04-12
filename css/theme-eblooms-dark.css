@@ -11240,7 +11240,7 @@ li.ext_zip {
     border-color: #33414e !important;
 }
 .txt-primary{
-    color:#33414e;
+    color:#33414e !important;
 }
 
 /* Handle */

@@ -11240,7 +11240,7 @@ li.ext_zip {
 }
 
 .txt-primary{
-    color:#ed4444 ;
+    color:#ed4444 !important;
 }
 
 /* Handle */

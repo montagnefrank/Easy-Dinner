@@ -459,3 +459,16 @@ li{
 .txtwhite{
     color: #fff;
 }
+
+.content-prods{
+    margin-top:20px;
+}
+
+.div-title{
+    padding: 15px;
+    text-align: center;
+}
+
+.radioSeleccionproductos{
+    margin-bottom: 15px;
+}

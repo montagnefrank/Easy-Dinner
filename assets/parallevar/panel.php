@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="page-title">                    
-                    <h2><span class="fa fa-utensils"></span> Nuevo pedido para llevar</h2>
+                    <h2><span class="fa fa-utensils"></span>Nuevo pedido para llevar</h2>
                 </div>
                 <center>
                     <h2 class="numeroMesa"></h2>
@@ -74,158 +74,15 @@
                     <div class="row">
                         <br>
                         <div class="col-md-12 border-primary" style="border: 1px solid;border-radius: 6px;padding: 20px;">
-                            <div id="selProd_name" class="col-md-12">
-                                <h3>2. Selección de productos</h3>
+
+                            <div id="menucontent">
+                                <div class="col col-md-12">
+                                    <h3>2. Selecciòn de productos</h3>
+                                </div>
+
                             </div>
-                            <div class="col-md-12">
-                                <center>
-                                    <div class="btn-group radioSeleccionproductos" data-toggle="buttons">
-                                        <label class="btn btn-primary active">
-                                            <input type="radio" name="options" value="" autocomplete="off" checked="">Seleccione ..</label>
-                                        <label class="btn btn-primary">
-                                            <input type="radio" name="options" id="codigo" value="codigo" autocomplete="off">Código de producto
-                                        </label>
-                                        <label class="btn btn-primary">
-                                            <input type="radio" name="options" id="dom_mostrarmenu" value="menu" autocomplete="off">Menú de productos
-                                        </label>
-                                    </div>
-                                </center>
-                                <!--codigo del producto-->
-                                <div class="col-md-8 col-md-offset-2 codigoproducto" style="margin-top: 32px;" hidden>
-                                    <label for="email_cliente" class="col-md-4 control-label" style="padding: 5px;text-align: right;">C&oacute;digo del producto</label>
-                                    <div class="col-md-8" style="padding: 5px;">
-                                        <input type="text" class="form-control" id="parallevar_cod_dirulo" placeholder="Ingrese el c&oacute;digo de producto aquí">
-                                    </div>
-                                    <br><br>
-                                </div>
-                                <!--menu de productos-->
-                                <div id="menuwizard" class="panel panel-default displaynone menupanel ">
-                                    <div class="panel-body">
-                                        <br>
-                                        <center><h4>Seleccione los pedidos del men&uacute;</h4></center>
-                                        <!-- START TABS -->
-                                        <div class="panel panel-default tabs">
-                                            <ul class="nav nav-tabs tabMenu" role="tablist">
-                                            </ul>
-                                        </div>
-                                        <div class="panel-body tab-content tabContent">
-                                        </div>                                                  
-                                        <!-- END TABS --> 
-                                    </div>
-                                </div>
-
-
-                                <!---------------------------------------------------------------------->
-
-                                <div id="ModalSeleccionaProducto" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloSeleccionaProducto txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 contenidoSeleccionaProducto">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer  label-primary">
-                                                <button type="button" class="btn btn-default pull-right closeSeleccionProducto"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div id="ModalPreferencias" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloModalPreferencias txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body contentModalPreferencias">
-                                            </div>
-                                            <div class="modal-footer label-primary">
-                                                <button type="button" class="btn btn-default closePreferencias" data-dismiss="modal"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                                <button type="button" class="btn btn-primary btnguardapropiedades" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                                <div id="ModalConfirmacion" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title txt-primary" style="text-align:center;">Confirmación de pedido</h4>
-                                            </div>
-                                            <div class="panel-body contenidoModalConfirmacion">
-                                            </div>
-                                            <div class="modal-footer label-primary">
-                                                <button type="button" class="btn btn-default closeConfirmacion" data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary btnEnviaPedido" style="border: 1px solid;display: none;"><i class="fas fa-utensils" aria-hidden="true"></i> Enviar pedido a cocina</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <!--MODAL PARA LAS PIZZAS--> 
-                                <div id="ModalSeleccionPizza" class="displaynone">
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title tituloSeleccionPizza txt-primary" ></h4>
-                                            </div>
-                                            <div class="panel-body contenidoSeleccionPizza">
-                                            </div>
-                                            <div class="panel-body contentIngredientes displaynone" >
-                                            </div>
-                                            <div class="panel-footer label-primary">
-                                                <input  id="pizza_value" type="hidden" value="1" />
-                                                <button type="button" class="btn btn-primary pull-right btnEnviaSeleccion" style="border: 1px solid;display: none;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                                <button type="button" class="btn btn-default pull-right closepizzas"><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!--MODAL PARA SELECCIONAR LOS INGREDIENTES-->
-                                <div id="ModalSeleccionaIngredientes" class="displaynone" >
-                                    <div class="panel panel-default">
-                                        <!-- Modal content-->
-                                        <div class="panel-content">
-                                            <div class="modal-header label-primary">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <center><h4 class="modal-title tituloSeleccionaIngredientes txt-primary" ></h4></center>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row">
-                                                    <div class="col-md-12 contenidoSeleccionaIngredientes">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel-footer">
-                                                <button type="button" class="btn btn-primary btnEnviaProducto pull-right" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                                                <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!---------------------------------------------------------------------->
-                                <br><br>
-                                <div id="resumen_pedido" class="panel-body">
+                            <div >
+                                <div id="resumen_pedido" class="panel panel-default displaynone">
                                 </div>
                             </div>
                         </div>
@@ -243,7 +100,7 @@
                                     <h4>Metodos de pago</h4>
                                     <div class="paymant-table" id="payment_methods_table">
                                         <div class="col-md-12 payment_method_single" style="align-items: center;-webkit-box-align: center;display: flex;">
-                                            <div class="col-md-2">
+                                            <div class="col-md-1">
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" class="chkMetodoPago" value="EFECTIVO" id="checkbox_efectivo">
@@ -251,13 +108,13 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <a>
                                                     <img src="img/cards/efectivo.png"> Efectivo
                                                     <p>PAGO MONETARIO</p>
                                                 </a>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="table-responsive valorEfectivo" hidden>
                                                     <table class="table">
                                                         <tbody class="contentEfectivo">
@@ -281,7 +138,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 payment_method_single" style="align-items: center;-webkit-box-align: center;display: flex;">
-                                            <div class="col-md-2">
+                                            <div class="col-md-1">
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" class="chkMetodoPago" value="VISA" id="checkbox_tdc">
@@ -289,13 +146,13 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <a>
                                                     <img src="img/cards/visa.png"> Visa
                                                     <p>TARJETA CREDITO/DEBITO</p>
                                                 </a>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="table-responsive tablaVisa" hidden>
                                                     <table class="table">
                                                         <tbody class="contentVisa">
@@ -306,7 +163,7 @@
                                                                         <input type="text" onkeypress="return validateFloatKeyPress(this, event);" class="form-control monto_a_pagar" id="valorvisa" name="valorvisa" placeholder="$0.00" required>
                                                                     </div>
                                                                 </td>
-                                                                <td style="width:40%;padding:2px;">
+                                                                <td style="width:35%;padding:2px;">
                                                                     <div class="form-group">
                                                                         <label for="valor" class="control-label"># Ref</label>
                                                                         <input type="text" class="form-control id_formadepago" id="vouchervisa" name="vouchervisa" placeholder="Referencia" required>
@@ -331,7 +188,7 @@
                                         </div>
 
                                         <div class="col-md-12 payment_method_single" style="align-items: center;-webkit-box-align: center;display: flex;">
-                                            <div class="col-md-2">
+                                            <div class="col-md-1">
                                                 <div class="checkbox">
                                                     <label>
                                                         <input type="checkbox" class="chkMetodoPago" value="CHEQUE" id="checkbox_cheque">
@@ -339,13 +196,13 @@
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-5">
                                                 <a>
                                                     <img src="img/cards/cheque.png"> Cheque
                                                     <p>DOCUMENTO DE VALOR</p>
                                                 </a>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 col-sm-12">
                                                 <div class="table-responsive tablaCheque" hidden>
                                                     <table class="table">
                                                         <tbody class="contentCheque">
@@ -356,7 +213,7 @@
                                                                         <input type="text" onkeypress="return validateFloatKeyPress(this, event);" class="form-control monto_a_pagar" id="valorCheque" name="valorCheque" placeholder="$0.00" required>
                                                                     </div>
                                                                 </td>
-                                                                <td style="width:65%;padding:2px;">
+                                                                <td style="width:60%;padding:2px;">
                                                                     <div class="form-group">
                                                                         <label for="nrocheque" class="control-label"># Cheque</label>
                                                                         <input type="text" class="form-control id_formadepago" id="nrocheque" name="nrocheque" placeholder="# Cheque" required>
@@ -376,39 +233,40 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="detalle_pago" class="col-md-12">
-                            <h4>DETALLE DE PAGO</h4>
-                            <table class="table table-striped">
-                                <tbody>
-                                    <tr>
-                                        <td width="200"><strong>SUB TOTAL:</strong></td>
-                                        <td class="text-right subtotalFactura"></td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>DESCUENTO:</strong></td>
-                                        <td class="text-right descuentoFactura">
-                                            <input style="width: 50%" type="text" id="descuento_factura" class="form-control pull-right" placeholder="$$" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>IVA (12%):</strong></td>
-                                        <td class="text-right ivaFactura"></td>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>TOTAL A PAGAR :</td>
-                                        <td class="text-right totalapagarFactura"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                            <div id="detalle_pago" class="col-md-12">
+                                <h4>DETALLE DE PAGO</h4>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td width="200"><strong>SUB TOTAL:</strong></td>
+                                            <td class="text-right subtotalFactura"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>DESCUENTO:</strong></td>
+                                            <td class="text-right descuentoFactura">
+                                                <input style="width: 50%" type="text" id="descuento_factura" class="form-control pull-right" placeholder="$$" required>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>IVA (12%):</strong></td>
+                                            <td class="text-right ivaFactura"></td>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>TOTAL A PAGAR :</td>
+                                            <td class="text-right totalapagarFactura"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="pull-right push-down-20">
-                            <button class="btn btn-success" id="payment_checkout"><span class="fa fa-credit-card"></span> Proceder al Pago</button>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right push-down-20">
+                                <button class="btn btn-success" id="payment_checkout"><span class="fa fa-credit-card"></span> Proceder al Pago</button>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -82,6 +82,9 @@ switch ($panel) {///////////////////////////////////////////////////////////////
         break;
     case "hacerpedido.php":
         echo "<script type='text/javascript' src='assets/js/script_hacerpedido.js'></script>";
+        //estos scripts son los que inicializan el menu y el que lo crea y maneja
+        //echo "<script type='text/javascript' src='assets/js/script_menu_seleccion_productos.js'></script>";
+        //echo "<script type='text/javascript' src='assets/js/script_start_menu_pedido.js'></script>";
         break;
     case "anadirpedido.php":
         echo "<script type='text/javascript' src='assets/js/script_anadirpedido.js'></script>";
@@ -108,13 +111,18 @@ switch ($panel) {///////////////////////////////////////////////////////////////
         echo "<script type='text/javascript' src='assets/domicilio/dom_facturardom.js'></script>";
         break;
     case "nuevodomicilio.php":
+        echo "<script type='text/javascript' src='assets/js/script_menu_seleccion_productos.js'></script>";
         echo "<script type='text/javascript' src='assets/domicilio/dom_seleccionproducto.js'></script>";
         echo "<script type='text/javascript' src='assets/js/script_validaMoney.js'></script>";
         echo "<script type='text/javascript' src='assets/cliente/script_cliente.js'></script>";
         echo "<script type='text/javascript' src='assets/cliente/script_validacionCliente.js'></script>";
         break;
     case "parallevar.php":
-        require ("assets/parallevar/parallevar_scripts.php");
+        echo "<script type='text/javascript' src='assets/cliente/script_cliente.js'></script>";
+        echo "<script type='text/javascript' src='assets/cliente/script_validacionCliente.js'></script>";
+        echo "<script type='text/javascript' src='assets/js/script_validaMoney.js'></script>";
+        echo "<script type='text/javascript' src='assets/js/script_menu_seleccion_productos.js'></script>";
+        echo "<script type='text/javascript' src='assets/parallevar/script_seleccionproductos.js'></script>";
         break;
     case "reporte.php":
         echo '<script type="text/javascript" charset="utf8" src="js/datatables/datatables.js"></script>';

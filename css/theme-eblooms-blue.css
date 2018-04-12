@@ -11239,7 +11239,7 @@ li.ext_zip {
 }
 
 .txt-primary{
-    color:#449fed ;
+    color:#449fed !important;
 }
 /* Handle */
 .leftIng::-webkit-scrollbar-thumb,.rightIng::-webkit-scrollbar-thumb,.leftIngrediente::-webkit-scrollbar-thumb,.rightIngrediente::-webkit-scrollbar-thumb {

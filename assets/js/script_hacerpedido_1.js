@@ -22,11 +22,11 @@ $(document).ready(function () {
             asignaMenu(menu);
         },
         error: function (error) {
-            console.log('Disculpe, existió un problema');
+            console.log('Disculpe, existiÃ³ un problema');
             console.log(error);
         },
         complete: function (xhr, status) {
-            console.log('Consulta de menú realizada con exito');
+            console.log('Consulta de menÃº realizada con exito');
         }
     });
 
@@ -91,11 +91,11 @@ $(document).ready(function () {
 
                                     },
                                     error: function (error) {
-                                        console.log('Disculpe, existió un problema al consultar los productos');
+                                        console.log('Disculpe, existiÃ³ un problema al consultar los productos');
                                         console.log(error);
                                     },
                                     complete: function (xhr, status) {
-                                        console.log('Petición realizada');
+                                        console.log('PeticiÃ³n realizada');
                                     }
                                 });
                             }
@@ -107,11 +107,11 @@ $(document).ready(function () {
 
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
             } else
@@ -142,11 +142,11 @@ $(document).ready(function () {
                         });
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
             } else
@@ -194,11 +194,11 @@ $(document).ready(function () {
 
                                     },
                                     error: function (error) {
-                                        console.log('Disculpe, existió un problema al consultar los productos');
+                                        console.log('Disculpe, existiÃ³ un problema al consultar los productos');
                                         console.log(error);
                                     },
                                     complete: function (xhr, status) {
-                                        console.log('Petición realizada');
+                                        console.log('PeticiÃ³n realizada');
                                     }
                                 });
                             }
@@ -210,11 +210,11 @@ $(document).ready(function () {
 
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
             } else
@@ -245,11 +245,11 @@ $(document).ready(function () {
                         });
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
             } else
@@ -306,11 +306,11 @@ $(document).ready(function () {
 
                                     },
                                     error: function (error) {
-                                        console.log('Disculpe, existió un problema al consultar los productos');
+                                        console.log('Disculpe, existiÃ³ un problema al consultar los productos');
                                         console.log(error);
                                     },
                                     complete: function (xhr, status) {
-                                        console.log('Petición realizada');
+                                        console.log('PeticiÃ³n realizada');
                                     }
                                 });
                             }
@@ -322,11 +322,11 @@ $(document).ready(function () {
 
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
             }
@@ -495,9 +495,9 @@ $(document).ready(function () {
                         "<table class='table table-bordered'>" +
                         "<tr>" +
                         "<th>Nombre</th>" +
-                        "<th>Menú</th> " +
-                        "<th style='width:45%'>Descripción</th>" +
-                        "<th>Observación</th> " +
+                        "<th>MenÃº</th> " +
+                        "<th style='width:45%'>DescripciÃ³n</th>" +
+                        "<th>ObservaciÃ³n</th> " +
                         "<th>Cantidad</th> " +
                         "<th>Valor unitario</th> " +
                         "<th>Valor total</th> " +
@@ -558,11 +558,11 @@ $(document).ready(function () {
 
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
 
@@ -573,7 +573,7 @@ $(document).ready(function () {
 
         var valorChecked = $(".radioPizzas input[type=radio]:checked").val();
 
-        $.notify('Se agregó "' + nombre + " " + nombreSubmenu + '" al pedido ', "success");
+        $.notify('Se agregÃ³ "' + nombre + " " + nombreSubmenu + '" al pedido ', "success");
         $("#ModalSeleccionPizza").modal("hide");
         $.when($("#ModalSeleccionaIngredientes,#ModalSeleccionPizza").slideUp("slow")).then(function () {
             $("#menuwizard").slideDown("slow");
@@ -625,7 +625,7 @@ $(document).ready(function () {
                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                 "<table>" +
                                 "<tr>" +
-                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                 "</tr>" +
                                 "</table>" +
@@ -647,7 +647,7 @@ $(document).ready(function () {
                     htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                             "<table>" +
                             "<tr>" +
-                            "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                            "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                             "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                             "</tr>" +
                             "</table>" +
@@ -735,7 +735,7 @@ $(document).ready(function () {
                                 htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                         "<table>" +
                                         "<tr>" +
-                                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                        "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                         "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                         "</tr>" +
                                         "</table>" +
@@ -759,7 +759,7 @@ $(document).ready(function () {
                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                     "<table>" +
                                     "<tr>" +
-                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                     "</tr>" +
                                     "</table>" +
@@ -807,7 +807,7 @@ $(document).ready(function () {
                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                     "<table>" +
                                     "<tr>" +
-                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                     "</tr>" +
                                     "</table>" +
@@ -836,7 +836,7 @@ $(document).ready(function () {
                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                 "<table>" +
                                 "<tr>" +
-                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                 "</tr>" +
                                 "</table>" +
@@ -925,7 +925,7 @@ $(document).ready(function () {
                                 htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                         "<table>" +
                                         "<tr>" +
-                                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                        "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                         "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                         "</tr>" +
                                         "</table>" +
@@ -950,7 +950,7 @@ $(document).ready(function () {
                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                     "<table>" +
                                     "<tr>" +
-                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                     "</tr>" +
                                     "</table>" +
@@ -999,7 +999,7 @@ $(document).ready(function () {
                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                     "<table>" +
                                     "<tr>" +
-                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                     "</tr>" +
                                     "</table>" +
@@ -1028,7 +1028,7 @@ $(document).ready(function () {
                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                 "<table>" +
                                 "<tr>" +
-                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                 "</tr>" +
                                 "</table>" +
@@ -1170,7 +1170,7 @@ $(document).ready(function () {
                                                 htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                         "<table>" +
                                                         "<tr>" +
-                                                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                        "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                         "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                         "</tr>" +
                                                         "</table>" +
@@ -1199,7 +1199,7 @@ $(document).ready(function () {
                                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                     "<table>" +
                                                     "<tr>" +
-                                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                     "</tr>" +
                                                     "</table>" +
@@ -1230,7 +1230,7 @@ $(document).ready(function () {
                                     htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                             "<table>" +
                                             "<tr>" +
-                                            "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                            "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                             "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                             "</tr>" +
                                             "</table>" +
@@ -1308,7 +1308,7 @@ $(document).ready(function () {
                                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                     "<table>" +
                                                     "<tr>" +
-                                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                     "</tr>" +
                                                     "</table>" +
@@ -1337,7 +1337,7 @@ $(document).ready(function () {
                                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                 "<table>" +
                                                 "<tr>" +
-                                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                 "</tr>" +
                                                 "</table>" +
@@ -1389,7 +1389,7 @@ $(document).ready(function () {
                                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                 "<table>" +
                                                 "<tr>" +
-                                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                 "</tr>" +
                                                 "</table>" +
@@ -1417,7 +1417,7 @@ $(document).ready(function () {
                                     htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                             "<table>" +
                                             "<tr>" +
-                                            "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                            "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                             "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                             "</tr>" +
                                             "</table>" +
@@ -1507,7 +1507,7 @@ $(document).ready(function () {
                                             htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                     "<table>" +
                                                     "<tr>" +
-                                                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                     "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                     "</tr>" +
                                                     "</table>" +
@@ -1536,7 +1536,7 @@ $(document).ready(function () {
                                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                 "<table>" +
                                                 "<tr>" +
-                                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                 "</tr>" +
                                                 "</table>" +
@@ -1566,7 +1566,7 @@ $(document).ready(function () {
                                 htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                         "<table>" +
                                         "<tr>" +
-                                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                        "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                         "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                         "</tr>" +
                                         "</table>" +
@@ -1642,7 +1642,7 @@ $(document).ready(function () {
                                         htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                                 "<table>" +
                                                 "<tr>" +
-                                                "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                                "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                                 "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                                 "</tr>" +
                                                 "</table>" +
@@ -1671,7 +1671,7 @@ $(document).ready(function () {
                                     htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                             "<table>" +
                                             "<tr>" +
-                                            "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                            "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                             "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                             "</tr>" +
                                             "</table>" +
@@ -1721,7 +1721,7 @@ $(document).ready(function () {
                                     htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                             "<table>" +
                                             "<tr>" +
-                                            "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                            "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                             "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                             "</tr>" +
                                             "</table>" +
@@ -1750,7 +1750,7 @@ $(document).ready(function () {
                                 htmlResumenPedido += '<div style="text-align:-webkit-right;">' +
                                         "<table>" +
                                         "<tr>" +
-                                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                                        "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                                         "<td style='padding: 6px;'>" + $(".observacionProducto").val() + "</td>" +
                                         "</tr>" +
                                         "</table>" +
@@ -1833,11 +1833,11 @@ $(document).on("click", ".tab-pane .btn-submenu", function (event) {
 
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema al consultar los productos');
+                console.log('Disculpe, existiÃ³ un problema al consultar los productos');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
 
@@ -1883,11 +1883,11 @@ $(document).on("click", ".tab-pane .btn-submenu", function (event) {
 
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema al consultar los productos');
+                console.log('Disculpe, existiÃ³ un problema al consultar los productos');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
         $("#ModalSeleccionaProducto").modal("show");
@@ -1958,8 +1958,8 @@ $(document).on("click", ".btn-menu", function (event) {
                 '</div>' +
                 '<div class="col-md-12">' +
                 '<div class="form-group">' +
-                '<h4 class="txt-primary">Observación del pedido :</h4>' +
-                '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observación del pedido actual."></textarea>' +
+                '<h4 class="txt-primary">ObservaciÃ³n del pedido :</h4>' +
+                '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observaciÃ³n del pedido actual."></textarea>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -2150,22 +2150,22 @@ function asignaIngredientes(nombreMenu) {
                         })
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
 
             });
         },
         error: function (error) {
-            console.log('Disculpe, existió un problema');
+            console.log('Disculpe, existiÃ³ un problema');
             console.log(error);
         },
         complete: function (xhr, status) {
-            console.log('Petición realizada');
+            console.log('PeticiÃ³n realizada');
         }
     });
 
@@ -2214,7 +2214,7 @@ function enviaProducto(listaIngredientes, htmlIngredientes) {
             htmlPedido += '<div style="text-align:-webkit-right;">' +
                     "<table>" +
                     "<tr>" +
-                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                     "<td style='padding: 6px;'>" + $("#ModalPreferencias .observacionProducto").val() + "</td>" +
                     "</tr>" +
                     "</table>" +
@@ -2237,7 +2237,7 @@ function enviaProducto(listaIngredientes, htmlIngredientes) {
             htmlPedido += '<div style="text-align:-webkit-right;">' +
                     "<table>" +
                     "<tr>" +
-                    "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
+                    "<td style='padding: 6px;'>" + "ObservaciÃ³n :" + "</td>" +
                     "<td style='padding: 6px;'>" + $("#ModalSeleccionaIngredientes .observacionProducto").val() + "</td>" +
                     "</tr>" +
                     "</table>" +
@@ -2256,7 +2256,7 @@ function enviaProducto(listaIngredientes, htmlIngredientes) {
             "</div> ";
 
     $("#resumen_pedido").append(htmlPedido);
-    $.notify('Se agregó "' + nombre + '" al pedido ', "success");
+    $.notify('Se agregÃ³ "' + nombre + '" al pedido ', "success");
     $.when($("#ModalSeleccionaIngredientes").slideUp("slow")).then(function () {
         $("#menuwizard").slideDown("slow");
     });
@@ -2286,11 +2286,11 @@ $(document).on('change', '.radioTipopizzas input[type=radio]', function () {
                 Menu = menu;
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema al consultar el menu');
+                console.log('Disculpe, existiÃ³ un problema al consultar el menu');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
 
@@ -2430,7 +2430,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
                             '<h4 class="txt-primary">Observacion del producto :</h4>' +
-                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observación del pedido actual."></textarea>' +
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observaciÃ³n del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
                             '</div>'
@@ -2455,11 +2455,11 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
 
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
 
@@ -2570,7 +2570,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
                             '<h4 class="txt-primary">Observacion del producto :</h4>' +
-                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observación del pedido actual."></textarea>' +
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observaciÃ³n del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
                             '</div>'
@@ -2592,11 +2592,11 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 });
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
     } else
@@ -2703,7 +2703,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
                             '<h4 class="txt-primary">Observacion del producto :</h4>' +
-                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observación del pedido actual."></textarea>' +
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observaciÃ³n del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
                             '</div>'
@@ -2724,11 +2724,11 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 });
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
     } else
@@ -2877,7 +2877,7 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                             '<div class="col-md-12">' +
                             '<div class="form-group">' +
                             '<h4 class="txt-primary">Observacion del producto :</h4>' +
-                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observación del pedido actual."></textarea>' +
+                            '<textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aquÃ­ la observaciÃ³n del pedido actual."></textarea>' +
                             '</div>' +
                             '</div>' +
                             '</div>'
@@ -2908,11 +2908,11 @@ $(document).on('change', '.radioPizzas input[type=radio]', function () {
                 });
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
     }
@@ -3675,22 +3675,22 @@ function consultaIngPizzaE(nombrePizza, tipoPizza) {
                         })
                     },
                     error: function (error) {
-                        console.log('Disculpe, existió un problema');
+                        console.log('Disculpe, existiÃ³ un problema');
                         console.log(error);
                     },
                     complete: function (xhr, status) {
-                        console.log('Petición realizada');
+                        console.log('PeticiÃ³n realizada');
                     }
                 });
 
             });
         },
         error: function (error) {
-            console.log('Disculpe, existió un problema');
+            console.log('Disculpe, existiÃ³ un problema');
             console.log(error);
         },
         complete: function (xhr, status) {
-            console.log('Petición realizada');
+            console.log('PeticiÃ³n realizada');
         }
     });
 }
@@ -3840,11 +3840,11 @@ function asignaIngPizzaE(nombrePizza, tipoPizza, ingredientes) {
                 })
             },
             error: function (error) {
-                console.log('Disculpe, existió un problema');
+                console.log('Disculpe, existiÃ³ un problema');
                 console.log(error);
             },
             complete: function (xhr, status) {
-                console.log('Petición realizada');
+                console.log('PeticiÃ³n realizada');
             }
         });
 
