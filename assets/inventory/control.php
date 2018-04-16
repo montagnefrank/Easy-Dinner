@@ -33,4 +33,35 @@ if (isset($_POST["addnewing"])) {
         }
     }
 }
+
+if (isset($_POST["editIng"])) {
+    $json = array();
+
+    $query = "UPDATE ingrediente SET nombreIngrediente ='" . $_POST['nombreIngrediente'] . "', "
+            . "cantidad" . $_POST['establecimiento'] . " = '" . $_POST['cantidad'] . "', "
+            . "barcodeIngrediente = '" . $_POST['barcodeIngrediente'] . "', "
+            . "unidadIngrediente = '" . $_POST['unidadIngrediente'] . "', "
+            . "tipoIngrediente = '" . $_POST['tipoIngrediente'] . "', "
+            . "ccIngrediente = '" . $_POST['ccIngrediente'] . "', "
+            . "detalleIngrediente = '" . $_POST['detalleIngrediente'] . "', "
+            . "bodegaIngrediente = '" . $_POST['bodegaIngrediente'] . "', "
+            . "minIngrediente = '" . $_POST['minIngrediente'] . "', "
+            . "maxIngrediente = '" . $_POST['maxIngrediente'] . "', "
+            . "precioIngrediente = '" . $_POST['precioIngrediente'] . "', "
+            . "compraIngrediente = '" . $_POST['compraIngrediente'] . "', "
+            . "editadoIngredinete = '" . date('Y-m-d') . "', "
+            . "estadoIngrediente = '" . $_POST['estadoIngrediente'] . "' "
+            . "WHERE codigoIngrediente = '" . $_POST['codigoIngrediente'] . "'";
+    $val_result = $conn->query($query) or die($conn->error);
+
+    if ($val_result) {
+        $json['status'] = "ok";
+        $json['msg'] = " Ingrediente actualizado exitosamente ";
+        echo json_encode($json);
+    } else {
+        $json['status'] = "error";
+        $json['msg'] = " Error al actualizar el ingrediente, consulte con su departamento de sistemas. ";
+        echo json_encode($json);
+    }
+}
 ?>

@@ -71,7 +71,7 @@
 
 
 <?php
-switch ($panel) {///////////////////////////////////////////////////////////////SELECTOR DE PANEL, DEPENDIENDO DEL PANEL< HACE LAS LLAMADAS A LOS ARCHIVOS CORRESPONDINETES
+switch ($panel) {///////////////////////////////////////////////////////////////SELECTOR DE PANEL, DEPENDIENDO DEL PANEL HACE LAS LLAMADAS A LOS ARCHIVOS CORRESPONDINETES
     case "index.php":
         echo "<script type='text/javascript' src='assets/js/script_mesas.js'></script>";
         echo "<script type='text/javascript' src='assets/js/script_consultapedido.js'></script>";
@@ -79,6 +79,9 @@ switch ($panel) {///////////////////////////////////////////////////////////////
         break;
     case "cocina.php":
         echo "<script type='text/javascript' src='assets/cocina/scriptcocina.js'></script>";
+        break;
+    case "procesos.php":
+        require ("assets/procesos/model.php");
         break;
     case "hacerpedido.php":
         echo "<script type='text/javascript' src='assets/js/script_hacerpedido.js'></script>";

@@ -31,6 +31,7 @@
         </div> 
         <div id="ingredientes_graph_peq" class="panel-body panel-body-table" >
             <div class="table-responsive" >
+                <input id="selected_dinner" type='hidden' value="1">
                 <table class="table table-condensed table-bordered table-striped">
                     <thead>
                         <tr>
@@ -66,15 +67,24 @@
                                 $texto = "NO DISPONIBLE";
                             }
                             echo "<tr class='singleing_row'>
-                                    <td class='producto text-bold'>" . $row_ingredientes_list['nombreIngrediente'] . "</td>
-                                    <td class='cantidad text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " " . $row_ingredientes_list['unidadIngrediente'] . "</span></td>
-                                    <td class='codigo text-bold'>" . $row_ingredientes_list['codigoIngrediente'] . "</td>
-                                    <td class='precio text-bold'>" . $row_ingredientes_list['precioIngrediente'] . "</td>
-                                    <td class='unidad text-bold'>" . $row_ingredientes_list['unidadIngrediente'] . "</td>
-                                    <td class='estado text-bold'><span class=\"label label-" . $labelEstatus . "\">" . $texto . "</span></td>
-                                    <td class='fecha text-bold'>" . $row_ingredientes_list['editadoIngredinete'] . "</td>
-                                    <td class='tipo text-bold'>" . $row_ingredientes_list['tipoIngrediente'] . "</td>
-                                    <input type='hidden' value='" . $row_ingredientes_list['idIngrediente'] . "'>
+                                    <td class='ing_nombreproducto text-bold'>" . $row_ingredientes_list['nombreIngrediente'] . "</td>
+                                    <td class=' text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " </span></td>
+                                    <td class='ing_codigo text-bold'>" . $row_ingredientes_list['codigoIngrediente'] . "</td>
+                                    <td class='ing_precio text-bold'>" . $row_ingredientes_list['precioIngrediente'] . "</td>
+                                    <td class='ing_unidad text-bold'>" . $row_ingredientes_list['unidadIngrediente'] . "</td>
+                                    <td class=' text-bold'><span class=\"label label-" . $labelEstatus . "\">" . $texto . "</span></td>
+                                    <td class='ing_fecha text-bold'>" . $row_ingredientes_list['editadoIngredinete'] . "</td>
+                                    <td class='ing_tipo text-bold'>" . $row_ingredientes_list['tipoIngrediente'] . "</td>
+                                    <input class='ing_id' type='hidden' value='" . $row_ingredientes_list['idIngrediente'] . "'>
+                                    <input class='ing_cantidad' id='ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_cant' type='hidden' value='" . $row_ingredientes_list['cantidad1'] . "'>
+                                    <input class='ing_barcode' type='hidden' value='" . $row_ingredientes_list['barcodeIngrediente'] . "'>
+                                    <input class='ing_cuentacontable' type='hidden' value='" . $row_ingredientes_list['ccIngrediente'] . "'>
+                                    <input class='ing_detalle' type='hidden' value='" . $row_ingredientes_list['detalleIngrediente'] . "'>
+                                    <input class='ing_bodega' type='hidden' value='" . $row_ingredientes_list['bodegaIngrediente'] . "'>
+                                    <input class='ing_min' type='hidden' value='" . $row_ingredientes_list['minIngrediente'] . "'>
+                                    <input class='ing_max' type='hidden' value='" . $row_ingredientes_list['maxIngrediente'] . "'>
+                                    <input class='ing_compra' type='hidden' value='" . $row_ingredientes_list['compraIngrediente'] . "'>
+                                    <input class='ing_status' type='hidden' value='" . $row_ingredientes_list['estadoIngrediente'] . "'>
                                 </tr>";
                         }
                         ?>
@@ -163,9 +173,9 @@
                     <label class="control-label">Establecimiento</label>
                     <select class="form-control select" data-style="btn-primary" id="estselect_new">
                         <option value='0'>Seleccione</option>
-                        <option value='1'>Villaflora</option>
-                        <option value='2'>Cotocollao</option>
-                        <option value='3'>Quito Sur</option>
+                        <option value='1'>Quito Sur</option>
+                        <option value='2'>Villaflora</option>
+                        <option value='3'>Cotocollao</option>
                     </select>
                 </div> 
                 <div class="form-group col-md-4">
@@ -260,16 +270,19 @@
                     <label class="control-label">Precio de Compra</label>
                     <input type="text" class="form-control" id="preciocompra_edit" name="preciocompra" placeholder="Precio de Compra" required>
                 </div>                                                                          
-                <div class="form-group col-md-4">
-                    <h3 >Establecimiento</h3>
-                    <span class="label label-info label-form" > Villaflora</span>
-                    <span class="hidethis_force" id="establecimiento_edit"> Villaflora</span>
+                <div class="form-group col-md-4 estselectcontainer">
+                    <label class="control-label">Establecimiento</label>
+                    <select class="form-control select estselectcontainer" data-style="btn-primary" id="estselect_edit" disabled>
+                        <option value='1'>Quito Sur</option>
+                        <option value='2'>Villaflora</option>
+                        <option value='3'>Cotocollao</option>
+                    </select>
                 </div> 
                 <div class="form-group col-md-4">
                     <label class="control-label">Estado</label>
                     <div class="col-md-12">
                         <label class="switch">
-                            <input type="checkbox" class="switch" id="estado_checkbox_edit" name="estado" value="1" checked="">
+                            <input type="checkbox" class="switch" id="estado_checkbox_edit" name="estado" value="1" >
                             <span></span>
                         </label>     
                     </div>                                         
@@ -278,7 +291,7 @@
         </div>
         <div class="panel-footer">
             <button class="btn btn-info goback_ing_btn" style="margin-left: 16px; margin-bottom: 16px;"><i class="fa fa-reply"></i> Regresar</button>
-            <button class="btn btn-success savenew_btn pull-right" style="margin-left: 16px; margin-bottom: 16px;"><i class="fas fa-sync-alt"></i> Actualizar</button>
+            <button class="btn btn-success saveedit_btn pull-right" style="margin-left: 16px; margin-bottom: 16px;"><i class="fas fa-sync-alt"></i> Actualizar</button>
         </div>
     </div>
 </div>
