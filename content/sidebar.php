@@ -52,12 +52,12 @@
         <li class="pedidos"><a href="index.php?panel=index.php#autoscroll"><i class="fas fa-clipboard-list"></i><span class="xn-text"> Pedidos</span></a></li> 
         <li class="domicilio"><a href="index.php?panel=domicilio.php#autoscroll"><span class="fa fa-motorcycle"></span><span class="xn-text"> Domicilios</span></a></li> 
         <li class="cocina"><a href="index.php?panel=cocina.php#autoscroll"><i class="fas fa-fire"></i><span class="xn-text"> Cocina</span></a></li>
+        <li class="procesos"><a href="index.php?panel=procesos.php#autoscroll"><webicon class="width15" icon="webhostinghub:chef"></webicon><span class="xn-text"> Producci&oacute;n</span></a></li>
         <li class="caja"><a href="index.php?panel=caja.php#autoscroll"><i class="fas fa-credit-card"></i><span class="xn-text"> Caja</span></a></li> 
         <li class="entregas"><a href="index.php?panel=entregas.php"><span class="fa fa-truck"></span><span class="xn-text"> Entregas</span></a></li> 
-        <li class="entregas"><a href="index.php?panel=inventory.php"><i class="fas fa-sort-amount-up"></i><span class="xn-text"> Inventario</span></a></li> 
+        <li class="inventario"><a href="index.php?panel=inventory.php"><i class="fas fa-sort-amount-up"></i><span class="xn-text"> Inventario</span></a></li> 
         <li class="reporte"><a href="index.php?panel=reporte.php"><i class="fas fa-chart-pie"></i><span class="xn-text"> Reportes</span></a></li>
         <li class="entregas"><a href="index.php?panel=user.php#autoscroll"><i class="fa fa-users"></i><span class="xn-text"> Usuarios</span></a></li>
-        <li class="entregas"><a href="index.php?panel=procesos.php#autoscroll"><i class="fas fa-clipboard-list"></i><span class="xn-text"> Producci&oacute;n</span></a></li>
             ';
         } elseif ($_SESSION["usuario"]["idPerfil"] == "SALONERO") {
             echo '

@@ -45,7 +45,7 @@ if (isset($_SESSION["usuario"])) {
     <body>
 
 <?php
-if ($panel == "cocina.php") {
+if ($panel == "cocina.php" || $panel == "procesos.php") {
     echo '<div class="page-container page-navigation-top-fixed page-navigation-toggled page-container-wide">';
 } else {
     echo '<div class="page-container page-navigation-top-fixed">';

@@ -480,12 +480,12 @@ html, body {
 
 
 .slider {
-    width: 90%;
+    width: 100%;
     margin: 32px auto;
 }
 
 .sliderpreview {
-    width: 90%;
+    width: 100%;
     margin: 32px auto;
 }
 
@@ -528,6 +528,9 @@ html, body {
 .bgred{
     background-color: #b64645!important;
 }
+.bgorange{
+    background-color: #fe850a!important;
+}
 
 .paddingsides {
     padding: 0px 10px!important;
@@ -539,4 +542,27 @@ html, body {
 
 .font200 {
     font-size: 200%!important;
+}
+.font300 {
+    font-size: 300%!important;
+}
+
+.tag20 {
+    font-size: 30px!important;
+}
+
+.tag30 {
+    font-size: 30px!important;
+}
+
+.width15 {
+    width: 15px;
+}
+
+.deleteitem_btn {
+    margin-left: 16px;
+    position: absolute;
+    margin-bottom: 16px;
+    right: 8px;
+    top: 8px;
 }

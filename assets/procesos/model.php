@@ -8,106 +8,12 @@
     var estadoCont = 1;
 
     $(document).ready(function () {
-        $(".dashboard").removeClass("active");
-        $(".pedidos").removeClass("active");
-        $(".cocina").addClass("active");
 
         cargaPedidos();
 
-        $("body").keypress(function (event) {
-
-
-            navegaPedidos(event.keyCode);
-
-            if (event.keyCode == 101) {
-                //5
-                if ($(".item" + posicion + " .subitem" + subposicion + " .inputMesa #chk_pedido").is(':checked')) {
-                    console.log("checkado");
-                    $(".item" + posicion + " .subitem" + subposicion).css("background", "");
-                    $(".item" + posicion + " .subitem" + subposicion).css("color", "");
-                    $(".item" + posicion + " .subitem" + subposicion + " .inputMesa #chk_pedido").prop("checked", false);
-                } else {
-                    console.log("no checkado");
-
-                    $(".item" + posicion + " .subitem" + subposicion).css("background", "#337ab7");
-                    $(".item" + posicion + " .subitem" + subposicion).css("color", "white");
-                    $(".item" + posicion + " .subitem" + subposicion + " .inputMesa #chk_pedido").prop("checked", true);
-                }
-                estableceScreenEstado();
-            }
-
-            if (event.keyCode == 114 || event.keyCode == 116) {
-                //47 / , 42 * , 45 - , 43 +
-
-                if ($(".estadoP").is(":visible")) {
-                    if (event.keyCode == 114) {
-                        if (estadoCont > 3) {
-                            $("#rdEstado" + estadoCont).parent().css("background", "");
-                            $("#rdEstado" + estadoCont).parent().css("color", "#656C78");
-                            $("#rdEstado" + estadoCont).parent().css("box-shadow", "");
-                            estadoCont = 1;
-                            $("#rdEstado" + estadoCont).parent().css("background", "#ed4444");
-                            $("#rdEstado" + estadoCont).parent().css("color", "white");
-                            $("#rdEstado" + estadoCont).parent().css("box-shadow", "0px 6px 5px 0px #888888");
-                        } else {
-                            $("#rdEstado" + estadoCont).parent().css("background", "");
-                            $("#rdEstado" + estadoCont).parent().css("color", "#656C78");
-                            $("#rdEstado" + estadoCont).parent().css("box-shadow", "");
-                            estadoCont++;
-                            $("#rdEstado" + estadoCont).parent().css("background", "#ed4444");
-                            $("#rdEstado" + estadoCont).parent().css("color", "white");
-                            $("#rdEstado" + estadoCont).parent().css("box-shadow", "0px 6px 5px 0px #888888");
-                        }
-                    } else
-                    if (event.keyCode == 116) {
-                        console.log(estadoCont);
-
-
-                        var idProductos = [];
-                        $.when(
-                                $('#chk_pedido:checked').each(function () {
-                            idProductos.push(
-                                    {
-                                        idpedido: ($(this).parent().parent().find(".idpedido").html()),
-                                        idpedidoproducto: ($(this).parent().parent().find(".idpedidoproducto").html())
-                                    });
-                        })
-                                ).then(function () {
-
-
-
-                            if (estadoCont == 1) {
-                                //SOLICITADO 
-                                estableceEstado(idProductos, "SOLICITADO");
-                            } else
-                            if (estadoCont == 2) {
-                                //EN PROCESO *
-                                estableceEstado(idProductos, "EN PROCESO");
-                            } else
-                            if (estadoCont == 3) {
-                                //LISTO PARA ENTREGAR -
-                                estableceEstado(idProductos, "LISTO PARA ENTREGAR");
-                            } else
-                            if (estadoCont == 4) {
-                                //ENTREGADO +
-                                estableceEstado(idProductos, "ENTREGADO");
-                            }
-
-                        });
-
-
-                    }
-                } else {
-                    console.log("invisible");
-                }
-
-            }
-
-        });
-
+        //////////////////////////////////////////////////////////////////SETEAMOS LOS ESTILOS PARA LA VENTANA DE COCINA
         $(".page-content").css("height", "");
         $(".page-content").css("padding-bottom", "200px");
-
     });
 
     function seleccionaMesaPedido() {
@@ -328,73 +234,111 @@
     }
 
     function cargaPedidos() {
+        var formData = new FormData();
+        formData.append('getpedidos', 'true');
         $.ajax({
             // Verificacion de los datos introducidos
-            url: 'assets/hacerpedido/consultaPedidos.php',
+            url: 'assets/procesos/control.php',
             type: 'POST',
+            data: formData,
             dataType: "json",
+            cache: false,
+            contentType: false,
+            processData: false,
             success: function (pedidos) {
                 posicion = 1;
                 $(".contenedorCocina").html("");
+                var sliderpedidos = '', previewpedidos = '';
                 if (pedidos.length != 0) {
-                    longitud = pedidos.length;
-                    $.when(
-                            $(pedidos).each(function (index, value) {
-                        console.log(value);
-                        var tile, icon;
-                        if (value.estadoPedido == "SOLICITADO") {
-                            tile = "tile-info";
-                            icon = '<i class="fa fa-asterisk fa-2x" style="font-size:25px;color:white;" aria-hidden="true"></i>';
-                        } else
-                        if (value.estadoPedido == "EN PROCESO") {
-                            tile = "tile-warning";
-                            icon = '<i class="fas fa-sync-alt fa-spin fa-2x fa-fw" style="font-size:25px;color:white;"></i>';
-                        } else
-                        if (value.estadoPedido == "LISTO PARA ENTREGAR") {
-                            tile = "tile-success";
-                            icon = '<i class="fa fa-check" style="font-size:25px;color:white;" aria-hidden="true"></i>';
-                        } else
-                        if (value.estadoPedido == "ENTREGADO") {
-                            tile = "tile-default";
-                            icon = '<i class="fas fa-thumbs-up" aria-hidden="true" style="font-size:25px;color:black;"></i>';
+                    $(pedidos).each(function (index, value) {
+                        var tile, icon, enunciadoMesa;
+                        switch (value.estadoPedido) {
+                            case "SOLICITADO":
+                                tile = "bgblue";
+                                icon = '<i class="fas fa-asterisk fa-spin fa-5x"></i> ';
+                                break;
+                            case "EN PROCESO":
+                                tile = "bgorange";
+                                icon = '<i class="fas fa-sync-alt fa-spin fa-5x"></i> ';
+                                break;
+                            case "LISTO PARA ENTREGAR":
+                                tile = "bggreen";
+                                icon = '<i class="fas fa-check  fa-5x"></i> ';
+                                break;
+                            case "ENTREGADO":
+                                tile = "bgdark";
+                                icon = '<i class="fas fa-thumbs-up fa-spin fa-5x"></i> ';
+                                break;
                         }
-                        var enunciadoMesa;
                         if (value.numeroMesa == 999) {
                             enunciadoMesa = value.estadoMesa;
                         } else {
                             enunciadoMesa = "Mesa " + value.numeroMesa;
                         }
 
-                        if (index == 0) {
-                            $(".contenedorCocina").append(
-                                    '<div class="col-md-4" style="padding: 8px;">' +
-                                    '<div href="#" class="tile ' + tile + ' estadoPedido item' + (index + 1) + '" style="padding: 5px;margin-bottom:0px;border:5px solid #000000;box-shadow:6px 6px 6px #888888;font-weight: bold;color:black;">' +
-                                    enunciadoMesa +
-                                    '<p> Pedido # ' + value.idPedido + '</p>' +
-                                    '<div style="position: absolute;top: -20px;right: 5px;">' + icon + '</div>' +
-                                    '<div style="position: absolute;top: -20px;right: 50px;"><i class="fa fa-print imprimir_pedido" aria-hidden="true" style="font-size:25px;color:white;"></i></div>' +
-                                    '<div style="position: absolute;top: -10px;left: 5px;"><p style="font-size:50px;color:white;">' + (index + 1) + '</p></div>' +
-                                    '</div>' +
-                                    '</div>'
-                                    );
-                        } else {
-                            $(".contenedorCocina").append(
-                                    '<div class="col-md-4" style="padding: 8px;">' +
-                                    '<div href="#" class="tile ' + tile + ' estadoPedido item' + (index + 1) + '" style="padding: 5px;margin-bottom:0px;font-weight: bold;color:black;">' +
-                                    enunciadoMesa +
-                                    '<p> Pedido # ' + value.idPedido + '</p>' +
-                                    '<div style="position: absolute;top: -20px;right: 5px;">' + icon + '</div>' +
-                                    '<div style="position: absolute;top: -20px;right: 50px;"><i class="fa fa-print imprimir_pedido" aria-hidden="true" style="font-size:25px;color:white;"></i></div>' +
-                                    '<div style="position: absolute;top: -10px;left: 5px;"><p style="font-size:50px;color:white;">' + (index + 1) + '</p></div>' +
-                                    '</div>' +
-                                    '</div>'
-                                    );
-                        }
-                    })
-                            ).then(function () {
-                        asignaPedidos(pedidos);
-                    });
+                        sliderpedidos += '<div>' +
+                                '    <div class="widget ' + tile + ' widget-item-icon">' +
+                                '        <div class="widget-item-left">' +
+                                '          ' + icon + '  ' +
+                                '        </div>' +
+                                '        <div class="widget-data">' +
+                                '            <div class="widget-int num-count">' + enunciadoMesa + '</div>' +
+                                '            <div class="widget-title">Pedido # ' + value.idPedido + '</div>' +
+                                '        </div>              ' +
+                                '    </div>' +
+                                '</div>';
 
+                        $.ajax({
+                            // Verificacion de los datos introducidos
+                            url: 'assets/procesos/control.php',
+                            type: 'POST',
+                            data: {
+                                getpedidos: value.idPedido,
+                                index: (index + 1)
+                            },
+                            success: function (html) {
+                                $(".item" + (index + 1)).append(html);
+                            },
+                            error: function (error) {
+                                console.log('Disculpe, existió un problema');
+                                console.log(error);
+                            },
+                            complete: function (xhr, status) {
+                                console.log('Petición realizada');
+                            }
+                        });
+
+                        previewpedidos += '<div>' +
+                                '   <div class="col-md-4">' +
+                                '       <div class="panel panel-default">' +
+                                '           <div class="panel-heading ' + tile + '">' +
+                                '               <center>' +
+                                '                   <h2 class="pull-left txtwhite"><b>' + enunciadoMesa + '</b></h2>' +
+                                '               </center>' +
+                                '           </div>' +
+                                '           <div class="panel-body listadopedidos' + value.idPedido + '">' +
+                                '               <div class="list-group border-bottom">' +
+                                '                   <a href="#" class="font200 list-group-item active">Pizza 4 estaciones</a>' +
+                                '               </div> ' +
+                                '           </div>' +
+                                '           <div class="panel-footer ' + tile + ' pull-right">' +
+                                '               <center>' +
+                                '                   <h3 class="pull-right txtwhite">Pedido # ' + value.idPedido + '</h3>' +
+                                '               </center>' +
+                                '           </div>' +
+                                '      </div>' +
+                                '   </div>' +
+                                '</div>';
+                    });
+                    //////////////////////////////////////////////////////////////////CONSTRUIMOS LOS SLIDERS DE LOS PEDIDOS
+                    $('.slider-nav').html(sliderpedidos);
+                    $('.slider-for').html(previewpedidos);
+                    $('.slider-nav').slick({
+                        slidesToShow: 5, slidesToScroll: 1, asNavFor: '.slider-for', dots: false, centerMode: true, focusOnSelect: true, centerPadding: '60px'
+                    });
+                    $('.slider-for').slick({
+                        slidesToShow: 1, slidesToScroll: 1, arrows: false, fade: true, asNavFor: '.slider-nav'
+                    });
                 } else
                 if (pedidos.length == 0) {
                     longitud = 0;
@@ -472,25 +416,15 @@
         console.log(output);
     });
 
-    $(document).on('ready', function () {
-        $('.slider-for').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            fade: true,
-            asNavFor: '.slider-nav'
-        });
-        $('.slider-nav').slick({
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            asNavFor: '.slider-for',
-            dots: false,
-            centerMode: true,
-            focusOnSelect: true,
-            centerPadding: '60px'
-        });
-//        setInterval(function () {
-//            $('.slider-nav').slick('slickNext');
-//        }, 3000);
+    $(document).keypress(function (event) {
+
+        ///////////////////////////////////////////////////////////////// CUANDO EL OPERADOR NAVEGA HACIA LOS LATERALES
+        if (event.keyCode == 100) {
+            $('.slider-nav').slick('slickNext');
+        }
+        if (event.keyCode == 97) {
+            $('.slider-nav').slick('slickPrev');
+        }
+        console.log(event.keyCode);
     });
 </script>

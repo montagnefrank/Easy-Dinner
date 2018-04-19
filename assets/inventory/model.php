@@ -1,5 +1,10 @@
 <script type='text/javascript'>
 
+    //////////////////////////////////////////////////ACTUALIZAMOS EL LISTADO DE INGREDIENTES
+    $(document).ready(function () {
+        getIngredientes();
+    });
+
     //////////////////////////////// CUANDO PRESIONAMOS CLIC EN EL BOTON DE AGREGAR NUEVO INGREDIENTE
     $(document).on('click', '.addnew_ing_btn', function (e) {
         e.preventDefault();
@@ -54,6 +59,12 @@
                             $('#message-box-success').toggle();
                             $('input[type="text"] , select').val('');
                             console.log(data);
+                            $.when(
+                                    $(".agregarnuevo_panel,.editing_panel").slideUp("slow"),
+                                    getIngredientes()
+                                    ).then(function () {
+                                $(".ingredientes_lista").slideDown("slow");
+                            });
                         }
                         if (data.status == 'error') {
                             pageLoadingFrame("hide");
@@ -80,12 +91,133 @@
         }, 1000);
     });
 
+    //////////////////////////////// ACCION AL HACER CLIC EN ACTUALIZAR INGREDIENTE
+    $(document).on('click', '.saveedit_btn', function (e) {
+        e.preventDefault();
+        var self = this, formData = new FormData(), est;
+        pageLoadingFrame("show");
+        setTimeout(function () {
+            if (
+                    $('#editarIngrediente').valid() &&
+                    $('#unidadselect_edit,#tiposelect_edit,#estselect_edit').val() != '0'
+                    )
+            {
+                est = $('#estselect_edit').val();
+                formData.append('editIng', 'true');
+                formData.append('nombreIngrediente', $('#nombre_edit').val());
+                formData.append('cantidad', $('#cantidad_edit').val());
+                formData.append('codigoIngrediente', $('#codigo_edit').val());
+                formData.append('barcodeIngrediente', $('#barcode_edit').val());
+                formData.append('unidadIngrediente', $('#unidadselect_edit option:selected').val());
+                formData.append('tipoIngrediente', $('#tiposelect_edit option:selected').val());
+                formData.append('ccIngrediente', $('#cuneta_edit').val());
+                formData.append('detalleIngrediente', $('#detalle_edit').val());
+                formData.append('bodegaIngrediente', $('#bodega_edit').val());
+                formData.append('minIngrediente', $('#minimo_edit').val());
+                formData.append('maxIngrediente', $('#maximo_edit').val());
+                formData.append('precioIngrediente', $('#precioventa_edit').val());
+                formData.append('compraIngrediente', $('#preciocompra_edit').val());
+                formData.append('establecimiento', est);
+                if ($("#estado_checkbox_edit").prop('checked') == true) {
+                    formData.append('estadoIngrediente', '1');
+                } else {
+                    formData.append('estadoIngrediente', '0');
+                }
+                $.ajax({
+                    url: 'assets/inventory/control.php',
+                    type: 'POST',
+                    data: formData,
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.status == 'ok') {
+                            pageLoadingFrame("hide");
+                            $('.succesmessage_mb').html(data.msg);
+                            $('#message-box-success').toggle();
+                            $('input[type="text"] , select').val('');
+                            console.log(data);
+                            $.when(
+                                    $(".agregarnuevo_panel,.editing_panel").slideUp("slow"),
+                                    getIngredientes()
+                                    ).then(function () {
+                                $(".ingredientes_lista").slideDown("slow");
+                            });
+                        }
+                        if (data.status == 'error') {
+                            pageLoadingFrame("hide");
+                            $('.errormessage_mb').html(data.msg);
+                            $('#message-box-danger').toggle();
+                            console.log(data);
+                        }
+                    },
+                    error: function (error) {
+                        pageLoadingFrame("hide");
+                        $('.errormessage_mb').html('Error de red, revise su conexi&oacute;n');
+                        $('#message-box-danger').toggle();
+                        console.log(error);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            } else {
+                pageLoadingFrame("hide");
+                $('.errormessage_mb').html('Debe ingresar la informaci&oacute;n en todos los campos');
+                $('#message-box-danger').toggle();
+            }
+        }, 1000);
+    });
+
+    //////////////////////////////// ACCION AL HACER CLIC EN ELIMINAR INGREDIENTE
+    $(document).on('click', '.deleteitem_btn', function (e) {
+        e.preventDefault();
+        var self = this, ajaxData = new FormData(), est;
+        pageLoadingFrame("show");
+        setTimeout(function () {
+            if ($("#estado_input_edit").val() == 1) {
+                pageLoadingFrame("hide");
+                $('.errormessage_mb').html('El ingrediente debe ser desactivado antes de poder ser eliminado');
+                $('#message-box-danger').toggle();
+            } else {
+                ajaxData.append('deleteIng', 'true');
+                ajaxData.append('deleteid', $('#codigo_edit').val());
+                $.ajax({
+                    url: 'assets/inventory/control.php',
+                    type: 'POST',
+                    data: ajaxData,
+                    success: function (data) {
+                        pageLoadingFrame("hide");
+                        $('.succesmessage_mb').html(data);
+                        $('#message-box-success').toggle();
+                        $.when(
+                                $(".agregarnuevo_panel,.editing_panel").slideUp("slow"),
+                                getIngredientes()
+                                ).then(function () {
+                            $(".ingredientes_lista").slideDown("slow");
+                        });
+                    },
+                    error: function (error) {
+                        pageLoadingFrame("hide");
+                        $('.errormessage_mb').html('Error de red, revise su conexi&oacute;n');
+                        $('#message-box-danger').toggle();
+                        console.log(error);
+                    },
+                    cache: false,
+                    contentType: false,
+                    processData: false
+                });
+            }
+        }, 1000);
+    });
+
     //////////////////////////////////// CUANDO QUEREMOS REGRESAR A VER LA LISTA DE INGREDIENTES
     $(document).on('click', '.goback_ing_btn', function (e) {
         e.preventDefault();
         var self;
         self = this;
-        $.when($(".agregarnuevo_panel,.editing_panel").slideUp("slow")).then(function () {
+        $.when(
+                $(".agregarnuevo_panel,.editing_panel").slideUp("slow"),
+                getIngredientes()
+                ).then(function () {
             $(".ingredientes_lista").slideDown("slow");
         });
     });
@@ -137,13 +269,15 @@
             $("#preciocompra_edit").val(compra);
 //            $(".estnombre_edit").html("Cambio de EStablecimiento");
 //            $("#establecimiento_edit").html(establecimiento);
-            
+
             $('#estselect_edit').parent().find(' .bootstrap-select .filter-option').text(esttext);
             $("#estselect_edit").val(establecimiento);
             if (estado == 1) {
                 $('#estado_checkbox_edit').attr("checked", "checked");
+                $('#estado_input_edit').val("1");
             } else {
                 $('#estado_checkbox_edit').removeAttr("checked");
+                $('#estado_input_edit').val("0");
             }
             //////////////////////////////////////////////////status
             $(".editing_panel").slideDown("slow");
@@ -255,74 +389,11 @@ while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_AS
             $("#ingredientes_graph_peq").slideDown("slow");
         });
     });
-    
-    //////////////////////////////// ACCION AL HACER CLIC EN ACTUALIZAR INGREDIENTE
-    $(document).on('click', '.saveedit_btn', function (e) {
-        e.preventDefault();
-        var self = this, formData = new FormData(), est;
-        pageLoadingFrame("show");
-        setTimeout(function () {
-            if (
-                    $('#editarIngrediente').valid() &&
-                    $('#unidadselect_edit,#tiposelect_edit,#estselect_edit').val() != '0'
-                    )
-            {
-                est = $('#estselect_edit').val();
-                formData.append('editIng', 'true');
-                formData.append('nombreIngrediente', $('#nombre_edit').val());
-                formData.append('cantidad', $('#cantidad_edit').val());
-                formData.append('codigoIngrediente', $('#codigo_edit').val());
-                formData.append('barcodeIngrediente', $('#barcode_edit').val());
-                formData.append('unidadIngrediente', $('#unidadselect_edit option:selected').val());
-                formData.append('tipoIngrediente', $('#tiposelect_edit option:selected').val());
-                formData.append('ccIngrediente', $('#cuneta_edit').val());
-                formData.append('detalleIngrediente', $('#detalle_edit').val());
-                formData.append('bodegaIngrediente', $('#bodega_edit').val());
-                formData.append('minIngrediente', $('#minimo_edit').val());
-                formData.append('maxIngrediente', $('#maximo_edit').val());
-                formData.append('precioIngrediente', $('#precioventa_edit').val());
-                formData.append('compraIngrediente', $('#preciocompra_edit').val());
-                formData.append('establecimiento', est);
-                if ($("#estado_checkbox_edit").prop('checked') == true) {
-                    formData.append('estadoIngrediente', '1');
-                } else {
-                    formData.append('estadoIngrediente', '0');
-                }
-                $.ajax({
-                    url: 'assets/inventory/control.php',
-                    type: 'POST',
-                    data: formData,
-                    dataType: "json",
-                    success: function (data) {
-                        if (data.status == 'ok') {
-                            pageLoadingFrame("hide");
-                            $('.succesmessage_mb').html(data.msg);
-                            $('#message-box-success').toggle();
-                            $('input[type="text"] , select').val('');
-                            console.log(data);
-                        }
-                        if (data.status == 'error') {
-                            pageLoadingFrame("hide");
-                            $('.errormessage_mb').html(data.msg);
-                            $('#message-box-danger').toggle();
-                            console.log(data);
-                        }
-                    },
-                    error: function (error) {
-                        pageLoadingFrame("hide");
-                        $('.errormessage_mb').html('Error de red, revise su conexi&oacute;n');
-                        $('#message-box-danger').toggle();
-                        console.log(error);
-                    },
-                    cache: false,
-                    contentType: false,
-                    processData: false
-                });
-            } else {
-                pageLoadingFrame("hide");
-                $('.errormessage_mb').html('Debe ingresar la informaci&oacute;n en todos los campos');
-                $('#message-box-danger').toggle();
-            }
-        }, 1000);
-    });
+
+
+    function getIngredientes() {
+        $.post('assets/inventory/control.php', {getList: 'true'}, function (data) {
+            $('.listadeingredientes').html(data);
+        });
+    }
 </script>
