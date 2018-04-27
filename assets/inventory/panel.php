@@ -7,7 +7,24 @@
 <div class="col-md-12 col-sm-12">
     <h2><span class="fa fa-list-alt"></span> Gestionar la existencia de inventario</h2>
 </div>
-
+<div class="row quickreg_drawer hidethis">
+    <div class="col-md-12">
+        <div class="widget widget-primary widget-item-icon">
+            <div class="widget-item-left">
+                <i class="fas fa-pencil-alt fa-5x"></i>
+            </div>
+            <div class="widget-data">
+                <div class="widget-title">Modificar Inventario</div>
+                <div class="widget-subtitle">
+                    <div role="alert" class="">
+                        <button class="btn btn-danger pushtop_32 cancel_btn_newreg" ><i class="fas fa-times"></i> Cancelar</button>
+                        <button class="btn btn-success pushtop_32 btn_newreg" ><i class="fas fa-save"></i> Guardar</button>
+                    </div>
+                </div>
+            </div>                            
+        </div>
+    </div>
+</div>
 <?php //<!--INGREDIENTES RESUMEN-->?>
 <div class="col-md-12 ingredientes_lista">
     <div class="panel panel-default">
@@ -35,14 +52,16 @@
                 <table class="table table-condensed table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th width="20%">Producto</th>
+                            <th width="15%">Producto</th>
                             <th width="10%">Cantidad</th>
+                            <th width="10%">Modificar</th>
                             <th width="10%">Codigo</th>
                             <th width="10%">Precio</th>
-                            <th width="10%">Unidad</th>
+                            <th width="5%">Unidad</th>
                             <th width="10%">Estado</th>
-                            <th width="20%">Fecha</th>
+                            <th width="10%">Fecha</th>
                             <th width="10%">Tipo</th>
+                            <th width="10%">Editar</th>
                         </tr>
                     </thead>
                     <tbody class="listadeingredientes">
@@ -169,7 +188,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Cantidad</label>
-                    <input type="text" class="form-control textinput numonly" id="cantidad_edit" name="cantidad" placeholder="Cantidad a modificar" required>
+                    <input readonly="readonly" type="text" class="form-control textinput numonly" id="cantidad_edit" name="cantidad" placeholder="Cantidad a modificar" required>
                 </div>                                     
                 <div class="form-group col-md-4">
                     <label class="control-label">C&oacute;digo</label>

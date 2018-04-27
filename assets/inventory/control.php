@@ -92,15 +92,22 @@ if (isset($_POST['getList'])) {
             $labelEstatus = "danger";
             $texto = "NO DISPONIBLE";
         }
-        echo "<tr class='singleing_row'>
+        echo "<tr>
                 <td class='ing_nombreproducto text-bold'>" . $row_ingredientes_list['nombreIngrediente'] . "</td>
-                <td class=' text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " </span></td>
+                <td class=' text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"pushtop_6 font150 label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " </span></td>
+                <td class=' text-bold'>
+                    <button class='ing_quickedit_plus btn btn-success pull-left w50'><i class='fas fa-plus'></i></button>
+                    <button class='ing_quickedit_minus btn btn-danger pull-right w50'><i class='fas fa-minus'></i></button>
+                    <div class=' cant_input_plus hidethis'><div class='input-group'><span class='input-group-addon'> + </span><input type='text' class='form-control' placeholder='Valor'/></div></div>
+                    <div class='form-group cant_input_minus hidethis'><div class='input-group'><input type='text' class='form-control' placeholder='Valor'/><span class='input-group-addon'> - </span></div></div>
+                </td>
                 <td class='ing_codigo text-bold'>" . $row_ingredientes_list['codigoIngrediente'] . "</td>
                 <td class='ing_precio text-bold'>" . $row_ingredientes_list['precioIngrediente'] . "</td>
                 <td class='ing_unidad text-bold'>" . $row_ingredientes_list['unidadIngrediente'] . "</td>
                 <td class=' text-bold'><span class=\"label label-" . $labelEstatus . "\">" . $texto . "</span></td>
                 <td class='ing_fecha text-bold'>" . $row_ingredientes_list['editadoIngredinete'] . "</td>
                 <td class='ing_tipo text-bold'>" . $row_ingredientes_list['tipoIngrediente'] . "</td>
+                <td class='edit_rowbtn text-bold singleing_row'> <button class='btn btn-info pull-left'><i class='fas fa-edit'></i> Editar</button> </td>
                 <input class='ing_id' type='hidden' value='" . $row_ingredientes_list['idIngrediente'] . "'>
                 <input class='ing_cantidad' id='ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_cant' type='hidden' value='" . $row_ingredientes_list['cantidad1'] . "'>
                 <input class='ing_barcode' type='hidden' value='" . $row_ingredientes_list['barcodeIngrediente'] . "'>

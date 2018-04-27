@@ -227,24 +227,62 @@
         e.preventDefault();
     });
 
+    //////////////////////////////////// CANCELAR EDITAR INVENTARIO
+    $(document).on('click', '.cancel_btn_newreg', function (e) {
+        e.preventDefault();
+        location.reload();
+    });
+
+    //////////////////////////////////// Nuevo Registro de edicion de inventario
+    $(document).on('click', '.btn_newreg', function (e) {
+        e.preventDefault();
+        var self = this;
+        $(".cant_input_plus:visible").each(function( index, element ) {
+            console.log(i + " encontrados")
+        });
+    });
+
+    //////////////////////////////////// DESHABILITAMOS EL SELECT DE EDITAR ESTABLECIMIENTO
+    $(document).on('click', '.ing_quickedit_plus', function (e) {
+        e.preventDefault();
+        var self = this;
+        $.when(
+                $(self).parent().find('button').fadeOut()
+                ).then(function () {
+            $(self).parent().find(".cant_input_plus").fadeIn();
+        });
+        $(".quickreg_drawer").animate({width: 'show'}, 600);
+    });
+
+    $(document).on('click', '.ing_quickedit_minus', function (e) {
+        e.preventDefault();
+        var self = this;
+        $.when(
+                $(self).parent().find('button').fadeOut()
+                ).then(function () {
+            $(self).parent().find(".cant_input_minus").fadeIn();
+        });
+        $(".quickreg_drawer").animate({width: 'show'}, 600);
+    });
+
     ///////////////////////////////////////////////////////////////////// CUANDO HACES CLIC EN UNA COLUMNA PARA EDITAR EL INGREDIENTE
     $(document).on('click', '.singleing_row', function (e) {
         e.preventDefault();
         var self = this,
-                nombre = $(self).find(".ing_nombreproducto").html(),
-                cantidad = $(self).find(".ing_cantidad").val(),
-                codigo = $(self).find(".ing_codigo").html(),
-                codebar = $(self).find(".ing_barcode").val(),
-                unidad = $(self).find(".ing_unidad").html(),
-                tipo = $(self).find(".ing_tipo").html(),
-                cuentacont = $(self).find(".ing_cuentacontable").val(),
-                detalle = $(self).find(".ing_detalle").val(),
-                bodega = $(self).find(".ing_bodega").val(),
-                min = $(self).find(".ing_min").val(),
-                max = $(self).find(".ing_max").val(),
-                venta = $(self).find(".ing_precio").html(),
-                compra = $(self).find(".ing_compra").val(),
-                estado = $(self).find(".ing_status").val(),
+                nombre = $(self).parent().find(".ing_nombreproducto").html(),
+                cantidad = $(self).parent().find(".ing_cantidad").val(),
+                codigo = $(self).parent().find(".ing_codigo").html(),
+                codebar = $(self).parent().find(".ing_barcode").val(),
+                unidad = $(self).parent().find(".ing_unidad").html(),
+                tipo = $(self).parent().find(".ing_tipo").html(),
+                cuentacont = $(self).parent().find(".ing_cuentacontable").val(),
+                detalle = $(self).parent().find(".ing_detalle").val(),
+                bodega = $(self).parent().find(".ing_bodega").val(),
+                min = $(self).parent().find(".ing_min").val(),
+                max = $(self).parent().find(".ing_max").val(),
+                venta = $(self).parent().find(".ing_precio").html(),
+                compra = $(self).parent().find(".ing_compra").val(),
+                estado = $(self).parent().find(".ing_status").val(),
                 unidadtext = $("#unidadselect_edit option[value='" + unidad + "']").text(),
                 tipotext = $("#tiposelect_edit option[value='" + tipo + "']").text(),
                 establecimiento = $("#selected_dinner").val(),
@@ -389,7 +427,6 @@ while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_AS
             $("#ingredientes_graph_peq").slideDown("slow");
         });
     });
-
 
     function getIngredientes() {
         $.post('assets/inventory/control.php', {getList: 'true'}, function (data) {

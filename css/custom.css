@@ -543,6 +543,10 @@ html, body {
 .font200 {
     font-size: 200%!important;
 }
+
+.font150 {
+    font-size: 150%!important;
+}
 .font300 {
     font-size: 300%!important;
 }
@@ -565,4 +569,29 @@ html, body {
     margin-bottom: 16px;
     right: 8px;
     top: 8px;
+}
+
+.w100{
+    width: 100%;
+}
+
+.w50{
+    width: 50%;
+}
+
+.quickreg_drawer {
+    position: fixed;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999999;
+    width: 400px;
+    display: none
+}
+
+.pushtop_32 {
+    margin-top: 32px;
+}
+
+.pushtop_6 {
+    margin-top: 6px;
 }
