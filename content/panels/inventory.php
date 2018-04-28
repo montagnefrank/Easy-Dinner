@@ -1,3 +1,3 @@
 <?php 
-require ("assets/inventory/panel.php");
+require ("assets/inventory/view.php");
 ?>

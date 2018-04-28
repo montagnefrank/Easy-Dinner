@@ -10,7 +10,7 @@
         e.preventDefault();
         var self;
         self = this;
-        $.when($(".ingredientes_lista,.editing_panel").slideUp("slow")).then(function () {
+        $.when($(".ingredientes_lista,.editing_panel,historico_lista").slideUp("slow")).then(function () {
             $(".agregarnuevo_panel").slideDown("slow");
         });
     });
@@ -215,7 +215,7 @@
         var self;
         self = this;
         $.when(
-                $(".agregarnuevo_panel,.editing_panel").slideUp("slow"),
+                $(".agregarnuevo_panel,.editing_panel,.historico_lista").slideUp("slow"),
                 getIngredientes()
                 ).then(function () {
             $(".ingredientes_lista").slideDown("slow");
@@ -236,10 +236,53 @@
     //////////////////////////////////// Nuevo Registro de edicion de inventario
     $(document).on('click', '.btn_newreg', function (e) {
         e.preventDefault();
-        var self = this;
-        $(".cant_input_plus:visible").each(function( index, element ) {
-            console.log(i + " encontrados")
+        pageLoadingFrame("show");
+        var self = this, addlist = {}, remlist = {}, formData = new FormData(), est = $("#selected_dinner").val();
+        $(".cant_input_plus:visible").each(function (index, element) {
+            addlist[index] = {};
+            addlist[index]['codigo'] = $(element).parent().parent().find(".ing_codigo").html();
+            addlist[index]['cantidad'] = $(element).find(".cant_input_plus_val").val();
+            addlist[index]['nombre'] = $(element).parent().parent().find(".ing_nombreproducto").html();
         });
+        $(".cant_input_minus:visible").each(function (index, element) {
+            remlist[index] = {};
+            remlist[index]['codigo'] = $(element).parent().parent().find(".ing_codigo").html();
+            remlist[index]['cantidad'] = $(element).find(".cant_input_minus_val").val();
+            remlist[index]['nombre'] = $(element).parent().parent().find(".ing_nombreproducto").html();
+        });
+        setTimeout(function () {
+            formData.append('editInventory', 'true');
+            formData.append('plusamounts', JSON.stringify(addlist));
+            formData.append('lessamounts', JSON.stringify(remlist));
+            formData.append('location', est);
+            $.ajax({
+                url: 'assets/inventory/control.php',
+                type: 'POST',
+                data: formData,
+                dataType: "json",
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data.status == 'ok') {
+                        location.reload();
+                        console.log(data);
+                    }
+                    if (data.status == 'error') {
+                        pageLoadingFrame("hide");
+                        $('.errormessage_mb').html(data.msg);
+                        $('#message-box-danger').toggle();
+                        console.log(data);
+                    }
+                },
+                error: function (error) {
+                    pageLoadingFrame("hide");
+                    $('.errormessage_mb').html('Error de red, revise su conexi&oacute;n');
+                    $('#message-box-danger').toggle();
+                    console.log(error);
+                }
+            });
+        }, 1000);
     });
 
     //////////////////////////////////// DESHABILITAMOS EL SELECT DE EDITAR ESTABLECIMIENTO
@@ -427,10 +470,28 @@ while ($row_ingredientes_list = $result_ingredientes_list->fetch_array(MYSQLI_AS
             $("#ingredientes_graph_peq").slideDown("slow");
         });
     });
+    
+    
+    //////////////////////////////// MOSTRAR LISTADO DE TRANSACCIONES
+    $(document).on('click', '.listadohistorico_btn', function (e) {
+        e.preventDefault();
+        var self;
+        self = this;
+        $.when($(".ingredientes_lista,.editing_panel,.historico_lista").slideUp("slow")).then(function () {
+            getHistorico();
+            $(".historico_lista").slideDown("slow");
+        });
+    });
 
     function getIngredientes() {
         $.post('assets/inventory/control.php', {getList: 'true'}, function (data) {
             $('.listadeingredientes').html(data);
+        });
+    }
+
+    function getHistorico() {
+        $.post('assets/inventory/control.php', {getTrans: 'true', location: $("#selected_dinner").val()}, function (data) {
+            $('.listahistorico').html(data);
         });
     }
 </script>

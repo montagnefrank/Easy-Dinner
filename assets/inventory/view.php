@@ -25,6 +25,7 @@
         </div>
     </div>
 </div>
+
 <?php //<!--INGREDIENTES RESUMEN-->?>
 <div class="col-md-12 ingredientes_lista">
     <div class="panel panel-default">
@@ -32,6 +33,7 @@
             <div class="panel-title-box">
                 <h3>Ingredientes</h3>
                 <span>Resumen de inventario</span> <button class="btn btn-info addnew_ing_btn" style="margin-left: 16px;"><i class="fa fa-plus-square fa-lg"></i> Nuevo</button>
+                 <button class="btn btn-warning listadohistorico_btn" style="margin-left: 16px;"><i class="fa fa-list fa-lg"></i> Listado</button>
             </div>                                    
             <ul class="panel-controls" style="margin-top: 2px;">
                 <li><a id="ingredientes_toggle_list" href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
@@ -173,6 +175,42 @@
     </div>
 </div>
 
+<?php //<!--HISTORCIO-->?>
+<div class="col-md-12 historico_lista hidethis">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title-box">
+                <button class="btn btn-info goback_ing_btn" style="margin-left: 16px; margin-bottom: 16px;"><i class="fa fa-reply"></i> Regresar</button>
+            </div>                                    
+            <ul class="panel-controls" style="margin-top: 2px;">
+                <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>                                 
+            </ul>
+        </div> 
+        <div class="panel-body panel-body-table" >
+            <div class="table-responsive" >
+                <input id="selected_dinner" type='hidden' value="1">
+                <table class="table table-condensed table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="15%">Producto</th>
+                            <th width="10%">Valor Orginal</th>
+                            <th width="10%">Transacci&oacute;n</th>
+                            <th width="10%">Tipo</th>
+                            <th width="10%">Fecha</th>
+                            <th width="5%">Usuario</th>
+                            <th width="10%">Establecimiento</th>
+                        </tr>
+                    </thead>
+                    <tbody class="listahistorico">
+                    </tbody>
+                </table>
+            </div>
+        </div>      
+    </div>
+</div>
+
 <?php //<!-- EDITAR INGREDIENTE --> ?>
 <div class="col-md-8 editing_panel" style="display:none;">
     <div class="panel panel-default">
@@ -275,7 +313,7 @@
     </div>
 </div>
 
-<!--Mostrar el mensaje de si se ingreso al sistema -->
+<!--MODAL SUCCESS -->
 <div class="message-box message-box-success animated fadeIn" id="message-box-success">
     <div class="mb-container">
         <div class="mb-middle">
@@ -288,7 +326,8 @@
         </div>
     </div>
 </div>
-<!--Mostrar el mensaje de que no se ingreso al sistema -->
+
+<!--MODAL ERROR -->
 <div class="message-box message-box-danger animated fadeIn" id="message-box-danger">
     <div class="mb-container">
         <div class="mb-middle">

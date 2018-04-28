@@ -547,6 +547,14 @@ html, body {
 .font150 {
     font-size: 150%!important;
 }
+
+.font120 {
+    font-size: 120%!important;
+}
+
+.font110 {
+    font-size: 110%!important;
+}
 .font300 {
     font-size: 300%!important;
 }

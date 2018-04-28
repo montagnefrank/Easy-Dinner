@@ -37,7 +37,7 @@ if (isset($_SESSION["usuario"])) {
           //  echo $selected['temaUsuario'];
         ?>
         <?php require ("scripts/customstyles.php"); ?>   
-        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-eblooms-<?php echo $selected['temaUsuario']?>.css"/>
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-<?php echo $selected['temaUsuario']?>.css"/>
         <link rel="stylesheet" href="node_modules/dragula/dist/dragula.min.css">
         <link rel="stylesheet" href="assets/css/estilo.css">
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>

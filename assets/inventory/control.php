@@ -94,12 +94,12 @@ if (isset($_POST['getList'])) {
         }
         echo "<tr>
                 <td class='ing_nombreproducto text-bold'>" . $row_ingredientes_list['nombreIngrediente'] . "</td>
-                <td class=' text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"pushtop_6 font150 label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " </span></td>
+                <td class=' text-bold'><span id=\"ingredientes_" . $row_ingredientes_list['idIngrediente'] . "_val\" class=\"pushtop_6 font110 label label-" . $progbar_color . "\">" . $row_ingredientes_list['cantidad1'] . " </span></td>
                 <td class=' text-bold'>
                     <button class='ing_quickedit_plus btn btn-success pull-left w50'><i class='fas fa-plus'></i></button>
                     <button class='ing_quickedit_minus btn btn-danger pull-right w50'><i class='fas fa-minus'></i></button>
-                    <div class=' cant_input_plus hidethis'><div class='input-group'><span class='input-group-addon'> + </span><input type='text' class='form-control' placeholder='Valor'/></div></div>
-                    <div class='form-group cant_input_minus hidethis'><div class='input-group'><input type='text' class='form-control' placeholder='Valor'/><span class='input-group-addon'> - </span></div></div>
+                    <div class=' cant_input_plus hidethis'><div class='input-group'><span class='input-group-addon'> + </span><input type='text' class='form-control cant_input_plus_val' placeholder='Valor'/></div></div>
+                    <div class='form-group cant_input_minus hidethis'><div class='input-group'><input type='text' class='form-control cant_input_minus_val' placeholder='Valor'/><span class='input-group-addon'> - </span></div></div>
                 </td>
                 <td class='ing_codigo text-bold'>" . $row_ingredientes_list['codigoIngrediente'] . "</td>
                 <td class='ing_precio text-bold'>" . $row_ingredientes_list['precioIngrediente'] . "</td>
@@ -122,4 +122,113 @@ if (isset($_POST['getList'])) {
     }
 }
 
+if (isset($_POST['getTrans'])) {
+
+    $query = "SELECT * FROM transactions ORDER BY idTrans DESC";
+    $result = $conn->query($query);
+    while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+        if ($row['prevStockTrans'] <= 24) {
+            $progbar_color = 'danger';
+        } elseif ($row['prevStockTrans'] >= 25 && $row['prevStockTrans'] <= 49) {
+            $progbar_color = 'warning';
+        } elseif ($row['prevStockTrans'] >= 50 && $row['prevStockTrans'] <= 74) {
+            $progbar_color = 'info';
+        } elseif ($row['prevStockTrans'] >= 75 && $row['prevStockTrans'] <= 100) {
+            $progbar_color = 'success';
+        }
+        if ($row['typeTrans'] == 'AGREGAR') {
+            $labelEstatus = "success";
+            $texto = "AGREGAR";
+        } else {
+            $labelEstatus = "danger";
+            $texto = "EXTRAER";
+        }
+        echo "<tr>
+                <td class=' text-bold'>" . $row['nomIngTrans'] . "</td>
+                <td class=' text-bold'><span  class=\"pushtop_6 font110 label label-" . $progbar_color . "\">" . $row['prevStockTrans'] . " </span></td>
+                <td class=' text-bold'>" . $row['valTrans'] . "</td>
+                <td class=' text-bold'><span class=\"label label-" . $labelEstatus . "\">" . $texto . "</span></td>
+                <td class=' text-bold'>" . $row['dateTrans'] . "</td>
+                <td class=' text-bold'>" . $row['userTrans'] . "</td>
+                <td class=' text-bold'>" . $row['sucursalTrans'] . "</td>
+            </tr>";
+    }
+}
+
+if (isset($_POST["editInventory"])) {
+    session_start();
+    $json = array();
+//    var_dump($_SESSION);die;
+    ////////////////////////////////////////////////////////////////////////////MODIFICAMOS TODOS LOS QUE SON AGREGAR
+    $entradas = json_decode($_POST["plusamounts"], true);
+    foreach ($entradas as $element) {
+
+        ////////////////////////////////////////////////////////////////////////LLAMAMOS AL VALOR ACTUAL DEL INVENTARIO
+        $select = "SELECT cantidad" . $_POST['location'] . " FROM ingrediente WHERE codigoIngrediente = '" . $element['codigo'] . "'";
+        $result = $conn->query($select);
+        $row = $result->fetch_array(MYSQLI_NUM);
+
+        ////////////////////////////////////////////////////////////////////////ACTUALIZAMOS AL NUEVO VALOR
+        $prevstock = $row['0'];
+        $newstock = $prevstock + $element['cantidad'];
+        $query = "UPDATE ingrediente SET cantidad" . $_POST['location'] . " = '" . $newstock . "' WHERE codigoIngrediente = '" . $element['codigo'] . "'";
+        $val_result = $conn->query($query) or die($conn->error);
+//        $json['msg'] .= $select . $query;
+        ////////////////////////////////////////////////////////////////////////AGREGAMOS EL REGISTRO EN HISTORICO
+        if ($_POST['location'] == 1){
+            $est = "Quito Sur";
+        }
+        if ($_POST['location'] == 2){
+            $est = "Villaflora";
+        }
+        if ($_POST['location'] == 3){
+            $est = "Cotocollao";
+        }
+        $query = "INSERT INTO transactions (userTrans,codIngTrans,dateTrans,prevStockTrans,valTrans,typeTrans,sucursalTrans,nomIngTrans) "
+                . " VALUES ('" . $_SESSION["usuario"]["nombreUsuario"] . "','" . $element['codigo'] . "','" . date('Y-m-d H:i:s') . "','" . $prevstock . "','" . $element['cantidad'] . "','AGREGAR','" . $est . "','" . $element['nombre'] . "')";
+//        $json['msg'] .= $select . $query;
+        $val_result = $conn->query($query) or die($conn->error);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////MODIFICAMOS TODOS LOS QUE SON QUITAR
+    $entradas = json_decode($_POST["lessamounts"], true);
+    foreach ($entradas as $element) {
+
+        ////////////////////////////////////////////////////////////////////////LLAMAMOS AL VALOR ACTUAL DEL INVENTARIO
+        $select = "SELECT cantidad" . $_POST['location'] . " FROM ingrediente WHERE codigoIngrediente = '" . $element['codigo'] . "'";
+        $result = $conn->query($select);
+        $row = $result->fetch_array(MYSQLI_NUM);
+
+        ////////////////////////////////////////////////////////////////////////ACTUALIZAMOS AL NUEVO VALOR
+        $prevstock = $row['0'];
+        $newstock = $prevstock - $element['cantidad'];
+        $query = "UPDATE ingrediente SET cantidad" . $_POST['location'] . " = '" . $newstock . "' WHERE codigoIngrediente = '" . $element['codigo'] . "'";
+        $val_result = $conn->query($query) or die($conn->error);
+//        $json['msg'] .= $select . $query;
+        ////////////////////////////////////////////////////////////////////////AGREGAMOS EL REGISTRO EN HISTORICO
+        if ($_POST['location'] == 1){
+            $est = "Quito Sur";
+        }
+        if ($_POST['location'] == 1){
+            $est = "Villaflora";
+        }
+        if ($_POST['location'] == 1){
+            $est = "Cotocollao";
+        }
+        $query = "INSERT INTO transactions (userTrans,codIngTrans,dateTrans,prevStockTrans,valTrans,typeTrans,sucursalTrans,nomIngTrans) "
+                . " VALUES ('" . $_SESSION["usuario"]["nombreUsuario"] . "','" . $element['codigo'] . "','" . date('Y-m-d H:i:s') . "','" . $prevstock . "','" . $element['cantidad'] . "','EXTRAER','" . $est . "','" . $element['nombre'] . "')";
+//        $json['msg'] .= $select . $query;
+        $val_result = $conn->query($query) or die($conn->error);
+    }
+
+    if ($val_result) {
+        $json['status'] = "ok";
+        $json['msg'] .= " Ingrediente actualizado exitosamente ";
+        echo json_encode($json);
+    } else {
+        $json['status'] = "error";
+        $json['msg'] = " Error al actualizar el ingrediente, consulte con su departamento de sistemas. ";
+        echo json_encode($json);
+    }
+}
 ?>
