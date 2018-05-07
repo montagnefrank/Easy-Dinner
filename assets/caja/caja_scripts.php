@@ -45,7 +45,7 @@ if (isset($_GET["verfactura"])) {
     }
     echo "
         <script>
-        $('#modal_consultar_factura .modal-dialog .modal-content .modal-header .modal-title').html('<i class=\"fa fa-pencil-square-o\"></i> Consultar Factura</h4>');
+        $('#modal_consultar_factura .modal-dialog .modal-content .modal-header .modal-title').html('<i class=\"fas fa-pencil-alt\"></i> Consultar Factura</h4>');
             $('#modal_consultar_factura .modal-dialog .modal-content .modal-body').html(\"\");
             $('#modal_consultar_factura .modal-dialog .modal-content .modal-body')
                     .append(\"\\n\\

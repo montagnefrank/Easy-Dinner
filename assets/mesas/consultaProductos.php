@@ -45,7 +45,7 @@ if($_POST["idpedido"]){
             $icon = '<i class="fa fa-asterisk fa-2x" style="font-size:25px;color:white;" aria-hidden="true"></i>';
             $cancelarpedido= "<button class=\"btn btn-primary cancelarPedido\" style=\"border: 1px solid;\"><i class='fa fa-times' aria-hidden='true'></i> Cancelar pedido</button>";
             if($producto["nombreMenu"] != "Bebidas"){
-                $editarpedido= "<button class=\"btn btn-primary editarPedido\" style=\"border: 1px solid;\"><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar pedido</button>";
+                $editarpedido= "<button class=\"btn btn-primary editarPedido\" style=\"border: 1px solid;\"><i class='fas fa-pencil-alt' aria-hidden='true'></i> Editar pedido</button>";
             }
             $entregarpedido= "";
 

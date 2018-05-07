@@ -4,7 +4,7 @@ $(document).ready(function() {
         url : 'assets/mesas/getMesa.php',
         type : 'POST',
         success : function(mesa) {
-            $(".page-title").html('<h2><span class="fa fa-pencil"></span> Añadir pedido a la mesa # '+mesa+'</h2>');
+            $(".page-title").html('<h2><span class="fas fa-pencil-alt"></span> Añadir pedido a la mesa # '+mesa+'</h2>');
             $(".breadcrumb").append('<li>Mesa '+mesa+'</li>');
             
         },

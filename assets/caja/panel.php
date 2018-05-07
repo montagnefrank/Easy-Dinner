@@ -84,7 +84,7 @@
         <div class="modal-content">
             <div class="modal-header label-primary">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="color:white;text-align: center;"><i class="fa fa-pencil-square-o"></i> Consultar Factura</h4>
+                <h4 class="modal-title" style="color:white;text-align: center;"><i class="fas fa-pencil-alt"></i> Consultar Factura</h4>
             </div>
             <div class="modal-body" style="text-align: center">
                 <div id="verfactura_datos">

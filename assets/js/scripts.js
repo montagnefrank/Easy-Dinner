@@ -51,7 +51,7 @@ $(document).ready(function() {
                         existeusuario = true;
                         
                         if(status == 1){
-                          window.location.href = "index.php?panel=index.php#autoscroll";  
+                          window.location.href = "estableceEstablecimiento.php";  
                         }else{
                             existeusuario = false;
                             $(".notificacion").html('<b style="font-size: 24px;">Error ! </b><p>Usuario desactivado, por favor contacte con el administrador del sistema</p>');

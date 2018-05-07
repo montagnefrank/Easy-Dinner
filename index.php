@@ -65,7 +65,7 @@ if ($panel == "cocina.php" || $panel == "procesos.php") {
     <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
         <div class="mb-container">
             <div class="mb-middle">
-                <div class="mb-title"><span class="fa fa-sign-out"></span> Salir de <strong>Di Rulo Pizzeria</strong> ?</div>
+                <div class="mb-title"><i class="fas fa-sign-out-alt"></i> Salir de <strong>Di Rulo Pizzeria</strong> ?</div>
                 <div class="mb-content">
                     <p>¿Est&aacute; seguro que desea salir?</p>                    
                     <p>Presione No si desea continuar trabajando. Presione Si para salir.</p>

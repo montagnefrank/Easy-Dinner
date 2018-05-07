@@ -149,5 +149,8 @@ switch ($panel) {///////////////////////////////////////////////////////////////
     case "user.php":
         require ("assets/users/model.php");
         break;
+    case "carta.php":
+        require ("assets/carta/model.php");
+        break;
 }
 ?>

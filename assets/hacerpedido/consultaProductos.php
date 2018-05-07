@@ -229,7 +229,7 @@ if($_POST["idpedido"]){
 
 
         $htmlPedido .= "<div class=\"list-group-controls\" style='text-align:center;'>".
-            "<button class=\"btn btn-primary\" style=\"border: 1px solid;\"><i class='fa fa-pencil-square-o' aria-hidden='true'></i> Editar pedido</button>".
+            "<button class=\"btn btn-primary\" style=\"border: 1px solid;\"><i class='fas fa-pencil-alt' aria-hidden='true'></i> Editar pedido</button>".
             "<button class=\"btn btn-primary\" style=\"border: 1px solid;\"><i class='fas fa-thumbs-up' aria-hidden='true'></i> Pedido entregado</button>".
             "</div>";
 

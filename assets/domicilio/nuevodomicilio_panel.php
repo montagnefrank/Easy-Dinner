@@ -422,7 +422,7 @@
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnEditarCliente" style="border: 1px solid;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar Cliente</button>
+                <button type="button" class="btn btn-primary btnEditarCliente" style="border: 1px solid;"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar Cliente</button>
             </div>
         </div>
     </div>

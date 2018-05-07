@@ -62,7 +62,7 @@
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-primary pedido_imprimir"><i class="fa fa-print" aria-hidden="true"></i> Imprimir</button>
                 <button type="button" class="btn btn-primary btnAnadirPedido"><i class="fa fa-plus" aria-hidden="true"></i> Añadir Pedido</button>
-                <button type="button" class="btn btn-primary"><i class="fa fa-circle-o" aria-hidden="true"></i> Mesa habilitada</button>
+                <button type="button" class="btn btn-primary"><i class="fas fa-check" aria-hidden="true"></i> Mesa habilitada</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
             </div>
         </div>
@@ -108,7 +108,7 @@
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnEnviaProducto" style="border: 1px solid;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar pedido</button>
+                <button type="button" class="btn btn-primary btnEnviaProducto" style="border: 1px solid;"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar pedido</button>
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnEnviaSeleccion" style="border: 1px solid;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar pedido</button>
+                <button type="button" class="btn btn-primary btnEnviaSeleccion" style="border: 1px solid;"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar pedido</button>
             </div>
         </div>
 

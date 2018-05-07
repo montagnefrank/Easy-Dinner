@@ -55,7 +55,7 @@
                             <i class="fa fa-trash" aria-hidden="true"></i> Eliminar cliente
                         </button>
                         <button class="btn btn-default btnEditaCliente" style="display:none;" data-toggle="modal" data-target="#editaCliente">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar cliente
+                            <i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar cliente
                         </button>
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#nuevoCliente">
                             <span class="glyphicon glyphicon-user"></span> Nuevo cliente
@@ -398,7 +398,7 @@
             </div>
             <div class="modal-footer label-primary">
                 <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i> Cerrar</button>
-                <button type="button" class="btn btn-primary btnEditarCliente" style="border: 1px solid;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar Cliente</button>
+                <button type="button" class="btn btn-primary btnEditarCliente" style="border: 1px solid;"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Editar Cliente</button>
             </div>
         </div>
     </div>
