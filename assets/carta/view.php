@@ -13,31 +13,7 @@
 <!--WIZARD PARA PEDIDOS-->
 <div class="row">
     <div class="col-md-12 newo_menuContainer">
-          
-
-        <div id="ModalSeleccionaIngredientes" class="displaynone" >
-            <div class="panel panel-default">
-                <!-- Modal content-->
-                <div class="panel-heading">
-                    <div class="modal-header label-primary">
-                        <button type="button" class="close closeingredientes" >&times;</button>
-                        <center><h4 class="modal-title tituloSeleccionaIngredientes" style="color:white;"></h4></center>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-12 contenidoSeleccionaIngredientes">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-footer">
-                        <button type="button" class="btn btn-primary btnEnviaProducto pull-right" style="border: 1px solid;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Añadir al pedido</button>
-                        <button type="button" class="btn btn-default pull-right closeingredientes" ><i class="fa fa-times-circle" aria-hidden="true"></i> Cerrar</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+        
         <div id="ModalSeleccionPizza" class="displaynone">
             <div class="panel panel-default">
                 <!-- Modal content-->
