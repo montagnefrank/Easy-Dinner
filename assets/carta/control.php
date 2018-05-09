@@ -3,7 +3,6 @@
 require ("../conn.php");
 
 if (isset($_POST['buildMenu'])) {///////////////////////////////////////////////CONSTRUIMOS EL MENU
-
     $menu = array();
 
     $query = "SELECT * FROM menu where estadoMenu='ACTIVO'";
@@ -26,11 +25,10 @@ if (isset($_POST['buildMenu'])) {///////////////////////////////////////////////
 }
 
 if (isset($_POST['buildItems'])) { /////////////////////////////////////////////CONSTRUIMOS LOS ITEMS DEL MENU
-
     $items = array();
     $idmenu = $_POST["tabIndex"];
 
-    $query = "SELECT * FROM producto pr INNER JOIN submenu sm ON pr.idSubmenu = sm.idSubmenu WHERE idMenu = '$idmenu'";
+    $query = "SELECT * FROM producto pr INNER JOIN submenu sm ON pr.idSubmenu = sm.idSubmenu INNER JOIN menu me ON sm.idMenu = me.idMenu WHERE me.idMenu = '$idmenu'";
     $result = $conn->query($query);
     if (!$result)
         die($conn->error);
@@ -50,13 +48,12 @@ if (isset($_POST['buildItems'])) { /////////////////////////////////////////////
 }
 
 if (isset($_POST['buildIngredients'])) {//////////////////////////////////////// LLAMAMOS DE LA BASE TODO EL CONTENIDO DEL PANEL DE CLIENTES
-
     $ingredientes = array();
     $ingredientes['receta'] = array();
     $ingredientes['extras'] = array();
     $idproducto = $_POST["idProducto"];
     $idmenu = $_POST["idMenu"];
-    
+
     ////////////////////////////////////////////////////////////////////////////LLAMAMOIS A LOS INGREDIENTES A MOSTRAR EN LA RECETA
     $query = "SELECT * FROM ingrediente i JOIN productoingrediente ip ON (i.idIngrediente = ip.idIngrediente) WHERE ip.idProducto = '$idproducto' ORDER BY nombreIngrediente ASC";
     $result = $conn->query($query);
@@ -69,7 +66,7 @@ if (isset($_POST['buildIngredients'])) {////////////////////////////////////////
         $result->data_seek($i);
         $ingredientes['receta'][] = $result->fetch_array(MYSQLI_ASSOC);
     }
-    
+
     //////////////////////////////////////////////////////////////////////////// LLAMAMOS A LOS INGREDIENTES ADICIONALES PARA ESE MENU
     $query = "SELECT * FROM ingrediente WHERE tipoIngrediente = '$idmenu' ORDER BY nombreIngrediente ASC";
     $result = $conn->query($query);
@@ -83,10 +80,6 @@ if (isset($_POST['buildIngredients'])) {////////////////////////////////////////
         $ingredientes['extras'][] = $result->fetch_array(MYSQLI_ASSOC);
     }
 
-    if ($rows != 0 && $rows2 != 0) {
-        echo json_encode($ingredientes);
-    } else {
-        echo json_encode([]);
-    }
+    echo json_encode($ingredientes);
 }
 ?>

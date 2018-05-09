@@ -607,3 +607,22 @@ html, body {
 .pushtop_6 {
     margin-top: 6px;
 }
+
+.list_box {
+    height:300px;
+    overflow:auto;
+}
+
+.menuList_del_btn {
+    position: absolute;
+    top: 16px;
+    z-index: 1;
+    right: 32px;
+}
+
+.menuList_edit_btn {
+    position: absolute;
+    top: 16px;
+    z-index: 1;
+    right: 80px;
+}

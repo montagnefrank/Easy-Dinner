@@ -1,11 +1,13 @@
 
+<script>
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////********************************************************************************************//////////////////////////////////
 ///////////////////////////**************** CONTROLADOR DLE MODULO DE CARTA                          ******************//////////////////////////////////
 ///////////////////////////********************************************************************************************//////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-<script>
+
+
 ////////////////////////////////////////////////////////////////////////////////VARIABLES PUBLICAS PARA EL MANEJO DE LA INFORMACION
     var menuObj,
             r1 = random_range(1, 4),
@@ -20,9 +22,19 @@
 
         ////////////////////////////////////////////////////////////////////////MOSTRAMOS EL LISTADO DE INGREDIENTES
         $(document).on("click", ".menuItem_btn", function (event) {
-            var itemId = $(this).find('.idproducto').html(),
-                    menuId = $(this).find('.idmenu').html();
-            newo_build_ing(itemId, menuId);
+            var item = this;
+            newo_build_ing(item);
+            $.when(
+                    $("#menuwizard").slideUp("slow")
+                    ).then(function () {
+                $("#newo_ing_panel").slideDown("slow");
+            });
+        });
+
+        ////////////////////////////////////////////////////////////////////////SI QUEREMOS EDITAR UN PEDIDO CARGADO A LA LISTA 
+        $(document).on("click", ".menuList_edit_btn", function (event) {
+            var item = $(this).parent().find('.item_metadata_cont').first();
+            newo_build_ing(item);
             $.when(
                     $("#menuwizard").slideUp("slow")
                     ).then(function () {
@@ -40,17 +52,9 @@
         });
 
         ////////////////////////////////////////////////////////////////////////DESPUES DE AGREGAR CANTIDADES E INGREDIENTES, SE AGREGA EL PRODUCTO AL HACER CLIC EN AÑADIR
-        $(".newo_addtolist_btn").click(function () {
-            var Ingredientes = [];
-            $.when(
-                    $(".rightIngrediente .contenedorIngrediente").each(function (index) {
-                Ingredientes.push({idIngrediente: $(this).find(".idingrediente").html(), nombreIngrediente: $(this).find(".nombreingrediente").html()});
-                ingtablehtml += "<td style='border: 1px solid;padding: 6px;'>" + $(this).find(".nombreingrediente").html() + "</td>";
-            })
-                    ).then(function () {
-                ingtablehtml += "</tr></table></center>";
-                newo_addtolist();
-            });
+        $(document).on("click", ".newo_addtolist_btn", function (event) {
+            var pedido = $(".newo_ing_container").first();
+            newo_addtolist(pedido);
         });
     });
 
@@ -122,11 +126,11 @@
                         '<div id="newo_ing_panel" class="displaynone" >' +
                         '   <div class="panel panel-default">' +
                         '       <div class="panel-heading">' +
-                        '           <h3 class="newo_buildIng_title" > Cabecera de panel</h3>' +
+                        '           <h4> Seleccione los Ingredientes para <b><span class="newo_ingPanel_product"></span></b></h4>' +
                         '       </div>' +
                         '       <div class="panel-body">' +
                         '           <div class="row">' +
-                        '               <div class="col-md-12 contenidoSeleccionaIngredientes">' +
+                        '               <div class="col-md-12 newo_ing_container">' +
                         '               </div>' +
                         '           </div>' +
                         '       </div>' +
@@ -194,8 +198,11 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////CONSTRUIMOS EL SELECTOR PARA AGREGAR Y QUITAR INGREDIENTES
-    function newo_build_ing(itemId, menuId) {
-        var formData = new FormData(),
+    function newo_build_ing(menuObj) {
+        var itemId = $(menuObj).find('.idproducto').html(),
+                menuId = $(menuObj).find('.idmenu').html(),
+                itemName = $(menuObj).find('#nombreProducto').html(),
+                formData = new FormData(),
                 HTMLIngredientes = '',
                 receta = '',
                 adicionales = '';
@@ -211,7 +218,6 @@
             processData: false,
             dataType: "json",
             success: function (json) {
-                
                 $(json.receta).each(function (index, value) {/////////////////////////////////////////////GUARDAMOS LOS INGREDIENTES DE LA RECETA PARA LUEGO INSERTARLOS EN PANTALLA
                     receta += '<div class="col-md-12 contenedorIngrediente" style="padding:5px;">' +
                             '<div class="col-md-12 btn-primary" style="text-align: center;font-size: 12px;padding: 5px;word-wrap: break-word;color: white;border: 0.5px solid;border-radius: 4px;">' +
@@ -230,8 +236,8 @@
                             '</div>' +
                             '</div>';
                 });
-                
-                HTMLIngredientes += " " +////////////////////////////////////////////////////////// CONSTRUIMOS EL CONTENIDO DE LA VENTANA DE INGREDINETES
+
+                HTMLIngredientes += " " + ////////////////////////////////////////////////////////// CONSTRUIMOS EL CONTENIDO DE LA VENTANA DE INGREDINETES
                         "   <div class='row'>" +
                         "       <div class='col-md-12'>" +
                         "           <div class='col-md-6 col-sm-6 col-xs-6 txt-primary'> Receta" +
@@ -279,10 +285,14 @@
                         '                   <textarea class="form-control observacionProducto border-primary" rows="3" id="comment" style="resize: none;" placeholder="Ingrese aqu&iacute; la observacion para este pedido."></textarea>' +
                         '               </div>' +
                         '           </div>' +
+                        '           <div class="col-md-12 hidethis parsed_menuItem_html">' +
+                        $(menuObj).html() +
+                        '           </div>' +
                         '       </div>' +
                         '   </div>';
-                $(".contenidoSeleccionaIngredientes").html(HTMLIngredientes);
-                
+                $(".newo_ing_container").html(HTMLIngredientes);
+                $(".newo_ingPanel_product").html(itemName);
+
                 ////////////////////////////////////////////////////////////////CONSTRUIMOS EL SELECTOR DE INGREDIENTES  DE ARRASTRAR Y SOLTAR
                 dragula([document.querySelector('.leftIngrediente'), document.querySelector('.rightIngrediente')], {
                     isContainer: function (el) {
@@ -311,7 +321,7 @@
                         return false;
                     }
                 });
-                
+
                 editCantidades(); //////////////////////////////////////////////CORREMOS LA FUNCION DE ADMINISTRAR LAS CANTIDADES
             },
             error: function (error) {
@@ -322,74 +332,57 @@
     }
 
     ////////////////////////////////////////////////////////////////////////////AGREGAMOS EL PEDIDO AL LISTADO PARA ENVIAR
-    function newo_addtolist(pedido) {
-    var formData = new FormData(),
-                HTMLIngredientes = '',
-                receta = '',
-                adicionales = '';
-        var htmlPedido = "<div class=\"list-group-item\">" +
-                "<div class=\"list-group-status status-online\"></div>" +
-                "<span class=\"contacts-title\">" + nombre + "</span>" +
-                "<p>" + nombreMenu + "</p>";
-        (nombreMenu == "Bebidas") ? null : (listaIngredientes.length != 0) ? htmlPedido += htmlIngredientes : htmlPedido += "<center>Sin Ingredientes</center>";
+    function newo_addtolist(pedidoObj) {
+        var ingredientes = '',
+                pedido = '',
+                comentarios = '';
 
-        if (nombreMenu == "Bebidas") {
-
-            arrayProductos.push({
-                "idProducto": id,
-                "nombreProducto": nombre,
-                "precioProducto": precio,
-                "nombreMenu": nombreMenu,
-                "ingredientesProducto": listaIngredientes,
-                "cantidad": $(".input-number").val(),
-                "observacion": $("#ModalPreferencias .observacionProducto").val()
+        if ($(".rightIngrediente .contenedorIngrediente").length > 0) {
+            ingredientes += '<div class="form-group"><label class="col-md-4 col-xs-5 control-label">Ingredientes </label><div class="col-md-8 col-xs-7 line-height-30"><ul class="list-tags">';
+            $(".rightIngrediente .contenedorIngrediente").each(function (index) { //////////////////////////////ITERAMOS LOS INGREDIENTES SELECCIONADOS Y LOS GUARDAMOS EN UNA VARIABLE
+                ingredientes += '<li><a class=" pedido_sigle_ing" href="#" idingrdiente="' +
+                        $(this).find(".idingrediente").html() + '"><span class="fa fa-plus"></span> ' +
+                        $(this).find(".nombreingrediente").html() + '</a></li>'
             });
-
-            if ($("#ModalPreferencias .observacionProducto").val() != "") {
-                htmlPedido += '<div style="text-align:-webkit-right;">' +
-                        "<table>" +
-                        "<tr>" +
-                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
-                        "<td style='padding: 6px;'>" + $("#ModalPreferencias .observacionProducto").val() + "</td>" +
-                        "</tr>" +
-                        "</table>" +
-                        "</div>" +
-                        "<br>";
-            }
-
-        } else {
-            arrayProductos.push({
-                "idProducto": id,
-                "nombreProducto": nombre,
-                "precioProducto": precio,
-                "nombreMenu": nombreMenu,
-                "ingredientesProducto": listaIngredientes,
-                "cantidad": $(".input-number").val(),
-                "observacion": $("#ModalSeleccionaIngredientes .observacionProducto").val()
-            });
-
-            if ($("#ModalSeleccionaIngredientes .observacionProducto").val() != "") {
-                htmlPedido += '<div style="text-align:-webkit-right;">' +
-                        "<table>" +
-                        "<tr>" +
-                        "<td style='padding: 6px;'>" + "Observación :" + "</td>" +
-                        "<td style='padding: 6px;'>" + $("#ModalSeleccionaIngredientes .observacionProducto").val() + "</td>" +
-                        "</tr>" +
-                        "</table>" +
-                        "</div>" +
-                        "<br>";
-            }
+            ingredientes += '</ul></div></div>';
         }
-        htmlPedido +=
-                "<div class=\"list-group-controls\">" +
-                "<button class=\"btn btn-info\"><b>" + $(".input-number").val() + "</b> producto(s) solicitado(s)</button>&nbsp;&nbsp;" +
-                "<button class=\"btn btn-info\">$" + (precio * $(".input-number").val()).toFixed(2) + "</button>&nbsp;&nbsp;" +
-                "<button class=\"btn btn-primary eliminar_item\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i><div class='idproducto' style='display: none;'>" + id + "</div></button>" +
-                "</div>" +
-                "</div> ";
-        $("#resumen_pedido").append(htmlPedido);
-        $.notify('Se agregó "' + nombre + '" al pedido ', "success");
-        $.when($("#ModalSeleccionaIngredientes").slideUp("slow")).then(function () {
+
+
+        if ($(pedidoObj).find(".observacionProducto").val() != '') {
+            comentarios = '           <div class="form-group">' +
+                    '               <label class="col-md-4 col-xs-5 control-label">Comentarios</label>' +
+                    '               <div class="col-md-8 col-xs-7 line-height-30"> ' + $(pedidoObj).find(".observacionProducto").val() + ' </div>' +
+                    '           </div>';
+        }
+
+        pedido = '<div class="col-md-4 pushtop_16 menuList_item">' +
+                '   <button class=\"btn btn-danger menuList_del_btn\"><i class=\"fa fa-times\" aria-hidden=\"true\"></i></button>' +
+                '   <button class=\"btn btn-info menuList_edit_btn\"><i class=\"fa fa-edit\" aria-hidden=\"true\"></i></button>' +
+                '   <div class="panel panel-default form-horizontal bggreen txtwhite list_box">' +
+                '       <div class="panel-body">' +
+                '           <h3 style="width: 70%"><span class="txtwhite"> <span class="fa fa-info-circle"></span> ' + $(pedidoObj).find("#nombreProducto").html() + '</span></h3>' +
+                '           <p>' + $(pedidoObj).find(".nombremenu").html() + '</p>' +
+                '       </div>' +
+                '       <div class="panel-body form-group-separated">  ' + ingredientes +
+                '           <div class="form-group">' +
+                '               <label class="col-md-4 col-xs-5 control-label">Cantidad </label>' +
+                '               <div class="col-md-8 col-xs-7 line-height-30"> ' + $(pedidoObj).find(".input-number").val() + ' </div>' +
+                '           </div>' +
+                '           <div class="form-group">' +
+                '               <label class="col-md-4 col-xs-5 control-label">Precio </label>' +
+                '               <div class="col-md-8 col-xs-7 line-height-30"> ' + $(pedidoObj).find(".precioproducto").html() + ' </div>' +
+                '           </div>' + comentarios +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="hidethis item_metadata_cont">' + $(pedidoObj).find(".parsed_menuItem_html").html() +
+                '   </div>' +
+                '</div>';
+
+        $("#resumen_pedido").append(pedido);
+        $.notify('Se agregó "' + $(pedidoObj).find("#nombreProducto").html() + '" al pedido ', "success");
+        $.when(
+                $("#newo_ing_panel").slideUp("slow")
+                ).then(function () {
             $("#menuwizard").slideDown("slow");
         });
     }
